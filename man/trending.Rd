@@ -20,5 +20,5 @@ trending(rnorm(50))
 
 }
 \seealso{
-\code{\link[FeaClip]{clipping}}
+\code{\link[TSrepr]{clipping}}
 }

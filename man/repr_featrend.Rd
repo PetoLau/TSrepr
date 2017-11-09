@@ -26,5 +26,5 @@ repr_featrend(rnorm(50), maxC)
 
 }
 \seealso{
-\code{\link[FeaClip]{repr_feaclip}, \link[FeaClip]{repr_feacliptrend}}
+\code{\link[TSrepr]{repr_feaclip}, \link[TSrepr]{repr_feacliptrend}}
 }

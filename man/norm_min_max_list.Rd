@@ -20,5 +20,5 @@ norm_min_max_list(rnorm(50))
 
 }
 \seealso{
-\code{\link[FeaClip]{norm_z_list}}
+\code{\link[TSrepr]{norm_z_list}}
 }

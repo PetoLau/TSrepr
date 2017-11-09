@@ -13,7 +13,7 @@
 #' @param level level of DWT transformation (default is 4)
 #' @param filter filter name (default is "haar")
 #'
-#' @seealso \code{\link[Tsrepr]{repr_dft}}
+#' @seealso \code{\link[TSrepr]{repr_dft}}
 #'
 #' @examples
 #' repr_dwt(rnorm(50), level = 4)
@@ -59,7 +59,7 @@ fftinv <- function(x) {
 #' @param x Numeric vector
 #' @param coef Number of coefficients to extract
 #'
-#' @seealso \code{\link[Tsrepr]{repr_dwt}}
+#' @seealso \code{\link[TSrepr]{repr_dwt}}
 #'
 #' @examples
 #' repr_dft(rnorm(50), coef = 4)

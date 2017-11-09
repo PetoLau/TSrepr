@@ -24,5 +24,5 @@ repr_dwt(rnorm(50), level = 4)
 
 }
 \seealso{
-\code{\link[Tsrepr]{repr_dft}}
+\code{\link[TSrepr]{repr_dft}}
 }

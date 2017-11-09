@@ -76,7 +76,7 @@ l1Coef <- function(X, Y) {
 #' @param method Linear regression method to use. It can be "lm", "rlm" or "l1".
 #' @param xreg data.frame with additional regressors
 #'
-#' @seealso \code{\link[Tsrepr]{repr_gam}, \link[Tsrepr]{repr_exp}}
+#' @seealso \code{\link[TSrepr]{repr_gam}, \link[TSrepr]{repr_exp}}
 #'
 #' @examples
 #' repr_lm(rnorm(96), freq = 24, method = "lm")
@@ -190,7 +190,7 @@ repr_lm <- function(x, freq = NULL, method = "lm", xreg = NULL) {
 #' @param freq frequency of the time series. Can be vector of two frequencies (seasonalities) or just an integer of one frequency.
 #' @param xreg numeric vector or data.frame with additional regressors
 #'
-#' @seealso \code{\link[Tsrepr]{repr_lm}, \link[Tsrepr]{repr_exp}}
+#' @seealso \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_exp}}
 #'
 #' @examples
 #' repr_gam(rnorm(96), freq = 24)
@@ -310,7 +310,7 @@ repr_gam <- function(x, freq = NULL, xreg = NULL) {
 #' @param alpha default to TRUE (automatic determination of smoothing factor), or number between 0 to 1
 #' @param gamma default to TRUE (automatic determination of seasonal smoothing factor), or number between 0 to 1
 #'
-#' @seealso \code{\link[Tsrepr]{repr_lm}, \link[Tsrepr]{repr_gam}, \link[Tsrepr]{repr_seas_profile}}
+#' @seealso \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_gam}, \link[TSrepr]{repr_seas_profile}}
 #'
 #' @examples
 #' repr_exp(rnorm(96), freq = 24)

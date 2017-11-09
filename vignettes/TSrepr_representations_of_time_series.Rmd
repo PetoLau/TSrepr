@@ -14,7 +14,7 @@ Intro words.
 ## reprs
 
 ```{r}
-library(FeaClip)
+library(TSrepr)
 ```
 
 Example of usage:

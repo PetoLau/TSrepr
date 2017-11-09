@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{repr_feacliptrend}
 \alias{repr_feacliptrend}
-\title{FeaClipTrend representation of time series}
+\title{TSreprTrend representation of time series}
 \usage{
 repr_feacliptrend(x, func, pieces = 2L, order = 4L)
 }
@@ -26,5 +26,5 @@ repr_feacliptrend(rnorm(50), maxC, 2, 4)
 
 }
 \seealso{
-\code{\link[FeaClip]{repr_featrend}, \link[FeaClip]{repr_feaclip}}
+\code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feaclip}}
 }

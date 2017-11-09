@@ -208,7 +208,7 @@ mase <- function(real, forecast, naive) {
 #'
 #' @return numeric vector of normalized values
 #'
-#' @seealso \code{\link[FeaClip]{norm_min_max}}
+#' @seealso \code{\link[TSrepr]{norm_min_max}}
 #'
 #' @param x Numeric vector
 #'
@@ -230,7 +230,7 @@ norm_z <- function(x) {
 #'
 #' @param x Numeric vector
 #'
-#' @seealso \code{\link[FeaClip]{norm_min_max_list}}
+#' @seealso \code{\link[TSrepr]{norm_min_max_list}}
 #'
 #' @examples
 #' norm_z_list(runif(50))
@@ -250,7 +250,7 @@ norm_z_list <- function(x) {
 #'
 #' @param x Numeric vector
 #'
-#' @seealso \code{\link[FeaClip]{norm_z}}
+#' @seealso \code{\link[TSrepr]{norm_z}}
 #'
 #' @examples
 #' norm_min_max(rnorm(50))
@@ -270,7 +270,7 @@ norm_min_max <- function(x) {
 #'
 #' @param x Numeric vector
 #'
-#' @seealso \code{\link[FeaClip]{norm_z_list}}
+#' @seealso \code{\link[TSrepr]{norm_z_list}}
 #'
 #' @examples
 #' norm_min_max_list(rnorm(50))
@@ -290,7 +290,7 @@ norm_min_max_list <- function(x) {
 #'
 #' @param x Numeric vector
 #'
-#' @seealso \code{\link[FeaClip]{trending}}
+#' @seealso \code{\link[TSrepr]{trending}}
 #'
 #' @examples
 #' clipping(rnorm(50))
@@ -310,7 +310,7 @@ clipping <- function(x) {
 #'
 #' @param x Numeric vector
 #'
-#' @seealso \code{\link[FeaClip]{clipping}}
+#' @seealso \code{\link[TSrepr]{clipping}}
 #'
 #' @examples
 #' trending(rnorm(50))
@@ -330,7 +330,7 @@ trending <- function(x) {
 #'
 #' @param x Numeric vector
 #'
-#' @seealso \code{\link[FeaClip]{repr_featrend}, \link[FeaClip]{repr_feacliptrend}}
+#' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feacliptrend}}
 #'
 #' @examples
 #' repr_feaclip(rnorm(50))
@@ -353,7 +353,7 @@ repr_feaclip <- function(x) {
 #' @param pieces number of parts of time series to split
 #' @param order order of simple moving average
 #'
-#' @seealso \code{\link[FeaClip]{repr_feaclip}, \link[FeaClip]{repr_feacliptrend}}
+#' @seealso \code{\link[TSrepr]{repr_feaclip}, \link[TSrepr]{repr_feacliptrend}}
 #'
 #' @examples
 #' repr_featrend(rnorm(50), maxC)
@@ -365,7 +365,7 @@ repr_featrend <- function(x, func, pieces = 2L, order = 4L) {
 
 #' @rdname repr_feacliptrend
 #' @name repr_feacliptrend
-#' @title FeaClipTrend representation of time series
+#' @title TSreprTrend representation of time series
 #'
 #' @description \code{repr_feacliptrend} computes representation of time series based on feature extraction from bit-level and trend-level representation.
 #'
@@ -376,7 +376,7 @@ repr_featrend <- function(x, func, pieces = 2L, order = 4L) {
 #' @param pieces number of parts of time series to split
 #' @param order order of simple moving average
 #'
-#' @seealso \code{\link[FeaClip]{repr_featrend}, \link[FeaClip]{repr_feaclip}}
+#' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feaclip}}
 #'
 #' @examples
 #' repr_feacliptrend(rnorm(50), maxC, 2, 4)
@@ -397,7 +397,7 @@ repr_feacliptrend <- function(x, func, pieces = 2L, order = 4L) {
 #' @param q integer of length of the "piece"
 #' @param func aggregation function. Can be meanC, medianC, sumC, minC or maxC or similar aggregation function.
 #'
-#' @seealso \code{\link[FeaClip]{repr_dwt}, \link[FeaClip]{repr_dft}}
+#' @seealso \code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dft}}
 #'
 #' @examples
 #' repr_paa(rnorm(11), 2, meanC)
@@ -419,7 +419,7 @@ repr_paa <- function(x, q, func) {
 #' @param freq integer of length of the season
 #' @param func aggregation function. Can be meanC or medianC or similar aggregation function.
 #'
-#' @seealso \code{\link[FeaClip]{repr_lm}, \link[FeaClip]{repr_gam}, \link[FeaClip]{repr_exp}}
+#' @seealso \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_gam}, \link[TSrepr]{repr_exp}}
 #'
 #' @examples
 #' repr_seas_profile(rnorm(48*10), 48, meanC)

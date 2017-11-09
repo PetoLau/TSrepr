@@ -24,5 +24,5 @@ repr_seas_profile(rnorm(48*10), 48, meanC)
 
 }
 \seealso{
-\code{\link[FeaClip]{repr_lm}, \link[FeaClip]{repr_gam}, \link[FeaClip]{repr_exp}}
+\code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_gam}, \link[TSrepr]{repr_exp}}
 }

@@ -26,5 +26,5 @@ repr_lm(rnorm(96), freq = 24, method = "lm")
 
 }
 \seealso{
-\code{\link[Tsrepr]{repr_gam}, \link[Tsrepr]{repr_exp}}
+\code{\link[TSrepr]{repr_gam}, \link[TSrepr]{repr_exp}}
 }

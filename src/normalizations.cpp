@@ -11,7 +11,7 @@ using namespace Rcpp;
 //'
 //' @return numeric vector of normalized values
 //'
-//' @seealso \code{\link[FeaClip]{norm_min_max}}
+//' @seealso \code{\link[TSrepr]{norm_min_max}}
 //'
 //' @param x Numeric vector
 //'
@@ -65,7 +65,7 @@ NumericVector norm_z(NumericVector x) {
 //'
 //' @param x Numeric vector
 //'
-//' @seealso \code{\link[FeaClip]{norm_min_max_list}}
+//' @seealso \code{\link[TSrepr]{norm_min_max_list}}
 //'
 //' @examples
 //' norm_z_list(runif(50))
@@ -121,7 +121,7 @@ List norm_z_list(NumericVector x) {
 //'
 //' @param x Numeric vector
 //'
-//' @seealso \code{\link[FeaClip]{norm_z}}
+//' @seealso \code{\link[TSrepr]{norm_z}}
 //'
 //' @examples
 //' norm_min_max(rnorm(50))
@@ -162,7 +162,7 @@ NumericVector norm_min_max(NumericVector x) {
 //'
 //' @param x Numeric vector
 //'
-//' @seealso \code{\link[FeaClip]{norm_z_list}}
+//' @seealso \code{\link[TSrepr]{norm_z_list}}
 //'
 //' @examples
 //' norm_min_max_list(rnorm(50))
