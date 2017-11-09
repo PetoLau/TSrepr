@@ -1,0 +1,33 @@
+---
+title: "TSrepr: Representations of time series in R"
+author: "Peter Laurinec"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Intro words.
+
+## reprs
+
+```{r}
+library(FeaClip)
+```
+
+Example of usage:
+```{r}
+repr_dwt(rnorm(50))
+```
+
+Very good result!
+
+## More Examples
+
+You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
+
+```{r, echo=FALSE, results='asis'}
+knitr::kable(head(mtcars, 10))
+```

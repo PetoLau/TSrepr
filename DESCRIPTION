@@ -1,0 +1,22 @@
+Package: TSrepr
+Type: Package
+Title: Representation methods for time series
+Version: 0.1.0
+Authors@R: person("Peter", "Laurinec", email = "laurinec.peter@gmail.com",
+  role = c("aut", "cre"))
+Description: Methods for representations of time series to help more accurate and effective time series data mining.
+    Non-data adaptive, data adaptive, model-based and data dictated representation methods implemented. Also min-max and z-score normalizations, and forecasting accuracy measures are implemented.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: Rcpp (>= 0.12.12),
+    MASS,
+    quantreg,
+    wavelets,
+    mgcv
+LinkingTo: Rcpp
+RoxygenNote: 6.0.1
+URL: <https://petolau.github.io>
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr

@@ -1,0 +1,4 @@
+exportPattern("^[[:alpha:]]+")
+importFrom(Rcpp, evalCpp)
+importFrom("stats", "as.formula", "fft", "model.matrix", "ts", "HoltWinters")
+useDynLib(TSrepr, .registration = TRUE)
