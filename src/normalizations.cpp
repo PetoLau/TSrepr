@@ -18,7 +18,7 @@ using namespace Rcpp;
 //' @examples
 //' norm_z(runif(50))
 //'
-//' @export
+//' @export norm_z
 // [[Rcpp::export]]
 NumericVector norm_z(NumericVector x) {
 
@@ -70,7 +70,7 @@ NumericVector norm_z(NumericVector x) {
 //' @examples
 //' norm_z_list(runif(50))
 //'
-//' @export
+//' @export norm_z_list
 // [[Rcpp::export]]
 List norm_z_list(NumericVector x) {
 
@@ -126,7 +126,7 @@ List norm_z_list(NumericVector x) {
 //' @examples
 //' norm_min_max(rnorm(50))
 //'
-//' @export
+//' @export norm_min_max
 // [[Rcpp::export]]
 NumericVector norm_min_max(NumericVector x) {
 
@@ -167,7 +167,7 @@ NumericVector norm_min_max(NumericVector x) {
 //' @examples
 //' norm_min_max_list(rnorm(50))
 //'
-//' @export
+//' @export norm_min_max_list
 // [[Rcpp::export]]
 List norm_min_max_list(NumericVector x) {
 
