@@ -7,17 +7,17 @@
 repr_dwt(x, level = 4, filter = "haar")
 }
 \arguments{
-\item{x}{Numeric vector}
+\item{x}{the numeric vector (time series)}
 
-\item{level}{level of DWT transformation (default is 4)}
+\item{level}{the level of DWT transformation (default is 4)}
 
-\item{filter}{filter name (default is "haar")}
+\item{filter}{the filter name (default is "haar")}
 }
 \value{
-Numeric vector of DWT coefficients
+the numeric vector of DWT coefficients
 }
 \description{
-\code{repr_dwt} computes DWT representation (coefficients) from a time series.
+The \code{repr_dwt} computes DWT (Discrete Wavelet Transform) representation (coefficients) from a time series.
 }
 \examples{
 repr_dwt(rnorm(50), level = 4)

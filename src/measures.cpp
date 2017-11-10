@@ -7,16 +7,17 @@ using namespace Rcpp;
 //' @name rmse
 //' @title RMSE
 //'
-//' @description \code{rmse} Computes RMSE of a forecast.
+//' @description The \code{rmse} computes RMSE (Root Mean Squared Error) of a forecast.
 //'
-//' @return numeric value
+//' @return the numeric value
 //'
-//' @param x Numeric vector of real values
-//' @param y Numeric vector of predicted values
+//' @param x the numeric vector of real values
+//' @param y the numeric vector of forecasted values
 //'
 //' @examples
 //' rmse(runif(50), runif(50))
 //'
+//' @useDynLib TSrepr
 //' @export rmse
 // [[Rcpp::export]]
 double rmse(NumericVector x, NumericVector y) {
@@ -33,16 +34,17 @@ double rmse(NumericVector x, NumericVector y) {
 //' @name mae
 //' @title MAE
 //'
-//' @description \code{mae} Computes MAE of a forecast.
+//' @description The \code{mae} computes MAE (Mean Absolute Error) of a forecast.
 //'
-//' @return numeric value
+//' @return the numeric value
 //'
-//' @param x Numeric vector of real values
-//' @param y Numeric vector of predicted values
+//' @param x the numeric vector of real values
+//' @param y the numeric vector of forecasted values
 //'
 //' @examples
 //' mae(runif(50), runif(50))
 //'
+//' @useDynLib TSrepr
 //' @export mae
 // [[Rcpp::export]]
 double mae(NumericVector x, NumericVector y) {
@@ -59,16 +61,17 @@ double mae(NumericVector x, NumericVector y) {
 //' @name smape
 //' @title sMAPE
 //'
-//' @description \code{smape} Computes sMAPE of a forecast.
+//' @description The \code{smape} computes sMAPE (Symmetric Mean Absolute Percentage Error) of a forecast.
 //'
-//' @return numeric value
+//' @return the numeric value
 //'
-//' @param x Numeric vector of real values
-//' @param y Numeric vector of predicted values
+//' @param x the numeric vector of real values
+//' @param y the numeric vector of forecasted values
 //'
 //' @examples
 //' smape(runif(50), runif(50))
 //'
+//' @useDynLib TSrepr
 //' @export smape
 // [[Rcpp::export]]
 double smape(NumericVector x, NumericVector y) {
@@ -86,16 +89,17 @@ double smape(NumericVector x, NumericVector y) {
 //' @name mape
 //' @title MAPE
 //'
-//' @description \code{mape} Computes MAPE of a forecast.
+//' @description the \code{mape} computes MAPE (Mean Absolute Percentage Error) of a forecast.
 //'
-//' @return numeric value
+//' @return the numeric value
 //'
-//' @param x Numeric vector of real values
-//' @param y Numeric vector of predicted values
+//' @param x the numeric vector of real values
+//' @param y the numeric vector of forecasted values
 //'
 //' @examples
 //' mape(runif(50), runif(50))
 //'
+//' @useDynLib TSrepr
 //' @export mape
 // [[Rcpp::export]]
 double mape(NumericVector x, NumericVector y) {
@@ -111,18 +115,19 @@ double mape(NumericVector x, NumericVector y) {
 
 //' @rdname mdae
 //' @name mdae
-//' @title MDAE
+//' @title MdAE
 //'
-//' @description \code{mdae} Computes MdAE of a forecast.
+//' @description The \code{mdae} computes MdAE (Median Absolute Error) of a forecast.
 //'
-//' @return numeric value
+//' @return the numeric value
 //'
-//' @param x Numeric vector of real values
-//' @param y Numeric vector of predicted values
+//' @param x the numeric vector of real values
+//' @param y the numeric vector of forecasted values
 //'
 //' @examples
 //' mdae(runif(50), runif(50))
 //'
+//' @useDynLib TSrepr
 //' @export mdae
 // [[Rcpp::export]]
 double mdae(NumericVector x, NumericVector y) {
@@ -138,16 +143,17 @@ double mdae(NumericVector x, NumericVector y) {
 //' @name mase
 //' @title MASE
 //'
-//' @description \code{mase} Computes MASE of a forecast.
-//' @return numeric value
+//' @description The \code{mase} computes MASE (Mean Absolute Scaled Error) of a forecast.
+//' @return the numeric value
 //'
-//' @param real Numeric vector of real values
-//' @param forecast Numeric vector of predicted values
-//' @param naive Numeric vector of naive forecast
+//' @param real the numeric vector of real values
+//' @param forecast the numeric vector of forecasted values
+//' @param naive the numeric vector of naive forecast
 //'
 //' @examples
 //' mase(rnorm(50), rnorm(50), rnorm(50))
 //'
+//' @useDynLib TSrepr
 //' @export mase
 // [[Rcpp::export]]
 double mase(NumericVector real, NumericVector forecast, NumericVector naive) {

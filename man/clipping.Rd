@@ -7,13 +7,13 @@
 clipping(x)
 }
 \arguments{
-\item{x}{Numeric vector}
+\item{x}{the numeric vector (time series)}
 }
 \value{
-integer vector of zeros and ones
+the integer vector of zeros and ones
 }
 \description{
-\code{clipping} Computes bit-level (clipping representation) from a vector.
+The \code{clipping} computes bit-level (clipping representation) from a vector.
 }
 \examples{
 clipping(rnorm(50))

@@ -2,18 +2,18 @@
 % Please edit documentation in R/RcppExports.R
 \name{norm_min_max}
 \alias{norm_min_max}
-\title{min-max normalization}
+\title{Min-Max normalisation}
 \usage{
 norm_min_max(x)
 }
 \arguments{
-\item{x}{Numeric vector}
+\item{x}{the numeric vector (time series)}
 }
 \value{
-numeric vector of normalized values
+the numeric vector of normalised values
 }
 \description{
-\code{norm_min_max} normalizes data by min-max method.
+The \code{norm_min_max} normalises time series by min-max method.
 }
 \examples{
 norm_min_max(rnorm(50))

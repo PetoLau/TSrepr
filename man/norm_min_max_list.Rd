@@ -2,18 +2,18 @@
 % Please edit documentation in R/RcppExports.R
 \name{norm_min_max_list}
 \alias{norm_min_max_list}
-\title{min-max normalization list}
+\title{Min-Max normalization list}
 \usage{
 norm_min_max_list(x)
 }
 \arguments{
-\item{x}{Numeric vector}
+\item{x}{the numeric vector (time series)}
 }
 \value{
-list of numeric vector of normalized values and min-max values
+the list of normalised time series, min and max values.
 }
 \description{
-\code{norm_min_max_list} normalizes data by min-max method and returns normalization parameters.
+The \code{norm_min_max_list} normalises time series by min-max method and returns normalization parameters (min and max).
 }
 \examples{
 norm_min_max_list(rnorm(50))

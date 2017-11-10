@@ -2,20 +2,20 @@
 % Please edit documentation in R/RcppExports.R
 \name{mdae}
 \alias{mdae}
-\title{MDAE}
+\title{MdAE}
 \usage{
 mdae(x, y)
 }
 \arguments{
-\item{x}{Numeric vector of real values}
+\item{x}{the numeric vector of real values}
 
-\item{y}{Numeric vector of predicted values}
+\item{y}{the numeric vector of forecasted values}
 }
 \value{
-numeric value
+the numeric value
 }
 \description{
-\code{mdae} Computes MdAE of a forecast.
+The \code{mdae} computes MdAE (Median Absolute Error) of a forecast.
 }
 \examples{
 mdae(runif(50), runif(50))

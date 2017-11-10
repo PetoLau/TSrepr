@@ -7,15 +7,15 @@
 mape(x, y)
 }
 \arguments{
-\item{x}{Numeric vector of real values}
+\item{x}{the numeric vector of real values}
 
-\item{y}{Numeric vector of predicted values}
+\item{y}{the numeric vector of forecasted values}
 }
 \value{
-numeric value
+the numeric value
 }
 \description{
-\code{mape} Computes MAPE of a forecast.
+the \code{mape} computes MAPE (Mean Absolute Percentage Error) of a forecast.
 }
 \examples{
 mape(runif(50), runif(50))

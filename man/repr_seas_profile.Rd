@@ -2,22 +2,22 @@
 % Please edit documentation in R/RcppExports.R
 \name{repr_seas_profile}
 \alias{repr_seas_profile}
-\title{Seasonal profile of time series}
+\title{Mean seasonal profile of time series}
 \usage{
 repr_seas_profile(x, freq, func)
 }
 \arguments{
-\item{x}{Numeric vector of real values}
+\item{x}{the numeric vector (time series)}
 
-\item{freq}{integer of length of the season}
+\item{freq}{the integer of the length of the season}
 
-\item{func}{aggregation function. Can be meanC or medianC or similar aggregation function.}
+\item{func}{the aggregation function. Can be meanC or medianC or similar aggregation function.}
 }
 \value{
-numeric vector
+the numeric vector
 }
 \description{
-\code{repr_seas_profile} Computes Seasonal Profile representation from a vector.
+The \code{repr_seas_profile} computes mean seasonal profile representation from a time series.
 }
 \examples{
 repr_seas_profile(rnorm(48*10), 48, meanC)

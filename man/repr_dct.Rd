@@ -7,15 +7,15 @@
 repr_dct(x, coef)
 }
 \arguments{
-\item{x}{Numeric vector}
+\item{x}{the numeric vector (time series)}
 
-\item{coef}{Number of coefficients to extract}
+\item{coef}{the number of coefficients to extract from DCT}
 }
 \value{
-Numeric vector of DCT coefficients
+the numeric vector of DCT coefficients
 }
 \description{
-\code{repr_dct} computes DCT representation from a time series.
+The \code{repr_dct} computes DCT (Discrete Cosine Transform) representation from a time series.
 }
 \examples{
 repr_dct(rnorm(50), coef = 4)

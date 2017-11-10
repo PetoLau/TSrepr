@@ -7,16 +7,20 @@
 rleC(x)
 }
 \arguments{
-\item{x}{Numeric vector (from \code{clipping})}
+\item{x}{the integer vector (from \code{clipping} or \code{trending})}
 }
 \value{
-list of values and counts of zeros and ones
+the list of values and counts of zeros and ones
 }
 \description{
-\code{rleC} Computes RLE from bit-level (clipping representation) vector
+The \code{rleC} computes RLE from bit-level (clipping or trending representation) vector.
 }
 \examples{
+# clipping
 clipped <- clipping(rnorm(50))
 rleC(clipped)
+# trending
+trended <- trending(rnorm(50))
+rleC(trended)
 
 }

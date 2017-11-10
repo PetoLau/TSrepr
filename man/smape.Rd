@@ -7,15 +7,15 @@
 smape(x, y)
 }
 \arguments{
-\item{x}{Numeric vector of real values}
+\item{x}{the numeric vector of real values}
 
-\item{y}{Numeric vector of predicted values}
+\item{y}{the numeric vector of forecasted values}
 }
 \value{
-numeric value
+the numeric value
 }
 \description{
-\code{smape} Computes sMAPE of a forecast.
+The \code{smape} computes sMAPE (Symmetric Mean Absolute Percentage Error) of a forecast.
 }
 \examples{
 smape(runif(50), runif(50))

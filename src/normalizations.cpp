@@ -5,19 +5,20 @@ using namespace Rcpp;
 
 //' @rdname norm_z
 //' @name norm_z
-//' @title Z normalization
+//' @title Z-score normalisation
 //'
-//' @description \code{norm_z} normalizes data by z-score.
+//' @description The \code{norm_z} normalises time series by z-score.
 //'
-//' @return numeric vector of normalized values
+//' @return the numeric vector of normalised values
 //'
 //' @seealso \code{\link[TSrepr]{norm_min_max}}
 //'
-//' @param x Numeric vector
+//' @param x the numeric vector (time series)
 //'
 //' @examples
 //' norm_z(runif(50))
 //'
+//' @useDynLib TSrepr
 //' @export norm_z
 // [[Rcpp::export]]
 NumericVector norm_z(NumericVector x) {
@@ -57,19 +58,20 @@ NumericVector norm_z(NumericVector x) {
 
 //' @rdname norm_z_list
 //' @name norm_z_list
-//' @title Z normalization list
+//' @title Z-score normalization list
 //'
-//' @description \code{norm_z_list} normalizes data by z-score and returns normalization parameters.
+//' @description The \code{norm_z_list} normalizes time series by z-score and returns normalization parameters (mean and standard deviation).
 //'
-//' @return list of numeric vector of normalized values and mean-sd values
+//' @return the list composed of normalised time series, mean and sd values
 //'
-//' @param x Numeric vector
+//' @param x the numeric vector (time series)
 //'
 //' @seealso \code{\link[TSrepr]{norm_min_max_list}}
 //'
 //' @examples
 //' norm_z_list(runif(50))
 //'
+//' @useDynLib TSrepr
 //' @export norm_z_list
 // [[Rcpp::export]]
 List norm_z_list(NumericVector x) {
@@ -113,19 +115,20 @@ List norm_z_list(NumericVector x) {
 
 //' @rdname norm_min_max
 //' @name norm_min_max
-//' @title min-max normalization
+//' @title Min-Max normalisation
 //'
-//' @description \code{norm_min_max} normalizes data by min-max method.
+//' @description The \code{norm_min_max} normalises time series by min-max method.
 //'
-//' @return numeric vector of normalized values
+//' @return the numeric vector of normalised values
 //'
-//' @param x Numeric vector
+//' @param x the numeric vector (time series)
 //'
 //' @seealso \code{\link[TSrepr]{norm_z}}
 //'
 //' @examples
 //' norm_min_max(rnorm(50))
 //'
+//' @useDynLib TSrepr
 //' @export norm_min_max
 // [[Rcpp::export]]
 NumericVector norm_min_max(NumericVector x) {
@@ -154,19 +157,20 @@ NumericVector norm_min_max(NumericVector x) {
 
 //' @rdname norm_min_max_list
 //' @name norm_min_max_list
-//' @title min-max normalization list
+//' @title Min-Max normalization list
 //'
-//' @description \code{norm_min_max_list} normalizes data by min-max method and returns normalization parameters.
+//' @description The \code{norm_min_max_list} normalises time series by min-max method and returns normalization parameters (min and max).
 //'
-//' @return list of numeric vector of normalized values and min-max values
+//' @return the list of normalised time series, min and max values.
 //'
-//' @param x Numeric vector
+//' @param x the numeric vector (time series)
 //'
 //' @seealso \code{\link[TSrepr]{norm_z_list}}
 //'
 //' @examples
 //' norm_min_max_list(rnorm(50))
 //'
+//' @useDynLib TSrepr
 //' @export norm_min_max_list
 // [[Rcpp::export]]
 List norm_min_max_list(NumericVector x) {

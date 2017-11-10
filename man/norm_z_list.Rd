@@ -2,18 +2,18 @@
 % Please edit documentation in R/RcppExports.R
 \name{norm_z_list}
 \alias{norm_z_list}
-\title{Z normalization list}
+\title{Z-score normalization list}
 \usage{
 norm_z_list(x)
 }
 \arguments{
-\item{x}{Numeric vector}
+\item{x}{the numeric vector (time series)}
 }
 \value{
-list of numeric vector of normalized values and mean-sd values
+the list composed of normalised time series, mean and sd values
 }
 \description{
-\code{norm_z_list} normalizes data by z-score and returns normalization parameters.
+The \code{norm_z_list} normalizes time series by z-score and returns normalization parameters (mean and standard deviation).
 }
 \examples{
 norm_z_list(runif(50))

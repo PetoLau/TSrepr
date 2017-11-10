@@ -2,18 +2,18 @@
 % Please edit documentation in R/RcppExports.R
 \name{trending}
 \alias{trending}
-\title{Creates trend-level (bit-level) representation from a vector}
+\title{Creates trend-level (trending) representation from a vector}
 \usage{
 trending(x)
 }
 \arguments{
-\item{x}{Numeric vector}
+\item{x}{the numeric vector (time series)}
 }
 \value{
-integer vector of zeros and ones
+the integer vector of zeros and ones
 }
 \description{
-\code{trending} Computes trend-level (bit-level) representation from a vector.
+The \code{trending} Computes trend-level (trending) representation from a vector.
 }
 \examples{
 trending(rnorm(50))

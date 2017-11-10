@@ -7,7 +7,7 @@
 \alias{rlmCoef}
 \alias{coefComp}
 \alias{l1Coef}
-\title{Functions for linear regression model coefficients computation}
+\title{Functions for linear regression model coefficients extraction}
 \usage{
 lmCoef(X, Y)
 
@@ -16,21 +16,24 @@ rlmCoef(X, Y)
 l1Coef(X, Y)
 }
 \arguments{
-\item{X}{model (design) matrix of independent variables}
+\item{X}{the model (design) matrix of independent variables}
 
-\item{Y}{vector of dependent variable}
+\item{Y}{the vector of dependent variable (time series)}
 }
 \value{
-Numeric vector of regression coefficients
+the numeric vector of regression coefficients
 }
 \description{
-Computes regression coefficients from a model.
+The functions computes regression coefficients from a linear model.
 }
 \examples{
-lmCoef(matrix(rnorm(10), ncol = 2), rnorm(5))
+design_matrix <- matrix(rnorm(10), ncol = 2)
+lmCoef(design_matrix, rnorm(5))
 
-rlmCoef(matrix(rnorm(10), ncol = 2), rnorm(5))
+design_matrix <- matrix(rnorm(10), ncol = 2)
+rlmCoef(design_matrix, rnorm(5))
 
-l1Coef(matrix(rnorm(10), ncol = 2), rnorm(5))
+design_matrix <- matrix(rnorm(10), ncol = 2)
+l1Coef(design_matrix, rnorm(5))
 
 }
