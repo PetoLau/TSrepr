@@ -7,17 +7,17 @@
 repr_paa(x, q, func)
 }
 \arguments{
-\item{x}{Numeric vector of real values}
+\item{x}{the numeric vector (time series)}
 
-\item{q}{integer of length of the "piece"}
+\item{q}{the integer of the length of the "piece"}
 
-\item{func}{aggregation function. Can be meanC, medianC, sumC, minC or maxC or similar aggregation function.}
+\item{func}{the aggregation function. Can be meanC, medianC, sumC, minC or maxC or similar aggregation function}
 }
 \value{
-numeric vector
+the numeric vector
 }
 \description{
-\code{repr_paa} Computes PAA representation from a vector.
+The \code{repr_paa} computes PAA representation from a vector.
 }
 \examples{
 repr_paa(rnorm(11), 2, meanC)

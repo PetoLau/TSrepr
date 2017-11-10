@@ -7,17 +7,17 @@
 repr_gam(x, freq = NULL, xreg = NULL)
 }
 \arguments{
-\item{x}{Numeric vector}
+\item{x}{the numeric vector (time series)}
 
-\item{freq}{frequency of the time series. Can be vector of two frequencies (seasonalities) or just an integer of one frequency.}
+\item{freq}{the frequency of the time series. Can be vector of two frequencies (seasonalities) or just an integer of one frequency.}
 
-\item{xreg}{numeric vector or data.frame with additional regressors}
+\item{xreg}{the numeric vector or the data.frame with additional exogenous regressors}
 }
 \value{
-Numeric vector of GAM regression coefficients
+the numeric vector of GAM regression coefficients
 }
 \description{
-\code{repr_gam} computes seasonal GAM regression coefficients.
+The \code{repr_gam} computes seasonal GAM regression coefficients. Additional exogenous variables can be also added.
 }
 \examples{
 repr_gam(rnorm(96), freq = 24)

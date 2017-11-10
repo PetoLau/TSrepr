@@ -24,10 +24,10 @@ sumC(x)
 medianC(x)
 }
 \arguments{
-\item{x}{Numeric vector}
+\item{x}{the numeric vector}
 }
 \value{
-Numeric value
+the numeric value
 }
 \description{
 Fast statistic functions (helpers) for representations computation.

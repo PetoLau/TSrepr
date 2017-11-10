@@ -7,22 +7,26 @@
 repr_featrend(x, func, pieces = 2L, order = 4L)
 }
 \arguments{
-\item{x}{Numeric vector}
+\item{x}{the numeric vector (time series)}
 
-\item{func}{function of aggregation, can be sumC or maxC or similar aggregation function}
+\item{func}{the function of aggregation, can be sumC or maxC or similar aggregation function}
 
-\item{pieces}{number of parts of time series to split}
+\item{pieces}{the number of parts of time series to split (default to 2)}
 
-\item{order}{order of simple moving average}
+\item{order}{the order of simple moving average (default to 4)}
 }
 \value{
-numeric vector of length pieces
+the numeric vector of the length pieces
 }
 \description{
-\code{repr_featrend} computes representation of time series based on feature extraction from trend-level representation.
+The \code{repr_featrend} computes representation of time series based on feature extraction from trend-level (trending) representation.
 }
 \examples{
+# default settings
 repr_featrend(rnorm(50), maxC)
+
+# compute FeaTrend from 4 pieces and make more smoothed ts by order = 8
+repr_featrend(rnorm(50), sumC, 4, 8)
 
 }
 \seealso{

@@ -7,16 +7,21 @@ using namespace Rcpp;
 //' @name rleC
 //' @title RLE (Run Length Encoding) written in C++
 //'
-//' @description \code{rleC} Computes RLE from bit-level (clipping representation) vector
+//' @description The \code{rleC} computes RLE from bit-level (clipping or trending representation) vector.
 //'
-//' @return list of values and counts of zeros and ones
+//' @return the list of values and counts of zeros and ones
 //'
-//' @param x Numeric vector (from \code{clipping})
+//' @param x the integer vector (from \code{clipping} or \code{trending})
 //'
 //' @examples
+//' # clipping
 //' clipped <- clipping(rnorm(50))
 //' rleC(clipped)
+//' # trending
+//' trended <- trending(rnorm(50))
+//' rleC(trended)
 //'
+//' @useDynLib TSrepr
 //' @export rleC
 // [[Rcpp::export]]
 List rleC(NumericVector x) {

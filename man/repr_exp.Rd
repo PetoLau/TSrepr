@@ -7,19 +7,19 @@
 repr_exp(x, freq, alpha = TRUE, gamma = TRUE)
 }
 \arguments{
-\item{x}{Numeric vector}
+\item{x}{the numeric vector (time series)}
 
-\item{freq}{frequency of the time series}
+\item{freq}{the frequency of the time series}
 
-\item{alpha}{default to TRUE (automatic determination of smoothing factor), or number between 0 to 1}
+\item{alpha}{the smoothing factor (default to TRUE - automatic determination of smoothing factor), or number between 0 to 1}
 
-\item{gamma}{default to TRUE (automatic determination of seasonal smoothing factor), or number between 0 to 1}
+\item{gamma}{the seasonal smoothing factor (default to TRUE - automatic determination of seasonal smoothing factor), or number between 0 to 1}
 }
 \value{
-Numeric vector of seasonal coefficients
+the numeric vector of seasonal coefficients
 }
 \description{
-\code{repr_exp} computes exponential smoothing seasonal coefficients.
+The \code{repr_exp} computes exponential smoothing seasonal coefficients.
 }
 \examples{
 repr_exp(rnorm(96), freq = 24)

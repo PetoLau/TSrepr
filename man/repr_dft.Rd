@@ -7,15 +7,15 @@
 repr_dft(x, coef)
 }
 \arguments{
-\item{x}{Numeric vector}
+\item{x}{the numeric vector (time series)}
 
-\item{coef}{Number of coefficients to extract}
+\item{coef}{the number of coefficients to extract from FFT}
 }
 \value{
-Numeric vector of DFT coefficients
+the numeric vector of DFT coefficients
 }
 \description{
-\code{repr_dft} computes DFT representation from a time series by FFT.
+The \code{repr_dft} computes DFT (Discrete Fourier Transform) representation from a time series by FFT (Fast Fourier Transform).
 }
 \examples{
 repr_dft(rnorm(50), coef = 4)

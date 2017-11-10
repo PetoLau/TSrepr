@@ -9,28 +9,26 @@ using namespace Rcpp;
 //' @name clipping
 //' @title Creates bit-level (clipping representation) from a vector
 //'
-//' @description \code{clipping} Computes bit-level (clipping representation) from a vector.
+//' @description The \code{clipping} computes bit-level (clipping representation) from a vector.
 //'
-//' @return integer vector of zeros and ones
+//' @return the integer vector of zeros and ones
 //'
-//' @param x Numeric vector
+//' @param x the numeric vector (time series)
 //'
 //' @seealso \code{\link[TSrepr]{trending}}
+//'
+//' @importFrom Rcpp evalCpp
 //'
 //' @examples
 //' clipping(rnorm(50))
 //'
+//' @useDynLib TSrepr
 //' @export clipping
 // [[Rcpp::export]]
 IntegerVector clipping(NumericVector x) {
   int n = x.size();
   IntegerVector bitLevel(n);
   double x_mean = 0;
-
-  //for(int i = 0; i < n; ++i) {
-  //  total += x[i];
-  //}
-  //x_mean = total/n;
 
   x_mean = std::accumulate(x.begin(), x.end(), 0.0) / n;
 
@@ -45,19 +43,20 @@ IntegerVector clipping(NumericVector x) {
 
 //' @rdname trending
 //' @name trending
-//' @title Creates trend-level (bit-level) representation from a vector
+//' @title Creates trend-level (trending) representation from a vector
 //'
-//' @description \code{trending} Computes trend-level (bit-level) representation from a vector.
+//' @description The \code{trending} Computes trend-level (trending) representation from a vector.
 //'
-//' @return integer vector of zeros and ones
+//' @return the integer vector of zeros and ones
 //'
-//' @param x Numeric vector
+//' @param x the numeric vector (time series)
 //'
 //' @seealso \code{\link[TSrepr]{clipping}}
 //'
 //' @examples
 //' trending(rnorm(50))
 //'
+//' @useDynLib TSrepr
 //' @export trending
 // [[Rcpp::export]]
 IntegerVector trending(NumericVector x) {
@@ -81,17 +80,18 @@ IntegerVector trending(NumericVector x);
 //' @name repr_feaclip
 //' @title FeaClip representation of time series
 //'
-//' @description \code{repr_feaclip} computes representation of time series based on feature extraction from bit-level representation.
+//' @description The \code{repr_feaclip} computes representation of time series based on feature extraction from bit-level (clipping) representation.
 //'
-//' @return numeric vector of length 8
+//' @return the numeric vector of length 8
 //'
-//' @param x Numeric vector
+//' @param x the numeric vector (time series)
 //'
 //' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feacliptrend}}
 //'
 //' @examples
 //' repr_feaclip(rnorm(50))
 //'
+//' @useDynLib TSrepr
 //' @export repr_feaclip
 // [[Rcpp::export]]
 NumericVector repr_feaclip(NumericVector x) {
@@ -172,27 +172,32 @@ NumericVector repr_feaclip(NumericVector x) {
 //' @name repr_featrend
 //' @title FeaTrend representation of time series
 //'
-//' @description \code{repr_featrend} computes representation of time series based on feature extraction from trend-level representation.
+//' @description The \code{repr_featrend} computes representation of time series based on feature extraction from trend-level (trending) representation.
 //'
-//' @return numeric vector of length pieces
+//' @return the numeric vector of the length pieces
 //'
-//' @param x Numeric vector
-//' @param func function of aggregation, can be sumC or maxC or similar aggregation function
-//' @param pieces number of parts of time series to split
-//' @param order order of simple moving average
+//' @param x the numeric vector (time series)
+//' @param func the function of aggregation, can be sumC or maxC or similar aggregation function
+//' @param pieces the number of parts of time series to split (default to 2)
+//' @param order the order of simple moving average (default to 4)
 //'
 //' @seealso \code{\link[TSrepr]{repr_feaclip}, \link[TSrepr]{repr_feacliptrend}}
 //'
 //' @examples
+//' # default settings
 //' repr_featrend(rnorm(50), maxC)
 //'
+//' # compute FeaTrend from 4 pieces and make more smoothed ts by order = 8
+//' repr_featrend(rnorm(50), sumC, 4, 8)
+//'
+//' @useDynLib TSrepr
 //' @export repr_featrend
 // [[Rcpp::export]]
 NumericVector repr_featrend(NumericVector x, Rcpp::Function func, int pieces = 2, int order = 4) {
 
   NumericVector sma_x;
 
-  sma_x = movave(x, order);
+  sma_x = repr_sma(x, order);
 
   NumericVector y;
   Rcpp::List encode;
@@ -257,22 +262,23 @@ NumericVector repr_featrend(NumericVector x, Rcpp::Function func, int pieces = 2
 
 //' @rdname repr_feacliptrend
 //' @name repr_feacliptrend
-//' @title TSreprTrend representation of time series
+//' @title FeaClipTrend representation of time series
 //'
-//' @description \code{repr_feacliptrend} computes representation of time series based on feature extraction from bit-level and trend-level representation.
+//' @description The \code{repr_feacliptrend} computes representation of time series based on feature extraction from bit-level and trend-level representation.
 //'
-//' @return numeric vector of frequences of features
+//' @return the numeric vector of frequencies of features
 //'
-//' @param x Numeric vector
-//' @param func aggregation function for FeaTrend procedure
-//' @param pieces number of parts of time series to split
-//' @param order order of simple moving average
+//' @param x the numeric vector (time series)
+//' @param func the aggregation function for FeaTrend procedure (sumC or maxC)
+//' @param pieces the number of parts of time series to split
+//' @param order the order of simple moving average
 //'
 //' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feaclip}}
 //'
 //' @examples
 //' repr_feacliptrend(rnorm(50), maxC, 2, 4)
 //'
+//' @useDynLib TSrepr
 //' @export repr_feacliptrend
 // [[Rcpp::export]]
 std::vector<double> repr_feacliptrend(NumericVector x, Rcpp::Function func, int pieces = 2, int order = 4) {
@@ -294,18 +300,20 @@ std::vector<double> repr_feacliptrend(NumericVector x, Rcpp::Function func, int 
 //' @name repr_paa
 //' @title PAA - Piecewise Aggregate Approximation
 //'
-//' @description \code{repr_paa} Computes PAA representation from a vector.
-//' @return numeric vector
+//' @description The \code{repr_paa} computes PAA representation from a vector.
 //'
-//' @param x Numeric vector of real values
-//' @param q integer of length of the "piece"
-//' @param func aggregation function. Can be meanC, medianC, sumC, minC or maxC or similar aggregation function.
+//' @return the numeric vector
+//'
+//' @param x the numeric vector (time series)
+//' @param q the integer of the length of the "piece"
+//' @param func the aggregation function. Can be meanC, medianC, sumC, minC or maxC or similar aggregation function
 //'
 //' @seealso \code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dft}}
 //'
 //' @examples
 //' repr_paa(rnorm(11), 2, meanC)
 //'
+//' @useDynLib TSrepr
 //' @export repr_paa
 // [[Rcpp::export]]
 NumericVector repr_paa(NumericVector x, int q, Rcpp::Function func) {
@@ -352,21 +360,22 @@ NumericVector repr_paa(NumericVector x, int q, Rcpp::Function func) {
 
 //' @rdname repr_seas_profile
 //' @name repr_seas_profile
-//' @title Seasonal profile of time series
+//' @title Mean seasonal profile of time series
 //'
-//' @description \code{repr_seas_profile} Computes Seasonal Profile representation from a vector.
+//' @description The \code{repr_seas_profile} computes mean seasonal profile representation from a time series.
 //'
-//' @return numeric vector
+//' @return the numeric vector
 //'
-//' @param x Numeric vector of real values
-//' @param freq integer of length of the season
-//' @param func aggregation function. Can be meanC or medianC or similar aggregation function.
+//' @param x the numeric vector (time series)
+//' @param freq the integer of the length of the season
+//' @param func the aggregation function. Can be meanC or medianC or similar aggregation function.
 //'
 //' @seealso \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_gam}, \link[TSrepr]{repr_exp}}
 //'
 //' @examples
 //' repr_seas_profile(rnorm(48*10), 48, meanC)
 //'
+//' @useDynLib TSrepr
 //' @export repr_seas_profile
 // [[Rcpp::export]]
 NumericVector repr_seas_profile(NumericVector x, int freq, Rcpp::Function func) {

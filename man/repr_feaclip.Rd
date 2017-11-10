@@ -7,13 +7,13 @@
 repr_feaclip(x)
 }
 \arguments{
-\item{x}{Numeric vector}
+\item{x}{the numeric vector (time series)}
 }
 \value{
-numeric vector of length 8
+the numeric vector of length 8
 }
 \description{
-\code{repr_feaclip} computes representation of time series based on feature extraction from bit-level representation.
+The \code{repr_feaclip} computes representation of time series based on feature extraction from bit-level (clipping) representation.
 }
 \examples{
 repr_feaclip(rnorm(50))

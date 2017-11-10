@@ -2,24 +2,24 @@
 % Please edit documentation in R/RcppExports.R
 \name{repr_feacliptrend}
 \alias{repr_feacliptrend}
-\title{TSreprTrend representation of time series}
+\title{FeaClipTrend representation of time series}
 \usage{
 repr_feacliptrend(x, func, pieces = 2L, order = 4L)
 }
 \arguments{
-\item{x}{Numeric vector}
+\item{x}{the numeric vector (time series)}
 
-\item{func}{aggregation function for FeaTrend procedure}
+\item{func}{the aggregation function for FeaTrend procedure (sumC or maxC)}
 
-\item{pieces}{number of parts of time series to split}
+\item{pieces}{the number of parts of time series to split}
 
-\item{order}{order of simple moving average}
+\item{order}{the order of simple moving average}
 }
 \value{
-numeric vector of frequences of features
+the numeric vector of frequencies of features
 }
 \description{
-\code{repr_feacliptrend} computes representation of time series based on feature extraction from bit-level and trend-level representation.
+The \code{repr_feacliptrend} computes representation of time series based on feature extraction from bit-level and trend-level representation.
 }
 \examples{
 repr_feacliptrend(rnorm(50), maxC, 2, 4)

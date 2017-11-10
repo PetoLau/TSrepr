@@ -7,15 +7,15 @@
 mae(x, y)
 }
 \arguments{
-\item{x}{Numeric vector of real values}
+\item{x}{the numeric vector of real values}
 
-\item{y}{Numeric vector of predicted values}
+\item{y}{the numeric vector of forecasted values}
 }
 \value{
-numeric value
+the numeric value
 }
 \description{
-\code{mae} Computes MAE of a forecast.
+The \code{mae} computes MAE (Mean Absolute Error) of a forecast.
 }
 \examples{
 mae(runif(50), runif(50))

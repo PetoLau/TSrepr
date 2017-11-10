@@ -2,18 +2,18 @@
 % Please edit documentation in R/RcppExports.R
 \name{norm_z}
 \alias{norm_z}
-\title{Z normalization}
+\title{Z-score normalisation}
 \usage{
 norm_z(x)
 }
 \arguments{
-\item{x}{Numeric vector}
+\item{x}{the numeric vector (time series)}
 }
 \value{
-numeric vector of normalized values
+the numeric vector of normalised values
 }
 \description{
-\code{norm_z} normalizes data by z-score.
+The \code{norm_z} normalises time series by z-score.
 }
 \examples{
 norm_z(runif(50))

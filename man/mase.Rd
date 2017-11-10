@@ -7,17 +7,17 @@
 mase(real, forecast, naive)
 }
 \arguments{
-\item{real}{Numeric vector of real values}
+\item{real}{the numeric vector of real values}
 
-\item{forecast}{Numeric vector of predicted values}
+\item{forecast}{the numeric vector of forecasted values}
 
-\item{naive}{Numeric vector of naive forecast}
+\item{naive}{the numeric vector of naive forecast}
 }
 \value{
-numeric value
+the numeric value
 }
 \description{
-\code{mase} Computes MASE of a forecast.
+The \code{mase} computes MASE (Mean Absolute Scaled Error) of a forecast.
 }
 \examples{
 mase(rnorm(50), rnorm(50), rnorm(50))

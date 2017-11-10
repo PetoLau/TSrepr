@@ -5,15 +5,15 @@
 
 using namespace Rcpp;
 
-// movave
-NumericVector movave(NumericVector x, int order);
-RcppExport SEXP _TSrepr_movave(SEXP xSEXP, SEXP orderSEXP) {
+// repr_sma
+NumericVector repr_sma(NumericVector x, int order);
+RcppExport SEXP _TSrepr_repr_sma(SEXP xSEXP, SEXP orderSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
     Rcpp::traits::input_parameter< int >::type order(orderSEXP);
-    rcpp_result_gen = Rcpp::wrap(movave(x, order));
+    rcpp_result_gen = Rcpp::wrap(repr_sma(x, order));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -289,7 +289,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_TSrepr_movave", (DL_FUNC) &_TSrepr_movave, 2},
+    {"_TSrepr_repr_sma", (DL_FUNC) &_TSrepr_repr_sma, 2},
     {"_TSrepr_maxC", (DL_FUNC) &_TSrepr_maxC, 1},
     {"_TSrepr_minC", (DL_FUNC) &_TSrepr_minC, 1},
     {"_TSrepr_meanC", (DL_FUNC) &_TSrepr_meanC, 1},

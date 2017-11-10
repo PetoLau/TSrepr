@@ -7,15 +7,15 @@
 rmse(x, y)
 }
 \arguments{
-\item{x}{Numeric vector of real values}
+\item{x}{the numeric vector of real values}
 
-\item{y}{Numeric vector of predicted values}
+\item{y}{the numeric vector of forecasted values}
 }
 \value{
-numeric value
+the numeric value
 }
 \description{
-\code{rmse} Computes RMSE of a forecast.
+The \code{rmse} computes RMSE (Root Mean Squared Error) of a forecast.
 }
 \examples{
 rmse(runif(50), runif(50))

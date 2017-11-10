@@ -2,27 +2,35 @@
 % Please edit documentation in R/model_based_repr.R
 \name{repr_lm}
 \alias{repr_lm}
-\title{Linear model regression coefficients as representation}
+\title{Regression coefficients from linear model as representation}
 \usage{
 repr_lm(x, freq = NULL, method = "lm", xreg = NULL)
 }
 \arguments{
-\item{x}{Numeric vector}
+\item{x}{the numeric vector (time series)}
 
-\item{freq}{frequency of the time series. Can be vector of two frequencies (seasonalities) or just an integer of one frequency.}
+\item{freq}{the frequency of the time series. Can be vector of two frequencies (seasonalities) or just an integer of one frequency.}
 
-\item{method}{Linear regression method to use. It can be "lm", "rlm" or "l1".}
+\item{method}{the linear regression method to use. It can be "lm", "rlm" or "l1".}
 
-\item{xreg}{data.frame with additional regressors}
+\item{xreg}{the data.frame with additional exogenous regressors or the single numeric vector}
 }
 \value{
-Numeric vector of regression coefficients
+the numeric vector of regression coefficients
 }
 \description{
-\code{repr_lm} computes seasonal regression coefficients.
+The \code{repr_lm} computes seasonal regression coefficients from a linear model. Additional exogenous variables can be also added.
+}
+\details{
+TODO. lm rlm and l1. Frequencies.
 }
 \examples{
+# Extract 24 seasonal regression coefficients from the time series by linear model
 repr_lm(rnorm(96), freq = 24, method = "lm")
+
+# Try also robust linear models ("rlm" and "l1")
+repr_lm(rnorm(96), freq = 24, method = "rlm")
+repr_lm(rnorm(96), freq = 24, method = "l1")
 
 }
 \seealso{

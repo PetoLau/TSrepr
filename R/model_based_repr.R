@@ -6,17 +6,18 @@
 
 #' @rdname coef_comp
 #' @name coefComp
-#' @title Functions for linear regression model coefficients computation
+#' @title Functions for linear regression model coefficients extraction
 #'
-#' @description Computes regression coefficients from a model.
+#' @description The functions computes regression coefficients from a linear model.
 #'
-#' @return Numeric vector of regression coefficients
+#' @return the numeric vector of regression coefficients
 #'
-#' @param X model (design) matrix of independent variables
-#' @param Y vector of dependent variable
+#' @param X the model (design) matrix of independent variables
+#' @param Y the vector of dependent variable (time series)
 #'
 #' @examples
-#' lmCoef(matrix(rnorm(10), ncol = 2), rnorm(5))
+#' design_matrix <- matrix(rnorm(10), ncol = 2)
+#' lmCoef(design_matrix, rnorm(5))
 #'
 #' @export lmCoef
 lmCoef <- function(X, Y) {
@@ -30,11 +31,13 @@ lmCoef <- function(X, Y) {
 
 #' @rdname coef_comp
 #' @name coefComp
-#' @title Functions for linear regression model coefficients computation
+#' @title Functions for linear regression model coefficients extraction
 #'
 #' @examples
-#' rlmCoef(matrix(rnorm(10), ncol = 2), rnorm(5))
+#' design_matrix <- matrix(rnorm(10), ncol = 2)
+#' rlmCoef(design_matrix, rnorm(5))
 #'
+#' @importFrom MASS rlm psi.huber
 #' @export rlmCoef
 rlmCoef <- function(X, Y) {
 
@@ -47,11 +50,13 @@ rlmCoef <- function(X, Y) {
 
 #' @rdname coef_comp
 #' @name coefComp
-#' @title Functions for linear regression model coefficients computation
+#' @title Functions for linear regression model coefficients extraction
 #'
 #' @examples
-#' l1Coef(matrix(rnorm(10), ncol = 2), rnorm(5))
+#' design_matrix <- matrix(rnorm(10), ncol = 2)
+#' l1Coef(design_matrix, rnorm(5))
 #'
+#' @importFrom quantreg rq
 #' @export l1Coef
 l1Coef <- function(X, Y) {
 
@@ -65,22 +70,30 @@ l1Coef <- function(X, Y) {
 
 #' @rdname repr_lm
 #' @name repr_lm
-#' @title Linear model regression coefficients as representation
+#' @title Regression coefficients from linear model as representation
 #'
-#' @description \code{repr_lm} computes seasonal regression coefficients.
+#' @description The \code{repr_lm} computes seasonal regression coefficients from a linear model. Additional exogenous variables can be also added.
 #'
-#' @return Numeric vector of regression coefficients
+#' @return the numeric vector of regression coefficients
 #'
-#' @param x Numeric vector
-#' @param freq frequency of the time series. Can be vector of two frequencies (seasonalities) or just an integer of one frequency.
-#' @param method Linear regression method to use. It can be "lm", "rlm" or "l1".
-#' @param xreg data.frame with additional regressors
+#' @param x the numeric vector (time series)
+#' @param freq the frequency of the time series. Can be vector of two frequencies (seasonalities) or just an integer of one frequency.
+#' @param method the linear regression method to use. It can be "lm", "rlm" or "l1".
+#' @param xreg the data.frame with additional exogenous regressors or the single numeric vector
+#'
+#' @details TODO. lm rlm and l1. Frequencies.
 #'
 #' @seealso \code{\link[TSrepr]{repr_gam}, \link[TSrepr]{repr_exp}}
 #'
 #' @examples
+#' # Extract 24 seasonal regression coefficients from the time series by linear model
 #' repr_lm(rnorm(96), freq = 24, method = "lm")
 #'
+#' # Try also robust linear models ("rlm" and "l1")
+#' repr_lm(rnorm(96), freq = 24, method = "rlm")
+#' repr_lm(rnorm(96), freq = 24, method = "l1")
+#'
+#' @importFrom stats as.formula model.matrix
 #' @export repr_lm
 repr_lm <- function(x, freq = NULL, method = "lm", xreg = NULL) {
 
@@ -182,19 +195,21 @@ repr_lm <- function(x, freq = NULL, method = "lm", xreg = NULL) {
 #' @name repr_gam
 #' @title GAM regression coefficients as representation
 #'
-#' @description \code{repr_gam} computes seasonal GAM regression coefficients.
+#' @description The \code{repr_gam} computes seasonal GAM regression coefficients. Additional exogenous variables can be also added.
 #'
-#' @return Numeric vector of GAM regression coefficients
+#' @return the numeric vector of GAM regression coefficients
 #'
-#' @param x Numeric vector
-#' @param freq frequency of the time series. Can be vector of two frequencies (seasonalities) or just an integer of one frequency.
-#' @param xreg numeric vector or data.frame with additional regressors
+#' @param x the numeric vector (time series)
+#' @param freq the frequency of the time series. Can be vector of two frequencies (seasonalities) or just an integer of one frequency.
+#' @param xreg the numeric vector or the data.frame with additional exogenous regressors
 #'
 #' @seealso \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_exp}}
 #'
 #' @examples
 #' repr_gam(rnorm(96), freq = 24)
 #'
+#' @importFrom stats as.formula
+#' @importFrom mgcv gam s
 #' @export repr_gam
 repr_gam <- function(x, freq = NULL, xreg = NULL) {
 
@@ -301,20 +316,21 @@ repr_gam <- function(x, freq = NULL, xreg = NULL) {
 #' @name repr_exp
 #' @title Exponential smoothing seasonal coefficients as representation
 #'
-#' @description \code{repr_exp} computes exponential smoothing seasonal coefficients.
+#' @description The \code{repr_exp} computes exponential smoothing seasonal coefficients.
 #'
-#' @return Numeric vector of seasonal coefficients
+#' @return the numeric vector of seasonal coefficients
 #'
-#' @param x Numeric vector
-#' @param freq frequency of the time series
-#' @param alpha default to TRUE (automatic determination of smoothing factor), or number between 0 to 1
-#' @param gamma default to TRUE (automatic determination of seasonal smoothing factor), or number between 0 to 1
+#' @param x the numeric vector (time series)
+#' @param freq the frequency of the time series
+#' @param alpha the smoothing factor (default to TRUE - automatic determination of smoothing factor), or number between 0 to 1
+#' @param gamma the seasonal smoothing factor (default to TRUE - automatic determination of seasonal smoothing factor), or number between 0 to 1
 #'
 #' @seealso \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_gam}, \link[TSrepr]{repr_seas_profile}}
 #'
 #' @examples
 #' repr_exp(rnorm(96), freq = 24)
 #'
+#' @importFrom stats HoltWinters ts
 #' @export repr_exp
 repr_exp <- function(x, freq, alpha = TRUE, gamma = TRUE) {
 

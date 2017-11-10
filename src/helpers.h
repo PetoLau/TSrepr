@@ -1,7 +1,7 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
-NumericVector movave(NumericVector x, int order);
+NumericVector repr_sma(NumericVector x, int order);
 
 double minC(NumericVector x);
 double maxC(NumericVector x);

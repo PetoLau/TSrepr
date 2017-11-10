@@ -4,29 +4,32 @@
 \alias{repr_matrix}
 \title{Computation of matrix of representations from matrix of time series}
 \usage{
-repr_matrix(x, fun = NULL, args = NULL, normalize = TRUE,
-  fun_norm = norm_z)
+repr_matrix(x, func = NULL, args = NULL, normalize = TRUE,
+  func_norm = norm_z)
 }
 \arguments{
-\item{x}{matrix, data.frame or data.table of time series, where time series are in rows of a table}
+\item{x}{the matrix, data.frame or data.table of time series, where time series are in rows of the table}
 
-\item{fun}{function that computes representation}
+\item{func}{the function that computes representation}
 
-\item{args}{list of additional (or required) parameters of fun (function that computes representation)}
+\item{args}{the list of additional (or required) parameters of func (function that computes representation)}
 
-\item{normalize}{normalize (scale) representations? (default TRUE)}
+\item{normalize}{normalise (scale) representations? (default is TRUE)}
 
-\item{fun_norm}{normalization function (default \code{norm_z})}
+\item{func_norm}{the normalization function (default is \code{norm_z})}
 }
 \value{
-Numeric matrix of representations of time series
+the numeric matrix of representations of time series
 }
 \description{
-\code{repr_matrix} Computation of matrix of representations from matrix of time series
+The \code{repr_matrix} computes matrix of representations from matrix of time series
+}
+\details{
+TODO.
 }
 \examples{
 # Create random matrix of time series
 mat_ts <- matrix(rnorm(100), ncol = 10)
-repr_matrix(mat_ts, fun = repr_paa, args = list(q = 5, func = meanC))
+repr_matrix(mat_ts, func = repr_paa, args = list(q = 5, func = meanC))
 
 }

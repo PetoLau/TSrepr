@@ -3,23 +3,24 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
-//' @rdname movave
-//' @name movave
-//' @title Simple Moving Average
+//' @rdname repr_sma
+//' @name repr_sma
+//' @title Simple Moving Average representation
 //'
-//' @description \code{movave} computes Simple Moving Average (SMA) from a time series.
+//' @description The \code{repr_sma} computes Simple Moving Average (SMA) from a time series.
 //'
-//' @return Numeric vector of smoothed values
+//' @return the numeric vector of smoothed values
 //'
-//' @param x Numeric vector
-//' @param order - order of simple moving average
+//' @param x the numeric vector (time series)
+//' @param order the order of simple moving average
 //'
 //' @examples
-//' movave(rnorm(50), 4)
+//' repr_sma(rnorm(50), 4)
 //'
-//' @export movave
+//' @useDynLib TSrepr
+//' @export repr_sma
 // [[Rcpp::export]]
-NumericVector movave(NumericVector x, int order) {
+NumericVector repr_sma(NumericVector x, int order) {
 
   int n = x.size();
   int n_ma = n - order;
@@ -46,13 +47,14 @@ NumericVector movave(NumericVector x, int order) {
 //'
 //' @description Fast statistic functions (helpers) for representations computation.
 //'
-//' @return Numeric value
+//' @return the numeric value
 //'
-//' @param x Numeric vector
+//' @param x the numeric vector
 //'
 //' @examples
 //' maxC(rnorm(50))
 //'
+//' @useDynLib TSrepr
 //' @export maxC
 // [[Rcpp::export]]
 double maxC(NumericVector x) {
@@ -85,6 +87,7 @@ double minC(NumericVector x) {
 //' @examples
 //' meanC(rnorm(50))
 //'
+//' @useDynLib TSrepr
 //' @export meanC
 // [[Rcpp::export]]
 double meanC(NumericVector x) {
@@ -104,6 +107,7 @@ double meanC(NumericVector x) {
 //' @examples
 //' sumC(rnorm(50))
 //'
+//' @useDynLib TSrepr
 //' @export sumC
 // [[Rcpp::export]]
 double sumC(NumericVector x) {
@@ -122,6 +126,7 @@ double sumC(NumericVector x) {
 //' @examples
 //' medianC(rnorm(50))
 //'
+//' @useDynLib TSrepr
 //' @export medianC
 // [[Rcpp::export]]
 double medianC(NumericVector x) {

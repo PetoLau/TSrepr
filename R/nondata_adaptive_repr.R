@@ -7,19 +7,20 @@
 #' @name repr_dwt
 #' @title DWT representation
 #'
-#' @description \code{repr_dwt} computes DWT representation (coefficients) from a time series.
+#' @description The \code{repr_dwt} computes DWT (Discrete Wavelet Transform) representation (coefficients) from a time series.
 #'
-#' @return Numeric vector of DWT coefficients
+#' @return the numeric vector of DWT coefficients
 #'
-#' @param x Numeric vector
-#' @param level level of DWT transformation (default is 4)
-#' @param filter filter name (default is "haar")
+#' @param x the numeric vector (time series)
+#' @param level the level of DWT transformation (default is 4)
+#' @param filter the filter name (default is "haar")
 #'
 #' @seealso \code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}}
 #'
 #' @examples
 #' repr_dwt(rnorm(50), level = 4)
 #'
+#' @importFrom wavelets dwt
 #' @export repr_dwt
 repr_dwt <- function(x, level = 4, filter = "haar") {
 
@@ -36,18 +37,19 @@ repr_dwt <- function(x, level = 4, filter = "haar") {
 #' @name repr_dft
 #' @title DFT representation by FFT
 #'
-#' @description \code{repr_dft} computes DFT representation from a time series by FFT.
+#' @description The \code{repr_dft} computes DFT (Discrete Fourier Transform) representation from a time series by FFT (Fast Fourier Transform).
 #'
-#' @return Numeric vector of DFT coefficients
+#' @return the numeric vector of DFT coefficients
 #'
-#' @param x Numeric vector
-#' @param coef Number of coefficients to extract
+#' @param x the numeric vector (time series)
+#' @param coef the number of coefficients to extract from FFT
 #'
 #' @seealso \code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dct}}
 #'
 #' @examples
 #' repr_dft(rnorm(50), coef = 4)
 #'
+#' @importFrom stats fft
 #' @export repr_dft
 repr_dft <- function(x, coef) {
 
@@ -65,18 +67,19 @@ repr_dft <- function(x, coef) {
 #' @name repr_dct
 #' @title DCT representation
 #'
-#' @description \code{repr_dct} computes DCT representation from a time series.
+#' @description The \code{repr_dct} computes DCT (Discrete Cosine Transform) representation from a time series.
 #'
-#' @return Numeric vector of DCT coefficients
+#' @return the numeric vector of DCT coefficients
 #'
-#' @param x Numeric vector
-#' @param coef Number of coefficients to extract
+#' @param x the numeric vector (time series)
+#' @param coef the number of coefficients to extract from DCT
 #'
 #' @seealso \code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dwt}}
 #'
 #' @examples
 #' repr_dct(rnorm(50), coef = 4)
 #'
+#' @importFrom dtt dct
 #' @export repr_dct
 repr_dct <- function(x, coef) {
 
