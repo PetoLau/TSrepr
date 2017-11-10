@@ -19,7 +19,7 @@
 #' mat_ts <- matrix(rnorm(100), ncol = 10)
 #' repr_matrix(mat_ts, fun = repr_paa, args = list(q = 5, func = meanC))
 #'
-#' @export
+#' @export repr_matrix
 repr_matrix <- function(x, fun = NULL, args = NULL, normalize = TRUE, fun_norm = norm_z) {
 
   if (is.null(fun)) {

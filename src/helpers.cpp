@@ -17,7 +17,7 @@ using namespace Rcpp;
 //' @examples
 //' movave(rnorm(50), 4)
 //'
-//' @export
+//' @export movave
 // [[Rcpp::export]]
 NumericVector movave(NumericVector x, int order) {
 
@@ -53,7 +53,7 @@ NumericVector movave(NumericVector x, int order) {
 //' @examples
 //' maxC(rnorm(50))
 //'
-//' @export
+//' @export maxC
 // [[Rcpp::export]]
 double maxC(NumericVector x) {
   double max;
@@ -69,7 +69,7 @@ double maxC(NumericVector x) {
 //' @examples
 //' minC(rnorm(50))
 //'
-//' @export
+//' @export minC
 // [[Rcpp::export]]
 double minC(NumericVector x) {
   double min;
@@ -85,7 +85,7 @@ double minC(NumericVector x) {
 //' @examples
 //' meanC(rnorm(50))
 //'
-//' @export
+//' @export meanC
 // [[Rcpp::export]]
 double meanC(NumericVector x) {
   int n = x.size();
@@ -104,7 +104,7 @@ double meanC(NumericVector x) {
 //' @examples
 //' sumC(rnorm(50))
 //'
-//' @export
+//' @export sumC
 // [[Rcpp::export]]
 double sumC(NumericVector x) {
   int n = x.size();
@@ -122,7 +122,7 @@ double sumC(NumericVector x) {
 //' @examples
 //' medianC(rnorm(50))
 //'
-//' @export
+//' @export medianC
 // [[Rcpp::export]]
 double medianC(NumericVector x) {
   NumericVector y = clone(x);

@@ -15,7 +15,7 @@
 #' @examples
 #' movave(rnorm(50), 4)
 #'
-#' @export
+#' @export movave
 movave <- function(x, order) {
     .Call(`_TSrepr_movave`, x, order)
 }
@@ -33,7 +33,7 @@ movave <- function(x, order) {
 #' @examples
 #' maxC(rnorm(50))
 #'
-#' @export
+#' @export maxC
 maxC <- function(x) {
     .Call(`_TSrepr_maxC`, x)
 }
@@ -45,7 +45,7 @@ maxC <- function(x) {
 #' @examples
 #' minC(rnorm(50))
 #'
-#' @export
+#' @export minC
 minC <- function(x) {
     .Call(`_TSrepr_minC`, x)
 }
@@ -57,7 +57,7 @@ minC <- function(x) {
 #' @examples
 #' meanC(rnorm(50))
 #'
-#' @export
+#' @export meanC
 meanC <- function(x) {
     .Call(`_TSrepr_meanC`, x)
 }
@@ -69,7 +69,7 @@ meanC <- function(x) {
 #' @examples
 #' sumC(rnorm(50))
 #'
-#' @export
+#' @export sumC
 sumC <- function(x) {
     .Call(`_TSrepr_sumC`, x)
 }
@@ -81,7 +81,7 @@ sumC <- function(x) {
 #' @examples
 #' medianC(rnorm(50))
 #'
-#' @export
+#' @export medianC
 medianC <- function(x) {
     .Call(`_TSrepr_medianC`, x)
 }
@@ -100,7 +100,7 @@ medianC <- function(x) {
 #' @examples
 #' rmse(runif(50), runif(50))
 #'
-#' @export
+#' @export rmse
 rmse <- function(x, y) {
     .Call(`_TSrepr_rmse`, x, y)
 }
@@ -119,7 +119,7 @@ rmse <- function(x, y) {
 #' @examples
 #' mae(runif(50), runif(50))
 #'
-#' @export
+#' @export mae
 mae <- function(x, y) {
     .Call(`_TSrepr_mae`, x, y)
 }
@@ -138,7 +138,7 @@ mae <- function(x, y) {
 #' @examples
 #' smape(runif(50), runif(50))
 #'
-#' @export
+#' @export smape
 smape <- function(x, y) {
     .Call(`_TSrepr_smape`, x, y)
 }
@@ -157,7 +157,7 @@ smape <- function(x, y) {
 #' @examples
 #' mape(runif(50), runif(50))
 #'
-#' @export
+#' @export mape
 mape <- function(x, y) {
     .Call(`_TSrepr_mape`, x, y)
 }
@@ -176,7 +176,7 @@ mape <- function(x, y) {
 #' @examples
 #' mdae(runif(50), runif(50))
 #'
-#' @export
+#' @export mdae
 mdae <- function(x, y) {
     .Call(`_TSrepr_mdae`, x, y)
 }
@@ -195,7 +195,7 @@ mdae <- function(x, y) {
 #' @examples
 #' mase(rnorm(50), rnorm(50), rnorm(50))
 #'
-#' @export
+#' @export mase
 mase <- function(real, forecast, naive) {
     .Call(`_TSrepr_mase`, real, forecast, naive)
 }
@@ -215,7 +215,7 @@ mase <- function(real, forecast, naive) {
 #' @examples
 #' norm_z(runif(50))
 #'
-#' @export
+#' @export norm_z
 norm_z <- function(x) {
     .Call(`_TSrepr_norm_z`, x)
 }
@@ -235,7 +235,7 @@ norm_z <- function(x) {
 #' @examples
 #' norm_z_list(runif(50))
 #'
-#' @export
+#' @export norm_z_list
 norm_z_list <- function(x) {
     .Call(`_TSrepr_norm_z_list`, x)
 }
@@ -255,7 +255,7 @@ norm_z_list <- function(x) {
 #' @examples
 #' norm_min_max(rnorm(50))
 #'
-#' @export
+#' @export norm_min_max
 norm_min_max <- function(x) {
     .Call(`_TSrepr_norm_min_max`, x)
 }
@@ -275,7 +275,7 @@ norm_min_max <- function(x) {
 #' @examples
 #' norm_min_max_list(rnorm(50))
 #'
-#' @export
+#' @export norm_min_max_list
 norm_min_max_list <- function(x) {
     .Call(`_TSrepr_norm_min_max_list`, x)
 }
@@ -295,7 +295,7 @@ norm_min_max_list <- function(x) {
 #' @examples
 #' clipping(rnorm(50))
 #'
-#' @export
+#' @export clipping
 clipping <- function(x) {
     .Call(`_TSrepr_clipping`, x)
 }
@@ -315,7 +315,7 @@ clipping <- function(x) {
 #' @examples
 #' trending(rnorm(50))
 #'
-#' @export
+#' @export trending
 trending <- function(x) {
     .Call(`_TSrepr_trending`, x)
 }
@@ -335,7 +335,7 @@ trending <- function(x) {
 #' @examples
 #' repr_feaclip(rnorm(50))
 #'
-#' @export
+#' @export repr_feaclip
 repr_feaclip <- function(x) {
     .Call(`_TSrepr_repr_feaclip`, x)
 }
@@ -358,7 +358,7 @@ repr_feaclip <- function(x) {
 #' @examples
 #' repr_featrend(rnorm(50), maxC)
 #'
-#' @export
+#' @export repr_featrend
 repr_featrend <- function(x, func, pieces = 2L, order = 4L) {
     .Call(`_TSrepr_repr_featrend`, x, func, pieces, order)
 }
@@ -381,7 +381,7 @@ repr_featrend <- function(x, func, pieces = 2L, order = 4L) {
 #' @examples
 #' repr_feacliptrend(rnorm(50), maxC, 2, 4)
 #'
-#' @export
+#' @export repr_feacliptrend
 repr_feacliptrend <- function(x, func, pieces = 2L, order = 4L) {
     .Call(`_TSrepr_repr_feacliptrend`, x, func, pieces, order)
 }
@@ -402,7 +402,7 @@ repr_feacliptrend <- function(x, func, pieces = 2L, order = 4L) {
 #' @examples
 #' repr_paa(rnorm(11), 2, meanC)
 #'
-#' @export
+#' @export repr_paa
 repr_paa <- function(x, q, func) {
     .Call(`_TSrepr_repr_paa`, x, q, func)
 }
@@ -424,6 +424,7 @@ repr_paa <- function(x, q, func) {
 #' @examples
 #' repr_seas_profile(rnorm(48*10), 48, meanC)
 #'
+#' @export repr_seas_profile
 repr_seas_profile <- function(x, freq, func) {
     .Call(`_TSrepr_repr_seas_profile`, x, freq, func)
 }
@@ -442,7 +443,7 @@ repr_seas_profile <- function(x, freq, func) {
 #' clipped <- clipping(rnorm(50))
 #' rleC(clipped)
 #'
-#' @export
+#' @export rleC
 rleC <- function(x) {
     .Call(`_TSrepr_rleC`, x)
 }

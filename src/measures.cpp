@@ -17,7 +17,7 @@ using namespace Rcpp;
 //' @examples
 //' rmse(runif(50), runif(50))
 //'
-//' @export
+//' @export rmse
 // [[Rcpp::export]]
 double rmse(NumericVector x, NumericVector y) {
   int n = x.size();
@@ -43,7 +43,7 @@ double rmse(NumericVector x, NumericVector y) {
 //' @examples
 //' mae(runif(50), runif(50))
 //'
-//' @export
+//' @export mae
 // [[Rcpp::export]]
 double mae(NumericVector x, NumericVector y) {
   int n = x.size();
@@ -69,7 +69,7 @@ double mae(NumericVector x, NumericVector y) {
 //' @examples
 //' smape(runif(50), runif(50))
 //'
-//' @export
+//' @export smape
 // [[Rcpp::export]]
 double smape(NumericVector x, NumericVector y) {
   int n = x.size();
@@ -96,7 +96,7 @@ double smape(NumericVector x, NumericVector y) {
 //' @examples
 //' mape(runif(50), runif(50))
 //'
-//' @export
+//' @export mape
 // [[Rcpp::export]]
 double mape(NumericVector x, NumericVector y) {
   int n = x.size();
@@ -123,7 +123,7 @@ double mape(NumericVector x, NumericVector y) {
 //' @examples
 //' mdae(runif(50), runif(50))
 //'
-//' @export
+//' @export mdae
 // [[Rcpp::export]]
 double mdae(NumericVector x, NumericVector y) {
   int size = x.size();
@@ -148,7 +148,7 @@ double mdae(NumericVector x, NumericVector y) {
 //' @examples
 //' mase(rnorm(50), rnorm(50), rnorm(50))
 //'
-//' @export
+//' @export mase
 // [[Rcpp::export]]
 double mase(NumericVector real, NumericVector forecast, NumericVector naive) {
   int n = real.size();

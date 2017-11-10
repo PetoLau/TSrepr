@@ -18,7 +18,7 @@
 #' @examples
 #' repr_dwt(rnorm(50), level = 4)
 #'
-#' @export
+#' @export repr_dwt
 repr_dwt <- function(x, level = 4, filter = "haar") {
 
   x <- as.numeric(x)
@@ -43,7 +43,7 @@ repr_dwt <- function(x, level = 4, filter = "haar") {
 #' @examples
 #' fftinv(fft(rnorm(50))[1:10])
 #'
-#' @export
+#' @export fftinv
 fftinv <- function(x) {
   fft(x, inverse = TRUE) / length(x)
 }
@@ -64,7 +64,7 @@ fftinv <- function(x) {
 #' @examples
 #' repr_dft(rnorm(50), coef = 4)
 #'
-#' @export
+#' @export repr_dft
 repr_dft <- function(x, coef) {
 
   x <- as.numeric(x)

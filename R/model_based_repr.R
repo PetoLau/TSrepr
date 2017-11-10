@@ -18,7 +18,7 @@
 #' @examples
 #' lmCoef(matrix(rnorm(10), ncol = 2), rnorm(5))
 #'
-#' @export
+#' @export lmCoef
 lmCoef <- function(X, Y) {
 
   beta <- solve(t(X) %*% X) %*% t(X) %*% as.vector(Y) # OLS
@@ -35,7 +35,7 @@ lmCoef <- function(X, Y) {
 #' @examples
 #' rlmCoef(matrix(rnorm(10), ncol = 2), rnorm(5))
 #'
-#' @export
+#' @export rlmCoef
 rlmCoef <- function(X, Y) {
 
   rlm.reg <- MASS::rlm(X, Y, method = "M", psi = MASS::psi.huber, k = 2.5)$coefficients
@@ -52,7 +52,7 @@ rlmCoef <- function(X, Y) {
 #' @examples
 #' l1Coef(matrix(rnorm(10), ncol = 2), rnorm(5))
 #'
-#' @export
+#' @export l1Coef
 l1Coef <- function(X, Y) {
 
   X_Y <- as.data.frame(cbind(Y, X))
@@ -81,7 +81,7 @@ l1Coef <- function(X, Y) {
 #' @examples
 #' repr_lm(rnorm(96), freq = 24, method = "lm")
 #'
-#' @export
+#' @export repr_lm
 repr_lm <- function(x, freq = NULL, method = "lm", xreg = NULL) {
 
   x <- as.numeric(x)
@@ -195,7 +195,7 @@ repr_lm <- function(x, freq = NULL, method = "lm", xreg = NULL) {
 #' @examples
 #' repr_gam(rnorm(96), freq = 24)
 #'
-#' @export
+#' @export repr_gam
 repr_gam <- function(x, freq = NULL, xreg = NULL) {
 
   x <- as.numeric(x)
@@ -315,7 +315,7 @@ repr_gam <- function(x, freq = NULL, xreg = NULL) {
 #' @examples
 #' repr_exp(rnorm(96), freq = 24)
 #'
-#' @export
+#' @export repr_exp
 repr_exp <- function(x, freq, alpha = TRUE, gamma = TRUE) {
 
   x <- as.numeric(x)

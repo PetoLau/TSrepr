@@ -17,7 +17,7 @@ using namespace Rcpp;
 //' clipped <- clipping(rnorm(50))
 //' rleC(clipped)
 //'
-//' @export
+//' @export rleC
 // [[Rcpp::export]]
 List rleC(NumericVector x) {
 

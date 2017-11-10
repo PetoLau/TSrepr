@@ -20,7 +20,7 @@ using namespace Rcpp;
 //' @examples
 //' clipping(rnorm(50))
 //'
-//' @export
+//' @export clipping
 // [[Rcpp::export]]
 IntegerVector clipping(NumericVector x) {
   int n = x.size();
@@ -58,7 +58,7 @@ IntegerVector clipping(NumericVector x) {
 //' @examples
 //' trending(rnorm(50))
 //'
-//' @export
+//' @export trending
 // [[Rcpp::export]]
 IntegerVector trending(NumericVector x) {
 
@@ -92,7 +92,7 @@ IntegerVector trending(NumericVector x);
 //' @examples
 //' repr_feaclip(rnorm(50))
 //'
-//' @export
+//' @export repr_feaclip
 // [[Rcpp::export]]
 NumericVector repr_feaclip(NumericVector x) {
 
@@ -186,7 +186,7 @@ NumericVector repr_feaclip(NumericVector x) {
 //' @examples
 //' repr_featrend(rnorm(50), maxC)
 //'
-//' @export
+//' @export repr_featrend
 // [[Rcpp::export]]
 NumericVector repr_featrend(NumericVector x, Rcpp::Function func, int pieces = 2, int order = 4) {
 
@@ -273,7 +273,7 @@ NumericVector repr_featrend(NumericVector x, Rcpp::Function func, int pieces = 2
 //' @examples
 //' repr_feacliptrend(rnorm(50), maxC, 2, 4)
 //'
-//' @export
+//' @export repr_feacliptrend
 // [[Rcpp::export]]
 std::vector<double> repr_feacliptrend(NumericVector x, Rcpp::Function func, int pieces = 2, int order = 4) {
 
@@ -306,7 +306,7 @@ std::vector<double> repr_feacliptrend(NumericVector x, Rcpp::Function func, int 
 //' @examples
 //' repr_paa(rnorm(11), 2, meanC)
 //'
-//' @export
+//' @export repr_paa
 // [[Rcpp::export]]
 NumericVector repr_paa(NumericVector x, int q, Rcpp::Function func) {
 
@@ -367,6 +367,7 @@ NumericVector repr_paa(NumericVector x, int q, Rcpp::Function func) {
 //' @examples
 //' repr_seas_profile(rnorm(48*10), 48, meanC)
 //'
+//' @export repr_seas_profile
 // [[Rcpp::export]]
 NumericVector repr_seas_profile(NumericVector x, int freq, Rcpp::Function func) {
 
