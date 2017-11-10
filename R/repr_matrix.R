@@ -11,7 +11,7 @@
 #' @param x matrix, data.frame or data.table of time series, where time series are in rows of a table
 #' @param fun function that computes representation
 #' @param args list of additional (or required) parameters of fun (function that computes representation)
-#' @param normalize normalize time series before computation of representations? (default TRUE)
+#' @param normalize normalize (scale) representations? (default TRUE)
 #' @param fun_norm normalization function (default \code{norm_z})
 #'
 #' @examples
@@ -28,14 +28,14 @@ repr_matrix <- function(x, fun = NULL, args = NULL, normalize = TRUE, fun_norm =
 
   x <- data.matrix(x)
 
-  if (normalize == TRUE) {
-    x <- t(apply(x, 1, fun_norm))
-  }
-
   if (is.null(args)) {
     repr <- t(apply(x, 1, fun))
   } else {
     repr <- t(sapply(1:nrow(x), function(i) do.call(fun, args = append(list(x = x[i,]), args))))
+  }
+
+  if (normalize == TRUE) {
+    repr <- t(apply(repr, 1, fun_norm))
   }
 
   return(repr)

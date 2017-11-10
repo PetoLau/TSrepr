@@ -14,7 +14,7 @@ repr_matrix(x, fun = NULL, args = NULL, normalize = TRUE,
 
 \item{args}{list of additional (or required) parameters of fun (function that computes representation)}
 
-\item{normalize}{normalize time series before computation of representations? (default TRUE)}
+\item{normalize}{normalize (scale) representations? (default TRUE)}
 
 \item{fun_norm}{normalization function (default \code{norm_z})}
 }
