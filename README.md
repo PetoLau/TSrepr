@@ -1,7 +1,7 @@
 # TSrepr
- TSrepr: R package for fast time series representations and dimensionality reduction computations. Z-score normalisation, min-max normalisation, forecasting accuracy measures and other useful functions programmed in C++.
+ TSrepr: R package for fast time series representations and dimensionality reduction computations. Z-score normalisation, min-max normalisation, forecasting accuracy measures and other useful functions implemented in C++.
 
-Install `TSrepr` R package via GitHub:
+Install `TSrepr` R package from GitHub via `devtools` package:
 
 `
 devtools::install_github("petolau/TSrepr")
