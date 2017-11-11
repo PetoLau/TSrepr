@@ -21,7 +21,7 @@ l1Coef(X, Y)
 \item{Y}{the vector of dependent variable (time series)}
 }
 \value{
-the numeric vector of regression coefficients
+The numeric vector of regression coefficients
 }
 \description{
 The functions computes regression coefficients from a linear model.
@@ -30,10 +30,11 @@ The functions computes regression coefficients from a linear model.
 design_matrix <- matrix(rnorm(10), ncol = 2)
 lmCoef(design_matrix, rnorm(5))
 
-design_matrix <- matrix(rnorm(10), ncol = 2)
 rlmCoef(design_matrix, rnorm(5))
 
-design_matrix <- matrix(rnorm(10), ncol = 2)
 l1Coef(design_matrix, rnorm(5))
 
+}
+\seealso{
+\code{\link[stats]{lm}, \link[MASS]{rlm}, \link[quantreg]{rq}}
 }

@@ -10,7 +10,12 @@ norm_z_list(x)
 \item{x}{the numeric vector (time series)}
 }
 \value{
-the list composed of normalised time series, mean and sd values
+the list composed of:
+ \describe{
+ \item{\strong{norm_values}}{the numeric vector of normalised values of time series}
+ \item{\strong{mean}}{the mean value}
+ \item{\strong{sd}}{the standard deviation}
+  }
 }
 \description{
 The \code{norm_z_list} normalizes time series by z-score and returns normalization parameters (mean and standard deviation).

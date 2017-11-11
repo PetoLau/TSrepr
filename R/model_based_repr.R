@@ -10,10 +10,12 @@
 #'
 #' @description The functions computes regression coefficients from a linear model.
 #'
-#' @return the numeric vector of regression coefficients
+#' @return The numeric vector of regression coefficients
 #'
 #' @param X the model (design) matrix of independent variables
 #' @param Y the vector of dependent variable (time series)
+#'
+#' @seealso \code{\link[stats]{lm}, \link[MASS]{rlm}, \link[quantreg]{rq}}
 #'
 #' @examples
 #' design_matrix <- matrix(rnorm(10), ncol = 2)
@@ -34,7 +36,6 @@ lmCoef <- function(X, Y) {
 #' @title Functions for linear regression model coefficients extraction
 #'
 #' @examples
-#' design_matrix <- matrix(rnorm(10), ncol = 2)
 #' rlmCoef(design_matrix, rnorm(5))
 #'
 #' @importFrom MASS rlm psi.huber
@@ -53,7 +54,6 @@ rlmCoef <- function(X, Y) {
 #' @title Functions for linear regression model coefficients extraction
 #'
 #' @examples
-#' design_matrix <- matrix(rnorm(10), ncol = 2)
 #' l1Coef(design_matrix, rnorm(5))
 #'
 #' @importFrom quantreg rq
@@ -86,7 +86,7 @@ l1Coef <- function(X, Y) {
 #' @seealso \code{\link[TSrepr]{repr_gam}, \link[TSrepr]{repr_exp}}
 #'
 #' @examples
-#' # Extract 24 seasonal regression coefficients from the time series by linear model
+#' # Extracts 24 seasonal regression coefficients from the time series by linear model
 #' repr_lm(rnorm(96), freq = 24, method = "lm")
 #'
 #' # Try also robust linear models ("rlm" and "l1")
@@ -203,7 +203,7 @@ repr_lm <- function(x, freq = NULL, method = "lm", xreg = NULL) {
 #' @param freq the frequency of the time series. Can be vector of two frequencies (seasonalities) or just an integer of one frequency.
 #' @param xreg the numeric vector or the data.frame with additional exogenous regressors
 #'
-#' @seealso \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_exp}}
+#' @seealso \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_exp}, \link[mgcv]{gam}}
 #'
 #' @examples
 #' repr_gam(rnorm(96), freq = 24)
@@ -325,7 +325,8 @@ repr_gam <- function(x, freq = NULL, xreg = NULL) {
 #' @param alpha the smoothing factor (default to TRUE - automatic determination of smoothing factor), or number between 0 to 1
 #' @param gamma the seasonal smoothing factor (default to TRUE - automatic determination of seasonal smoothing factor), or number between 0 to 1
 #'
-#' @seealso \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_gam}, \link[TSrepr]{repr_seas_profile}}
+#' @seealso \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_gam}, \link[TSrepr]{repr_seas_profile},
+#' \link[stats]{HoltWinters}}
 #'
 #' @examples
 #' repr_exp(rnorm(96), freq = 24)

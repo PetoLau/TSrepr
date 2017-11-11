@@ -24,5 +24,5 @@ repr_gam(rnorm(96), freq = 24)
 
 }
 \seealso{
-\code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_exp}}
+\code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_exp}, \link[mgcv]{gam}}
 }
