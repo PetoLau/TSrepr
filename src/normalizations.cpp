@@ -62,7 +62,12 @@ NumericVector norm_z(NumericVector x) {
 //'
 //' @description The \code{norm_z_list} normalizes time series by z-score and returns normalization parameters (mean and standard deviation).
 //'
-//' @return the list composed of normalised time series, mean and sd values
+//' @return the list composed of:
+//'  \describe{
+//'  \item{\strong{norm_values}}{the numeric vector of normalised values of time series}
+//'  \item{\strong{mean}}{the mean value}
+//'  \item{\strong{sd}}{the standard deviation}
+//'   }
 //'
 //' @param x the numeric vector (time series)
 //'
@@ -161,7 +166,12 @@ NumericVector norm_min_max(NumericVector x) {
 //'
 //' @description The \code{norm_min_max_list} normalises time series by min-max method and returns normalization parameters (min and max).
 //'
-//' @return the list of normalised time series, min and max values.
+//' @return the list composed of:
+//'  \describe{
+//'  \item{\strong{norm_values}}{the numeric vector of normalised values of time series}
+//'  \item{\strong{min}}{the min value}
+//'  \item{\strong{max}}{the max value}
+//'   }
 //'
 //' @param x the numeric vector (time series)
 //'

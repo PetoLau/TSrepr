@@ -24,5 +24,5 @@ repr_dwt(rnorm(50), level = 4)
 
 }
 \seealso{
-\code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}}
+\code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}, \link[wavelets]{dwt}}
 }

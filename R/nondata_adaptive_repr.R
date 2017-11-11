@@ -15,7 +15,7 @@
 #' @param level the level of DWT transformation (default is 4)
 #' @param filter the filter name (default is "haar")
 #'
-#' @seealso \code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}}
+#' @seealso \code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}, \link[wavelets]{dwt}}
 #'
 #' @examples
 #' repr_dwt(rnorm(50), level = 4)
@@ -44,7 +44,7 @@ repr_dwt <- function(x, level = 4, filter = "haar") {
 #' @param x the numeric vector (time series)
 #' @param coef the number of coefficients to extract from FFT
 #'
-#' @seealso \code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dct}}
+#' @seealso \code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dct}, \link[stats]{fft}}
 #'
 #' @examples
 #' repr_dft(rnorm(50), coef = 4)
@@ -74,7 +74,7 @@ repr_dft <- function(x, coef) {
 #' @param x the numeric vector (time series)
 #' @param coef the number of coefficients to extract from DCT
 #'
-#' @seealso \code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dwt}}
+#' @seealso \code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dwt}, \link[dtt]{dct}}
 #'
 #' @examples
 #' repr_dct(rnorm(50), coef = 4)

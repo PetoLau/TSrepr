@@ -22,5 +22,5 @@ repr_dft(rnorm(50), coef = 4)
 
 }
 \seealso{
-\code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dct}}
+\code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dct}, \link[stats]{fft}}
 }

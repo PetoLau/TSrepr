@@ -10,7 +10,12 @@ norm_min_max_list(x)
 \item{x}{the numeric vector (time series)}
 }
 \value{
-the list of normalised time series, min and max values.
+the list composed of:
+ \describe{
+ \item{\strong{norm_values}}{the numeric vector of normalised values of time series}
+ \item{\strong{min}}{the min value}
+ \item{\strong{max}}{the max value}
+  }
 }
 \description{
 The \code{norm_min_max_list} normalises time series by min-max method and returns normalization parameters (min and max).

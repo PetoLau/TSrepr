@@ -25,7 +25,7 @@ The \code{repr_lm} computes seasonal regression coefficients from a linear model
 TODO. lm rlm and l1. Frequencies.
 }
 \examples{
-# Extract 24 seasonal regression coefficients from the time series by linear model
+# Extracts 24 seasonal regression coefficients from the time series by linear model
 repr_lm(rnorm(96), freq = 24, method = "lm")
 
 # Try also robust linear models ("rlm" and "l1")
