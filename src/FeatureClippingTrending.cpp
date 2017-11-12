@@ -3,6 +3,7 @@
 #include <Rcpp.h>
 #include "helpers.h"
 #include "rle.h"
+#include "reprsClassical.h"
 using namespace Rcpp;
 
 //' @rdname clipping
@@ -72,9 +73,6 @@ IntegerVector trending(NumericVector x) {
 
   return repr;
 }
-
-IntegerVector clipping(NumericVector x);
-IntegerVector trending(NumericVector x);
 
 //' @rdname repr_feaclip
 //' @name repr_feaclip
@@ -292,105 +290,6 @@ std::vector<double> repr_feacliptrend(NumericVector x, Rcpp::Function func, int 
 
   repr.insert( repr.end(), repr_clip.begin(), repr_clip.end() );
   repr.insert( repr.end(), repr_trend.begin(), repr_trend.end() );
-
-  return repr;
-}
-
-//' @rdname repr_paa
-//' @name repr_paa
-//' @title PAA - Piecewise Aggregate Approximation
-//'
-//' @description The \code{repr_paa} computes PAA representation from a vector.
-//'
-//' @return the numeric vector
-//'
-//' @param x the numeric vector (time series)
-//' @param q the integer of the length of the "piece"
-//' @param func the aggregation function. Can be meanC, medianC, sumC, minC or maxC or similar aggregation function
-//'
-//' @seealso \code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dft}}
-//'
-//' @examples
-//' repr_paa(rnorm(11), 2, meanC)
-//'
-//' @useDynLib TSrepr
-//' @export repr_paa
-// [[Rcpp::export]]
-NumericVector repr_paa(NumericVector x, int q, Rcpp::Function func) {
-
-  int n = x.size();
-  int n_paa = n/q;
-  int remain = n % q;
-  int remain_count = n - (n_paa*q);
-  if (remain != 0) {
-    n_paa = n_paa + 1;
-  }
-
-  NumericVector repr(n_paa);
-  IntegerVector sub_x(q);
-  IntegerVector sub_rem(remain_count);
-
-  if (remain == 0) {
-
-      for(int i = 0; i < n_paa; i++){
-        for(int j = 0; j < q; j++){
-          sub_x[j] = (i*q) + j;
-        }
-        repr[i] = Rcpp::as<double>(func(x[sub_x]));
-      }
-
-  } else {
-
-      for(int i = 0; i < n_paa-1; i++){
-        for(int j = 0; j < q; j++){
-          sub_x[j] = (i*q) + j;
-        }
-        repr[i] = Rcpp::as<double>(func(x[sub_x]));
-      }
-
-      for(int j = 0; j < remain_count; j++){
-        sub_rem[j] = ((n_paa-1)*q) + j;
-      }
-      repr[n_paa-1] = Rcpp::as<double>(func(x[sub_rem]));
-
-  }
-
-  return repr;
-}
-
-//' @rdname repr_seas_profile
-//' @name repr_seas_profile
-//' @title Mean seasonal profile of time series
-//'
-//' @description The \code{repr_seas_profile} computes mean seasonal profile representation from a time series.
-//'
-//' @return the numeric vector
-//'
-//' @param x the numeric vector (time series)
-//' @param freq the integer of the length of the season
-//' @param func the aggregation function. Can be meanC or medianC or similar aggregation function.
-//'
-//' @seealso \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_gam}, \link[TSrepr]{repr_exp}}
-//'
-//' @examples
-//' repr_seas_profile(rnorm(48*10), 48, meanC)
-//'
-//' @useDynLib TSrepr
-//' @export repr_seas_profile
-// [[Rcpp::export]]
-NumericVector repr_seas_profile(NumericVector x, int freq, Rcpp::Function func) {
-
-  NumericVector repr(freq);
-  int n = x.size();
-  int freq_times = n / freq;
-  IntegerVector ind(freq_times);
-
-  for(int i = 0; i < freq; i++){
-    for(int j = 0; j < freq_times; j++){
-      ind[j] = (j*freq) + i;
-    }
-    repr[i] = Rcpp::as<double>(func(x[ind]));
-  }
 
   return repr;
 }
