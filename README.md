@@ -16,6 +16,6 @@ These representations of time series are implemented so far:
  * FeaClip - Feature extraction from clipping representation
  * FeaTrend - Feature extraction from trending representation
  * FeaClipTrend - Feature extraction from clipping and trending representation
- * Mean seasonal profile
+ * Mean seasonal profile - Average seasonal profile, Median seasonal profile, etc.
  * Model-based seasonal representations based on linear (additive) model (lm, rlm, l1, gam)
  * Exponential smoothing seasonal coefficients
