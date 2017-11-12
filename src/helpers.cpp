@@ -3,44 +3,6 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
-//' @rdname repr_sma
-//' @name repr_sma
-//' @title Simple Moving Average representation
-//'
-//' @description The \code{repr_sma} computes Simple Moving Average (SMA) from a time series.
-//'
-//' @return the numeric vector of smoothed values
-//'
-//' @param x the numeric vector (time series)
-//' @param order the order of simple moving average
-//'
-//' @examples
-//' repr_sma(rnorm(50), 4)
-//'
-//' @useDynLib TSrepr
-//' @export repr_sma
-// [[Rcpp::export]]
-NumericVector repr_sma(NumericVector x, int order) {
-
-  int n = x.size();
-  int n_ma = n - order;
-  double sum = 0;
-
-  NumericVector repr(n_ma);
-
-  for(int i = 0; i < order; i++){
-    sum += x[i];
-  }
-
-  repr[0] = sum / order;
-
-  for(int i = 1; i < n_ma; i++){
-    repr[i] = repr[i-1] + (x[i+order]/order) - (x[i-1]/order);
-  }
-
-  return repr;
-}
-
 //' @rdname fast_stat
 //' @name fast_stat
 //' @title Fast statistic functions (helpers)

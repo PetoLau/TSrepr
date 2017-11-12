@@ -5,15 +5,64 @@
 
 using namespace Rcpp;
 
-// repr_sma
-NumericVector repr_sma(NumericVector x, int order);
-RcppExport SEXP _TSrepr_repr_sma(SEXP xSEXP, SEXP orderSEXP) {
+// clipping
+IntegerVector clipping(NumericVector x);
+RcppExport SEXP _TSrepr_clipping(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(clipping(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// trending
+IntegerVector trending(NumericVector x);
+RcppExport SEXP _TSrepr_trending(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(trending(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// repr_feaclip
+NumericVector repr_feaclip(NumericVector x);
+RcppExport SEXP _TSrepr_repr_feaclip(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(repr_feaclip(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// repr_featrend
+NumericVector repr_featrend(NumericVector x, Rcpp::Function func, int pieces, int order);
+RcppExport SEXP _TSrepr_repr_featrend(SEXP xSEXP, SEXP funcSEXP, SEXP piecesSEXP, SEXP orderSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Function >::type func(funcSEXP);
+    Rcpp::traits::input_parameter< int >::type pieces(piecesSEXP);
     Rcpp::traits::input_parameter< int >::type order(orderSEXP);
-    rcpp_result_gen = Rcpp::wrap(repr_sma(x, order));
+    rcpp_result_gen = Rcpp::wrap(repr_featrend(x, func, pieces, order));
+    return rcpp_result_gen;
+END_RCPP
+}
+// repr_feacliptrend
+std::vector<double> repr_feacliptrend(NumericVector x, Rcpp::Function func, int pieces, int order);
+RcppExport SEXP _TSrepr_repr_feacliptrend(SEXP xSEXP, SEXP funcSEXP, SEXP piecesSEXP, SEXP orderSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Function >::type func(funcSEXP);
+    Rcpp::traits::input_parameter< int >::type pieces(piecesSEXP);
+    Rcpp::traits::input_parameter< int >::type order(orderSEXP);
+    rcpp_result_gen = Rcpp::wrap(repr_feacliptrend(x, func, pieces, order));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -189,64 +238,15 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// clipping
-IntegerVector clipping(NumericVector x);
-RcppExport SEXP _TSrepr_clipping(SEXP xSEXP) {
+// repr_sma
+NumericVector repr_sma(NumericVector x, int order);
+RcppExport SEXP _TSrepr_repr_sma(SEXP xSEXP, SEXP orderSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(clipping(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// trending
-IntegerVector trending(NumericVector x);
-RcppExport SEXP _TSrepr_trending(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(trending(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// repr_feaclip
-NumericVector repr_feaclip(NumericVector x);
-RcppExport SEXP _TSrepr_repr_feaclip(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(repr_feaclip(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// repr_featrend
-NumericVector repr_featrend(NumericVector x, Rcpp::Function func, int pieces, int order);
-RcppExport SEXP _TSrepr_repr_featrend(SEXP xSEXP, SEXP funcSEXP, SEXP piecesSEXP, SEXP orderSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Function >::type func(funcSEXP);
-    Rcpp::traits::input_parameter< int >::type pieces(piecesSEXP);
     Rcpp::traits::input_parameter< int >::type order(orderSEXP);
-    rcpp_result_gen = Rcpp::wrap(repr_featrend(x, func, pieces, order));
-    return rcpp_result_gen;
-END_RCPP
-}
-// repr_feacliptrend
-std::vector<double> repr_feacliptrend(NumericVector x, Rcpp::Function func, int pieces, int order);
-RcppExport SEXP _TSrepr_repr_feacliptrend(SEXP xSEXP, SEXP funcSEXP, SEXP piecesSEXP, SEXP orderSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Function >::type func(funcSEXP);
-    Rcpp::traits::input_parameter< int >::type pieces(piecesSEXP);
-    Rcpp::traits::input_parameter< int >::type order(orderSEXP);
-    rcpp_result_gen = Rcpp::wrap(repr_feacliptrend(x, func, pieces, order));
+    rcpp_result_gen = Rcpp::wrap(repr_sma(x, order));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -289,7 +289,11 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_TSrepr_repr_sma", (DL_FUNC) &_TSrepr_repr_sma, 2},
+    {"_TSrepr_clipping", (DL_FUNC) &_TSrepr_clipping, 1},
+    {"_TSrepr_trending", (DL_FUNC) &_TSrepr_trending, 1},
+    {"_TSrepr_repr_feaclip", (DL_FUNC) &_TSrepr_repr_feaclip, 1},
+    {"_TSrepr_repr_featrend", (DL_FUNC) &_TSrepr_repr_featrend, 4},
+    {"_TSrepr_repr_feacliptrend", (DL_FUNC) &_TSrepr_repr_feacliptrend, 4},
     {"_TSrepr_maxC", (DL_FUNC) &_TSrepr_maxC, 1},
     {"_TSrepr_minC", (DL_FUNC) &_TSrepr_minC, 1},
     {"_TSrepr_meanC", (DL_FUNC) &_TSrepr_meanC, 1},
@@ -305,11 +309,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TSrepr_norm_z_list", (DL_FUNC) &_TSrepr_norm_z_list, 1},
     {"_TSrepr_norm_min_max", (DL_FUNC) &_TSrepr_norm_min_max, 1},
     {"_TSrepr_norm_min_max_list", (DL_FUNC) &_TSrepr_norm_min_max_list, 1},
-    {"_TSrepr_clipping", (DL_FUNC) &_TSrepr_clipping, 1},
-    {"_TSrepr_trending", (DL_FUNC) &_TSrepr_trending, 1},
-    {"_TSrepr_repr_feaclip", (DL_FUNC) &_TSrepr_repr_feaclip, 1},
-    {"_TSrepr_repr_featrend", (DL_FUNC) &_TSrepr_repr_featrend, 4},
-    {"_TSrepr_repr_feacliptrend", (DL_FUNC) &_TSrepr_repr_feacliptrend, 4},
+    {"_TSrepr_repr_sma", (DL_FUNC) &_TSrepr_repr_sma, 2},
     {"_TSrepr_repr_paa", (DL_FUNC) &_TSrepr_repr_paa, 3},
     {"_TSrepr_repr_seas_profile", (DL_FUNC) &_TSrepr_repr_seas_profile, 3},
     {"_TSrepr_rleC", (DL_FUNC) &_TSrepr_rleC, 1},

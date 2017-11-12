@@ -24,5 +24,5 @@ repr_paa(rnorm(11), 2, meanC)
 
 }
 \seealso{
-\code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dft}}
+\code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}, \link[TSrepr]{repr_sma}}
 }
