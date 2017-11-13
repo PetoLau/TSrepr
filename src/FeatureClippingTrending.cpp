@@ -163,6 +163,8 @@ NumericVector repr_feaclip(NumericVector x) {
     representation[2] = *std::max_element(zeros.begin(), zeros.end());
   }
 
+  StringVector fea_name = StringVector::create("max_1", "sum_1", "max_0", "jumps", "0_1.", "0_n.", "1_1.", "1_n.");
+  representation.attr("names") = fea_name;
   return representation;
 }
 
@@ -282,7 +284,7 @@ NumericVector repr_featrend(NumericVector x, Rcpp::Function func, int pieces = 2
 std::vector<double> repr_feacliptrend(NumericVector x, Rcpp::Function func, int pieces = 2, int order = 4) {
 
   std::vector<double> repr;
-  NumericVector repr_clip(8), repr_trend(pieces*2);
+  NumericVector repr_clip(8), repr_trend(pieces * 2);
   repr_clip = repr_feaclip(x);
   repr_trend = repr_featrend(x, func, pieces, order);
 
