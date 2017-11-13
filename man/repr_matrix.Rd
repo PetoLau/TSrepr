@@ -4,8 +4,8 @@
 \alias{repr_matrix}
 \title{Computation of matrix of representations from matrix of time series}
 \usage{
-repr_matrix(x, func = NULL, args = NULL, normalize = TRUE,
-  func_norm = norm_z)
+repr_matrix(x, func = NULL, args = NULL, normalise = FALSE,
+  func_norm = norm_z, windowing = FALSE, win_size = NULL)
 }
 \arguments{
 \item{x}{the matrix, data.frame or data.table of time series, where time series are in rows of the table}
@@ -14,9 +14,13 @@ repr_matrix(x, func = NULL, args = NULL, normalize = TRUE,
 
 \item{args}{the list of additional (or required) parameters of func (function that computes representation)}
 
-\item{normalize}{normalise (scale) representations? (default is TRUE)}
+\item{normalise}{normalise (scale) representations? (default is FALSE)}
 
 \item{func_norm}{the normalization function (default is \code{norm_z})}
+
+\item{windowing}{perform windowing? (default is FALSE)}
+
+\item{win_size}{the size of the window}
 }
 \value{
 the numeric matrix of representations of time series
@@ -32,4 +36,13 @@ TODO.
 mat_ts <- matrix(rnorm(100), ncol = 10)
 repr_matrix(mat_ts, func = repr_paa, args = list(q = 5, func = meanC))
 
+# return normalised representations, and normalise time series by min-max normalisation
+repr_matrix(mat_ts, func = repr_paa, args = list(q = 2, func = meanC), normalise = TRUE, func_norm = norm_min_max)
+
+# with windowing
+repr_matrix(mat_ts, func = repr_feaclip, windowing = TRUE, win_size = 5)
+
+}
+\seealso{
+\code{\link[TSrepr]{repr_windowing}}
 }
