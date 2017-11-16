@@ -19,3 +19,4 @@ These representations of time series are implemented so far:
  * Mean seasonal profile - Average seasonal profile, Median seasonal profile, etc.
  * Model-based seasonal representations based on linear (additive) model (lm, rlm, l1, gam)
  * Exponential smoothing seasonal coefficients
+ * PIP - Perceptually Important Points
