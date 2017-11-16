@@ -26,7 +26,8 @@ The \code{repr_windowing} computes representations from windows of a vector.
 repr_windowing(rnorm(48), win_size = 24, func = repr_feaclip)
 
 # func with arguments
-repr_windowing(rnorm(48), win_size = 24, func = repr_featrend, args = list(func = maxC, order = 2, pieces = 2))
+repr_windowing(rnorm(48), win_size = 24, func = repr_featrend,
+ args = list(func = maxC, order = 2, pieces = 2))
 
 }
 \seealso{
