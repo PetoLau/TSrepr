@@ -34,10 +34,12 @@ TODO.
 \examples{
 # Create random matrix of time series
 mat_ts <- matrix(rnorm(100), ncol = 10)
-repr_matrix(mat_ts, func = repr_paa, args = list(q = 5, func = meanC))
+repr_matrix(mat_ts, func = repr_paa,
+ args = list(q = 5, func = meanC))
 
 # return normalised representations, and normalise time series by min-max normalisation
-repr_matrix(mat_ts, func = repr_paa, args = list(q = 2, func = meanC), normalise = TRUE, func_norm = norm_min_max)
+repr_matrix(mat_ts, func = repr_paa,
+ args = list(q = 2, func = meanC), normalise = TRUE, func_norm = norm_min_max)
 
 # with windowing
 repr_matrix(mat_ts, func = repr_feaclip, windowing = TRUE, win_size = 5)
