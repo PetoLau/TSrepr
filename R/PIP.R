@@ -1,3 +1,4 @@
+# PIP (Perceptually Important Points) ----
 # Code by @kevin: https://stackoverflow.com/questions/30428900/efficient-perceptually-important-points-pips-algo-in-r-or-rcpp
 # little bit adjusted inputs and outputs of functions
 
