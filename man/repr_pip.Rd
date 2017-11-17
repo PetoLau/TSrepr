@@ -4,20 +4,23 @@
 \alias{repr_pip}
 \title{PIP representation}
 \usage{
-repr_pip(x, times = 10)
+repr_pip(x, times = 10, return = "points")
 }
 \arguments{
 \item{x}{the numeric vector (time series)}
 
 \item{times}{the number of important points to extract (default 10)}
+
+\item{return}{what to return? Can be important points ("points"),
+places of important points in a vector ("places") or "both" (data.frame).}
 }
 \value{
-the integer vector of places of important points in a vector
+the values based on the argument return (see above)
 }
 \description{
 The \code{repr_pip} computes PIP (Perceptually Important Points) representation from a time series.
 }
 \examples{
-repr_pip(rnorm(100), times = 12)
+repr_pip(rnorm(100), times = 12, return = "both")
 
 }
