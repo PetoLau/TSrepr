@@ -32,17 +32,19 @@ pip <- function(ts, interp = NULL, pips = NULL) {
 #'
 #' @description The \code{repr_pip} computes PIP (Perceptually Important Points) representation from a time series.
 #'
-#' @return the integer vector of places of important points in a vector
+#' @return the values based on the argument return (see above)
 #'
 #' @param x the numeric vector (time series)
 #' @param times the number of important points to extract (default 10)
+#' @param return what to return? Can be important points ("points"),
+#'  places of important points in a vector ("places") or "both" (data.frame).
 #'
 #' @examples
-#' repr_pip(rnorm(100), times = 12)
+#' repr_pip(rnorm(100), times = 12, return = "both")
 #'
 #' @importFrom stats approx
 #' @export repr_pip
-repr_pip <- function(x, times = 10) {
+repr_pip <- function(x, times = 10, return = "points") {
 
   if (times <= 1) {
     stop("times must be at least 2!")
@@ -52,12 +54,24 @@ repr_pip <- function(x, times = 10) {
     stop("times must be less than the length of x!")
   }
 
-  mat_ts <- as.matrix(data.frame(x = 1:length(x), y = x))
+  mat_ts <- as.matrix(data.frame(x = 1:length(x), y = as.numeric(x)))
 
   res <- pip(mat_ts)
   for (i in 2:times) {
     res <- pip(mat_ts, res$interp, res$pips)
   }
 
-  return(sort(res$pips))
+  if (return == "points") {
+    return(mat_ts[sort(res$pips), 2])
+  }
+
+  if (return == "places") {
+    return(sort(res$pips))
+  }
+
+  if (return == "both") {
+    return(data.frame(places = sort(res$pips),
+                      points = mat_ts[sort(res$pips), 2]))
+  }
+
 }
