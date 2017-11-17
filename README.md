@@ -20,11 +20,14 @@ These representations of time series are implemented so far:
  * Model-based seasonal representations based on linear (additive) model (lm, rlm, l1, gam) (`repr_lm`, `repr_gam`)
  * Exponential smoothing seasonal coefficients (`repr_exp`)
  * PIP - Perceptually Important Points (`repr_pip`)
+ * PLA - Piecewise Linear Approximation (`repr_pla`)
  
- Additional useful functions are implemented as:
+Additional useful functions are implemented as:
   * Windowing (`repr_windowing`) - applies above mentioned representations to every window of a time series
   * Matrix of representations (`repr_matrix`) - applies above mentioned representations to every row of a matrix of time series
   * Normalisation functions - z-score (`norm_z`), min-max (`norm_min_max`)
   * Normalisation functions with output also of scaling parameters - z-score (`norm_z_list`), min-max (`norm_min_max_list`)
   * Forecasting accuracy measures - MAE, RMSE, MdAE, MAPE, sMAPE, MASE
 
+
+For any suggestions and comments write me an email at: [tsreprpackage@gmail.com](mailto:tsreprpackage@gmail.com)
