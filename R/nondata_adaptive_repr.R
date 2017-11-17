@@ -13,16 +13,20 @@
 #'
 #' @param x the numeric vector (time series)
 #' @param level the level of DWT transformation (default is 4)
-#' @param filter the filter name (default is "haar")
+#' @param filter the filter name (default is "d6").
+#'  Can be: "haar", "d4", "d6", ..., "d20", "la8", "la10", ..., "la20", "bl14", "bl18", "bl20",
+#'   "c6", "c12", ..., "c30". See more info at \code{\link[wavelets]{wt.filter}}.
 #'
 #' @seealso \code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}, \link[wavelets]{dwt}}
 #'
 #' @examples
-#' repr_dwt(rnorm(50), level = 4)
+#' # Interpretation: DWT with Daubechies filter of length 4 and
+#' # 3rd level of DWT coefficients extracted.
+#' repr_dwt(rnorm(50), filter = "d4", level = 3)
 #'
 #' @importFrom wavelets dwt
 #' @export repr_dwt
-repr_dwt <- function(x, level = 4, filter = "haar") {
+repr_dwt <- function(x, level = 4, filter = "d4") {
 
   x <- as.numeric(x)
 

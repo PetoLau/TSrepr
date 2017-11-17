@@ -4,14 +4,16 @@
 \alias{repr_dwt}
 \title{DWT representation}
 \usage{
-repr_dwt(x, level = 4, filter = "haar")
+repr_dwt(x, level = 4, filter = "d4")
 }
 \arguments{
 \item{x}{the numeric vector (time series)}
 
 \item{level}{the level of DWT transformation (default is 4)}
 
-\item{filter}{the filter name (default is "haar")}
+\item{filter}{the filter name (default is "d6").
+Can be: "haar", "d4", "d6", ..., "d20", "la8", "la10", ..., "la20", "bl14", "bl18", "bl20",
+ "c6", "c12", ..., "c30". See more info at \code{\link[wavelets]{wt.filter}}.}
 }
 \value{
 the numeric vector of DWT coefficients
@@ -20,7 +22,9 @@ the numeric vector of DWT coefficients
 The \code{repr_dwt} computes DWT (Discrete Wavelet Transform) representation (coefficients) from a time series.
 }
 \examples{
-repr_dwt(rnorm(50), level = 4)
+# Interpretation: DWT with Daubechies filter of length 4 and
+# 3rd level of DWT coefficients extracted.
+repr_dwt(rnorm(50), filter = "d4", level = 3)
 
 }
 \seealso{
