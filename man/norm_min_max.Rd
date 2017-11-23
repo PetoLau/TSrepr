@@ -22,3 +22,6 @@ norm_min_max(rnorm(50))
 \seealso{
 \code{\link[TSrepr]{norm_z}}
 }
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
+}

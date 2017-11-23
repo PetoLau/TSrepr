@@ -15,6 +15,8 @@ using namespace Rcpp;
 //' @param x the numeric vector (time series)
 //' @param order the order of simple moving average
 //'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
 //' @examples
 //' repr_sma(rnorm(50), 4)
 //'
@@ -55,6 +57,12 @@ NumericVector repr_sma(NumericVector x, int order) {
 //' @param func the aggregation function. Can be meanC, medianC, sumC, minC or maxC or similar aggregation function
 //'
 //' @seealso \code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}, \link[TSrepr]{repr_sma}}
+//'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
+//' @references Keogh E, Chakrabarti K, Pazzani M, Mehrotra Sh (2001)
+//' Dimensionality Reduction for Fast Similarity Search in Large Time Series Databases.
+//' Knowledge and Information Systems 3(3):263-286
 //'
 //' @examples
 //' repr_paa(rnorm(11), 2, meanC)
@@ -115,6 +123,16 @@ NumericVector repr_paa(NumericVector x, int q, Rcpp::Function func) {
 //' @param x the numeric vector (time series)
 //' @param freq the integer of the length of the season
 //' @param func the aggregation function. Can be meanC or medianC or similar aggregation function.
+//'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
+//' @references Laurinec P, Lucka M (2016)
+//' Comparison of representations of time series for clustering smart meter data.
+//' In: Lecture Notes in Engineering and Computer Science: Proceedings of The World Congress on Engineering and Computer Science 2016, pp 458-463
+//'
+//' Laurinec P, Loderer M, Vrablecova P, Lucka M, Rozinajova V, Ezzeddine AB (2016)
+//' Adaptive time series forecasting of energy consumption using optimized cluster analysis.
+//' In: Data Mining Workshops (ICDMW), 2016 IEEE 16th International Conference on, IEEE, pp 398-405
 //'
 //' @seealso \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_gam}, \link[TSrepr]{repr_exp}}
 //'

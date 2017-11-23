@@ -24,3 +24,11 @@ The \code{repr_pip} computes PIP (Perceptually Important Points) representation 
 repr_pip(rnorm(100), times = 12, return = "both")
 
 }
+\references{
+Fu TC, Chung FL, Luk R, and Ng CM (2008)
+Representing financial time series based on data point importance.
+Engineering Applications of Artificial Intelligence, 21(2):277-300
+}
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
+}

@@ -24,3 +24,11 @@ The \code{repr_pla} computes PLA (Piecewise Linear Approximation) representation
 repr_pla(rnorm(100), times = 12, return = "both")
 
 }
+\references{
+Zhu Y, Wu D, Li Sh (2007)
+A Piecewise Linear Representation Method of Time Series Based on Feature Points.
+Knowledge-Based Intelligent Information and Engineering Systems 4693:1066-1072
+}
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
+}

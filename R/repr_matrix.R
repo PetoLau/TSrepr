@@ -18,6 +18,8 @@
 #'
 #' @details TODO.
 #'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
 #' @seealso \code{\link[TSrepr]{repr_windowing}}
 #'
 #' @examples

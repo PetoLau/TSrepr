@@ -23,6 +23,18 @@ The \code{repr_gam} computes seasonal GAM regression coefficients. Additional ex
 repr_gam(rnorm(96), freq = 24)
 
 }
+\references{
+Laurinec P, Lucka M (2016)
+Comparison of representations of time series for clustering smart meter data.
+In: Lecture Notes in Engineering and Computer Science: Proceedings of The World Congress on Engineering and Computer Science 2016, pp 458-463
+
+Laurinec P, Loderer M, Vrablecova P, Lucka M, Rozinajova V, Ezzeddine AB (2016)
+Adaptive time series forecasting of energy consumption using optimized cluster analysis.
+In: Data Mining Workshops (ICDMW), 2016 IEEE 16th International Conference on, IEEE, pp 398-405
+}
 \seealso{
 \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_exp}, \link[mgcv]{gam}}
+}
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
 }

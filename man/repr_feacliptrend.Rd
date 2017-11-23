@@ -28,3 +28,6 @@ repr_feacliptrend(rnorm(50), maxC, 2, 4)
 \seealso{
 \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feaclip}}
 }
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
+}

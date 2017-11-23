@@ -27,3 +27,6 @@ norm_z_list(runif(50))
 \seealso{
 \code{\link[TSrepr]{norm_min_max_list}}
 }
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
+}

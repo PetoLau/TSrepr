@@ -22,3 +22,6 @@ repr_feaclip(rnorm(50))
 \seealso{
 \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feacliptrend}}
 }
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
+}

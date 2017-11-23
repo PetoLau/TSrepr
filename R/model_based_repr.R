@@ -15,6 +15,8 @@
 #' @param X the model (design) matrix of independent variables
 #' @param Y the vector of dependent variable (time series)
 #'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
 #' @seealso \code{\link[stats]{lm}, \link[MASS]{rlm}, \link[quantreg]{rq}}
 #'
 #' @examples
@@ -82,6 +84,16 @@ l1Coef <- function(X, Y) {
 #' @param xreg the data.frame with additional exogenous regressors or the single numeric vector
 #'
 #' @details TODO. lm rlm and l1. Frequencies.
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @references Laurinec P, Lucka M (2016)
+#' Comparison of representations of time series for clustering smart meter data.
+#' In: Lecture Notes in Engineering and Computer Science: Proceedings of The World Congress on Engineering and Computer Science 2016, pp 458-463
+#'
+#' Laurinec P, Loderer M, Vrablecova P, Lucka M, Rozinajova V, Ezzeddine AB (2016)
+#' Adaptive time series forecasting of energy consumption using optimized cluster analysis.
+#' In: Data Mining Workshops (ICDMW), 2016 IEEE 16th International Conference on, IEEE, pp 398-405
 #'
 #' @seealso \code{\link[TSrepr]{repr_gam}, \link[TSrepr]{repr_exp}}
 #'
@@ -202,6 +214,16 @@ repr_lm <- function(x, freq = NULL, method = "lm", xreg = NULL) {
 #' @param x the numeric vector (time series)
 #' @param freq the frequency of the time series. Can be vector of two frequencies (seasonalities) or just an integer of one frequency.
 #' @param xreg the numeric vector or the data.frame with additional exogenous regressors
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @references Laurinec P, Lucka M (2016)
+#' Comparison of representations of time series for clustering smart meter data.
+#' In: Lecture Notes in Engineering and Computer Science: Proceedings of The World Congress on Engineering and Computer Science 2016, pp 458-463
+#'
+#' Laurinec P, Loderer M, Vrablecova P, Lucka M, Rozinajova V, Ezzeddine AB (2016)
+#' Adaptive time series forecasting of energy consumption using optimized cluster analysis.
+#' In: Data Mining Workshops (ICDMW), 2016 IEEE 16th International Conference on, IEEE, pp 398-405
 #'
 #' @seealso \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_exp}, \link[mgcv]{gam}}
 #'
@@ -324,6 +346,16 @@ repr_gam <- function(x, freq = NULL, xreg = NULL) {
 #' @param freq the frequency of the time series
 #' @param alpha the smoothing factor (default to TRUE - automatic determination of smoothing factor), or number between 0 to 1
 #' @param gamma the seasonal smoothing factor (default to TRUE - automatic determination of seasonal smoothing factor), or number between 0 to 1
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @references Laurinec P, Lucka M (2016)
+#' Comparison of representations of time series for clustering smart meter data.
+#' In: Lecture Notes in Engineering and Computer Science: Proceedings of The World Congress on Engineering and Computer Science 2016, pp 458-463
+#'
+#' Laurinec P, Loderer M, Vrablecova P, Lucka M, Rozinajova V, Ezzeddine AB (2016)
+#' Adaptive time series forecasting of energy consumption using optimized cluster analysis.
+#' In: Data Mining Workshops (ICDMW), 2016 IEEE 16th International Conference on, IEEE, pp 398-405
 #'
 #' @seealso \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_gam}, \link[TSrepr]{repr_seas_profile},
 #' \link[stats]{HoltWinters}}

@@ -27,6 +27,14 @@ The \code{repr_dwt} computes DWT (Discrete Wavelet Transform) representation (co
 repr_dwt(rnorm(50), filter = "d4", level = 3)
 
 }
+\references{
+Laurinec P, Lucka M (2016)
+Comparison of representations of time series for clustering smart meter data.
+In: Lecture Notes in Engineering and Computer Science: Proceedings of The World Congress on Engineering and Computer Science 2016, pp 458-463
+}
 \seealso{
 \code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}, \link[wavelets]{dwt}}
+}
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
 }

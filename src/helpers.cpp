@@ -13,6 +13,8 @@ using namespace Rcpp;
 //'
 //' @param x the numeric vector
 //'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
 //' @examples
 //' maxC(rnorm(50))
 //'

@@ -21,3 +21,6 @@ the \code{mape} computes MAPE (Mean Absolute Percentage Error) of a forecast.
 mape(runif(50), runif(50))
 
 }
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
+}

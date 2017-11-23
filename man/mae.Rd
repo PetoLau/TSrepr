@@ -21,3 +21,6 @@ The \code{mae} computes MAE (Mean Absolute Error) of a forecast.
 mae(runif(50), runif(50))
 
 }
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
+}

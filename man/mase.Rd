@@ -23,3 +23,6 @@ The \code{mase} computes MASE (Mean Absolute Scaled Error) of a forecast.
 mase(rnorm(50), rnorm(50), rnorm(50))
 
 }
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
+}

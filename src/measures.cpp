@@ -14,6 +14,8 @@ using namespace Rcpp;
 //' @param x the numeric vector of real values
 //' @param y the numeric vector of forecasted values
 //'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
 //' @examples
 //' rmse(runif(50), runif(50))
 //'
@@ -41,6 +43,8 @@ double rmse(NumericVector x, NumericVector y) {
 //' @param x the numeric vector of real values
 //' @param y the numeric vector of forecasted values
 //'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
 //' @examples
 //' mae(runif(50), runif(50))
 //'
@@ -67,6 +71,8 @@ double mae(NumericVector x, NumericVector y) {
 //'
 //' @param x the numeric vector of real values
 //' @param y the numeric vector of forecasted values
+//'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
 //'
 //' @examples
 //' smape(runif(50), runif(50))
@@ -96,6 +102,8 @@ double smape(NumericVector x, NumericVector y) {
 //' @param x the numeric vector of real values
 //' @param y the numeric vector of forecasted values
 //'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
 //' @examples
 //' mape(runif(50), runif(50))
 //'
@@ -124,6 +132,8 @@ double mape(NumericVector x, NumericVector y) {
 //' @param x the numeric vector of real values
 //' @param y the numeric vector of forecasted values
 //'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
 //' @examples
 //' mdae(runif(50), runif(50))
 //'
@@ -149,6 +159,8 @@ double mdae(NumericVector x, NumericVector y) {
 //' @param real the numeric vector of real values
 //' @param forecast the numeric vector of forecasted values
 //' @param naive the numeric vector of naive forecast
+//'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
 //'
 //' @examples
 //' mase(rnorm(50), rnorm(50), rnorm(50))

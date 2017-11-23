@@ -21,3 +21,6 @@ The \code{smape} computes sMAPE (Symmetric Mean Absolute Percentage Error) of a 
 smape(runif(50), runif(50))
 
 }
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
+}
