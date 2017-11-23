@@ -21,3 +21,6 @@ The \code{mdae} computes MdAE (Median Absolute Error) of a forecast.
 mdae(runif(50), runif(50))
 
 }
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
+}

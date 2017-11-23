@@ -19,6 +19,14 @@ The \code{clipping} computes bit-level (clipping representation) from a vector.
 clipping(rnorm(50))
 
 }
+\references{
+Bagnall A, Ratanamahatana C, Keogh E, Lonardi S, Janacek G (2006)
+A bit level representation for time series data mining with shape based similarity.
+Data Mining and Knowledge Discovery 13(1):11-40
+}
 \seealso{
 \code{\link[TSrepr]{trending}}
+}
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
 }

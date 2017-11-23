@@ -21,3 +21,6 @@ The \code{rmse} computes RMSE (Root Mean Squared Error) of a forecast.
 rmse(runif(50), runif(50))
 
 }
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
+}

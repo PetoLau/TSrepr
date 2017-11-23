@@ -23,6 +23,14 @@ The \code{repr_paa} computes PAA representation from a vector.
 repr_paa(rnorm(11), 2, meanC)
 
 }
+\references{
+Keogh E, Chakrabarti K, Pazzani M, Mehrotra Sh (2001)
+Dimensionality Reduction for Fast Similarity Search in Large Time Series Databases.
+Knowledge and Information Systems 3(3):263-286
+}
 \seealso{
 \code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}, \link[TSrepr]{repr_sma}}
+}
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
 }

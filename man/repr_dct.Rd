@@ -24,3 +24,6 @@ repr_dct(rnorm(50), coef = 4)
 \seealso{
 \code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dwt}, \link[dtt]{dct}}
 }
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
+}

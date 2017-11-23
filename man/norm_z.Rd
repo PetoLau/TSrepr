@@ -22,3 +22,6 @@ norm_z(runif(50))
 \seealso{
 \code{\link[TSrepr]{norm_min_max}}
 }
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
+}

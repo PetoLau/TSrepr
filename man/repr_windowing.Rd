@@ -33,3 +33,6 @@ repr_windowing(rnorm(48), win_size = 24, func = repr_featrend,
 \seealso{
 \code{\link[TSrepr]{repr_paa}, \link[TSrepr]{repr_matrix}}
 }
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
+}

@@ -11,6 +11,8 @@
 #' @param func the function for representation computation. For example \code{repr_feaclip} or \code{repr_trend}.
 #' @param args the additional arguments to the func (representation computation function). The args list must be named.
 #'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
 #' @seealso \code{\link[TSrepr]{repr_paa}, \link[TSrepr]{repr_matrix}}
 #'
 #' @examples

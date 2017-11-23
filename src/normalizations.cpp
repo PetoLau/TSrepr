@@ -15,6 +15,8 @@ using namespace Rcpp;
 //'
 //' @param x the numeric vector (time series)
 //'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
 //' @examples
 //' norm_z(runif(50))
 //'
@@ -73,6 +75,8 @@ NumericVector norm_z(NumericVector x) {
 //'
 //' @seealso \code{\link[TSrepr]{norm_min_max_list}}
 //'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
 //' @examples
 //' norm_z_list(runif(50))
 //'
@@ -130,6 +134,8 @@ List norm_z_list(NumericVector x) {
 //'
 //' @seealso \code{\link[TSrepr]{norm_z}}
 //'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
 //' @examples
 //' norm_min_max(rnorm(50))
 //'
@@ -176,6 +182,8 @@ NumericVector norm_min_max(NumericVector x) {
 //' @param x the numeric vector (time series)
 //'
 //' @seealso \code{\link[TSrepr]{norm_z_list}}
+//'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
 //'
 //' @examples
 //' norm_min_max_list(rnorm(50))

@@ -19,6 +19,12 @@
 #'
 #' @seealso \code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}, \link[wavelets]{dwt}}
 #'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @references Laurinec P, Lucka M (2016)
+#' Comparison of representations of time series for clustering smart meter data.
+#' In: Lecture Notes in Engineering and Computer Science: Proceedings of The World Congress on Engineering and Computer Science 2016, pp 458-463
+#'
 #' @examples
 #' # Interpretation: DWT with Daubechies filter of length 4 and
 #' # 3rd level of DWT coefficients extracted.
@@ -50,6 +56,8 @@ repr_dwt <- function(x, level = 4, filter = "d4") {
 #'
 #' @seealso \code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dct}, \link[stats]{fft}}
 #'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
 #' @examples
 #' repr_dft(rnorm(50), coef = 4)
 #'
@@ -79,6 +87,8 @@ repr_dft <- function(x, coef) {
 #' @param coef the number of coefficients to extract from DCT
 #'
 #' @seealso \code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dwt}, \link[dtt]{dct}}
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
 #'
 #' @examples
 #' repr_dct(rnorm(50), coef = 4)

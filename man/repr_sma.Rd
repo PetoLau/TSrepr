@@ -21,3 +21,6 @@ The \code{repr_sma} computes Simple Moving Average (SMA) from a time series.
 repr_sma(rnorm(50), 4)
 
 }
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
+}

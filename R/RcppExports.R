@@ -13,6 +13,12 @@
 #'
 #' @seealso \code{\link[TSrepr]{trending}}
 #'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @references Bagnall A, Ratanamahatana C, Keogh E, Lonardi S, Janacek G (2006)
+#' A bit level representation for time series data mining with shape based similarity.
+#' Data Mining and Knowledge Discovery 13(1):11-40
+#'
 #' @importFrom Rcpp evalCpp
 #'
 #' @examples
@@ -36,6 +42,8 @@ clipping <- function(x) {
 #'
 #' @seealso \code{\link[TSrepr]{clipping}}
 #'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
 #' @examples
 #' trending(rnorm(50))
 #'
@@ -56,6 +64,8 @@ trending <- function(x) {
 #' @param x the numeric vector (time series)
 #'
 #' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feacliptrend}}
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
 #'
 #' @examples
 #' repr_feaclip(rnorm(50))
@@ -80,6 +90,8 @@ repr_feaclip <- function(x) {
 #' @param order the order of simple moving average (default to 4)
 #'
 #' @seealso \code{\link[TSrepr]{repr_feaclip}, \link[TSrepr]{repr_feacliptrend}}
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
 #'
 #' @examples
 #' # default settings
@@ -109,6 +121,8 @@ repr_featrend <- function(x, func, pieces = 2L, order = 4L) {
 #'
 #' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feaclip}}
 #'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
 #' @examples
 #' repr_feacliptrend(rnorm(50), maxC, 2, 4)
 #'
@@ -127,6 +141,8 @@ repr_feacliptrend <- function(x, func, pieces = 2L, order = 4L) {
 #' @return the numeric value
 #'
 #' @param x the numeric vector
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
 #'
 #' @examples
 #' maxC(rnorm(50))
@@ -199,6 +215,8 @@ medianC <- function(x) {
 #' @param x the numeric vector of real values
 #' @param y the numeric vector of forecasted values
 #'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
 #' @examples
 #' rmse(runif(50), runif(50))
 #'
@@ -218,6 +236,8 @@ rmse <- function(x, y) {
 #'
 #' @param x the numeric vector of real values
 #' @param y the numeric vector of forecasted values
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
 #'
 #' @examples
 #' mae(runif(50), runif(50))
@@ -239,6 +259,8 @@ mae <- function(x, y) {
 #' @param x the numeric vector of real values
 #' @param y the numeric vector of forecasted values
 #'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
 #' @examples
 #' smape(runif(50), runif(50))
 #'
@@ -258,6 +280,8 @@ smape <- function(x, y) {
 #'
 #' @param x the numeric vector of real values
 #' @param y the numeric vector of forecasted values
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
 #'
 #' @examples
 #' mape(runif(50), runif(50))
@@ -279,6 +303,8 @@ mape <- function(x, y) {
 #' @param x the numeric vector of real values
 #' @param y the numeric vector of forecasted values
 #'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
 #' @examples
 #' mdae(runif(50), runif(50))
 #'
@@ -298,6 +324,8 @@ mdae <- function(x, y) {
 #' @param real the numeric vector of real values
 #' @param forecast the numeric vector of forecasted values
 #' @param naive the numeric vector of naive forecast
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
 #'
 #' @examples
 #' mase(rnorm(50), rnorm(50), rnorm(50))
@@ -319,6 +347,8 @@ mase <- function(real, forecast, naive) {
 #' @seealso \code{\link[TSrepr]{norm_min_max}}
 #'
 #' @param x the numeric vector (time series)
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
 #'
 #' @examples
 #' norm_z(runif(50))
@@ -346,6 +376,8 @@ norm_z <- function(x) {
 #'
 #' @seealso \code{\link[TSrepr]{norm_min_max_list}}
 #'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
 #' @examples
 #' norm_z_list(runif(50))
 #'
@@ -366,6 +398,8 @@ norm_z_list <- function(x) {
 #' @param x the numeric vector (time series)
 #'
 #' @seealso \code{\link[TSrepr]{norm_z}}
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
 #'
 #' @examples
 #' norm_min_max(rnorm(50))
@@ -393,6 +427,8 @@ norm_min_max <- function(x) {
 #'
 #' @seealso \code{\link[TSrepr]{norm_z_list}}
 #'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
 #' @examples
 #' norm_min_max_list(rnorm(50))
 #'
@@ -412,6 +448,8 @@ norm_min_max_list <- function(x) {
 #'
 #' @param x the numeric vector (time series)
 #' @param order the order of simple moving average
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
 #'
 #' @examples
 #' repr_sma(rnorm(50), 4)
@@ -436,6 +474,12 @@ repr_sma <- function(x, order) {
 #'
 #' @seealso \code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}, \link[TSrepr]{repr_sma}}
 #'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @references Keogh E, Chakrabarti K, Pazzani M, Mehrotra Sh (2001)
+#' Dimensionality Reduction for Fast Similarity Search in Large Time Series Databases.
+#' Knowledge and Information Systems 3(3):263-286
+#'
 #' @examples
 #' repr_paa(rnorm(11), 2, meanC)
 #'
@@ -456,6 +500,16 @@ repr_paa <- function(x, q, func) {
 #' @param x the numeric vector (time series)
 #' @param freq the integer of the length of the season
 #' @param func the aggregation function. Can be meanC or medianC or similar aggregation function.
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @references Laurinec P, Lucka M (2016)
+#' Comparison of representations of time series for clustering smart meter data.
+#' In: Lecture Notes in Engineering and Computer Science: Proceedings of The World Congress on Engineering and Computer Science 2016, pp 458-463
+#'
+#' Laurinec P, Loderer M, Vrablecova P, Lucka M, Rozinajova V, Ezzeddine AB (2016)
+#' Adaptive time series forecasting of energy consumption using optimized cluster analysis.
+#' In: Data Mining Workshops (ICDMW), 2016 IEEE 16th International Conference on, IEEE, pp 398-405
 #'
 #' @seealso \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_gam}, \link[TSrepr]{repr_exp}}
 #'

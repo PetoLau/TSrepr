@@ -44,3 +44,6 @@ sumC(rnorm(50))
 medianC(rnorm(50))
 
 }
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
+}

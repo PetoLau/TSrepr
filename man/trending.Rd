@@ -22,3 +22,6 @@ trending(rnorm(50))
 \seealso{
 \code{\link[TSrepr]{clipping}}
 }
+\author{
+Peter Laurinec, <tsreprpackage@gmail.com>
+}

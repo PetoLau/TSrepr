@@ -18,6 +18,12 @@ using namespace Rcpp;
 //'
 //' @seealso \code{\link[TSrepr]{trending}}
 //'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
+//' @references Bagnall A, Ratanamahatana C, Keogh E, Lonardi S, Janacek G (2006)
+//' A bit level representation for time series data mining with shape based similarity.
+//' Data Mining and Knowledge Discovery 13(1):11-40
+//'
 //' @importFrom Rcpp evalCpp
 //'
 //' @examples
@@ -54,6 +60,8 @@ IntegerVector clipping(NumericVector x) {
 //'
 //' @seealso \code{\link[TSrepr]{clipping}}
 //'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
 //' @examples
 //' trending(rnorm(50))
 //'
@@ -85,6 +93,8 @@ IntegerVector trending(NumericVector x) {
 //' @param x the numeric vector (time series)
 //'
 //' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feacliptrend}}
+//'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
 //'
 //' @examples
 //' repr_feaclip(rnorm(50))
@@ -183,6 +193,8 @@ NumericVector repr_feaclip(NumericVector x) {
 //'
 //' @seealso \code{\link[TSrepr]{repr_feaclip}, \link[TSrepr]{repr_feacliptrend}}
 //'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
 //' @examples
 //' # default settings
 //' repr_featrend(rnorm(50), maxC)
@@ -274,6 +286,8 @@ NumericVector repr_featrend(NumericVector x, Rcpp::Function func, int pieces = 2
 //' @param order the order of simple moving average
 //'
 //' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feaclip}}
+//'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
 //'
 //' @examples
 //' repr_feacliptrend(rnorm(50), maxC, 2, 4)
