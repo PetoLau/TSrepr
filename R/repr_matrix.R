@@ -12,11 +12,12 @@
 #' @param func the function that computes representation
 #' @param args the list of additional (or required) parameters of func (function that computes representation)
 #' @param normalise normalise (scale) representations? (default is FALSE)
-#' @param func_norm the normalization function (default is \code{norm_z})
+#' @param func_norm the normalisation function (default is \code{norm_z})
 #' @param windowing perform windowing? (default is FALSE)
 #' @param win_size the size of the window
 #'
-#' @details TODO.
+#' @details This function computes representation to an every row of a matrix of time series and returns matrix of time series representations.
+#' It can be combined with windowing (see \code{\link{repr_windowing}}) and normalisation of time series.
 #'
 #' @author Peter Laurinec, <tsreprpackage@gmail.com>
 #'

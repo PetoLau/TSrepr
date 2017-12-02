@@ -15,6 +15,18 @@ the numeric vector of length 8
 \description{
 The \code{repr_feaclip} computes representation of time series based on feature extraction from bit-level (clipping) representation.
 }
+\details{
+FeaClip is method of time series representation based on feature extraction from run lengths (RLE) of bit-level (clipping) representation.
+It extracts 8 key features from clipping representation.
+
+There are as follows: \eqn{repr = {sum_1 - sum of run lengths of ones,
+max_0 - max. from run lengths of zeros,
+jumps - length of RLE encoding - 1,
+0_{1.} - number of first zeros,
+0_{n.} - number of last zeros,
+1_{1.} - number of first ones,
+1_{n.} - number of last ones}}.
+}
 \examples{
 repr_feaclip(rnorm(50))
 

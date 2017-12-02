@@ -19,6 +19,16 @@ the numeric vector of GAM regression coefficients
 \description{
 The \code{repr_gam} computes seasonal GAM regression coefficients. Additional exogenous variables can be also added.
 }
+\details{
+This model-based representation method extracts regression coefficients from a GAM (Generalized Additive Model).
+The extraction of seasonal regression coefficients is automatic.
+The maximum number of seasonalities is 2 so it is possible to compute representation for double-seasonal time series.
+The first set seasonality (frequency) is main, so for example if we have hourly time series (\code{freq = c(24, 24*7)}),
+the number of extracted daily seasonal coefficients is 24 and the number of
+weekly seasonal coefficients is 7, because the length of second seasonality representation is always freq_1 / freq_2.
+The smooth function for seasonal variables is set to cubic regression spline.
+There is also possibility to add another independent variables (\code{xreg}).
+}
 \examples{
 repr_gam(rnorm(96), freq = 24)
 

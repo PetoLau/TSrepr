@@ -4,7 +4,7 @@
 \alias{repr_dft}
 \title{DFT representation by FFT}
 \usage{
-repr_dft(x, coef)
+repr_dft(x, coef = 10)
 }
 \arguments{
 \item{x}{the numeric vector (time series)}
@@ -16,6 +16,9 @@ the numeric vector of DFT coefficients
 }
 \description{
 The \code{repr_dft} computes DFT (Discrete Fourier Transform) representation from a time series by FFT (Fast Fourier Transform).
+}
+\details{
+The length of the final time series representation is equal to set \code{coef} parameter.
 }
 \examples{
 repr_dft(rnorm(50), coef = 4)

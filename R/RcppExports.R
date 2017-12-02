@@ -11,6 +11,12 @@
 #'
 #' @param x the numeric vector (time series)
 #'
+#' @details Clipping transforms time series to bit-level representation.
+#'
+#' It is defined as follows:
+#' \eqn{repr_t = {1 if x_t > \mu , 0 otherwise}}, where \eqn{x_t} is a value of a time series
+#' and \eqn{\mu} is average of a time series.
+#'
 #' @seealso \code{\link[TSrepr]{trending}}
 #'
 #' @author Peter Laurinec, <tsreprpackage@gmail.com>
@@ -32,13 +38,18 @@ clipping <- function(x) {
 
 #' @rdname trending
 #' @name trending
-#' @title Creates trend-level (trending) representation from a vector
+#' @title Creates bit-level (trending) representation from a vector
 #'
-#' @description The \code{trending} Computes trend-level (trending) representation from a vector.
+#' @description The \code{trending} Computes bit-level (trending) representation from a vector.
 #'
 #' @return the integer vector of zeros and ones
 #'
 #' @param x the numeric vector (time series)
+#'
+#' @details Trending transforms time series to bit-level representation.
+#'
+#' It is defined as follows:
+#' \eqn{repr_t = {1 if x_t - x_{t+1} < 0 , 0 otherwise}}, where \eqn{x_t} is a value of a time series.
 #'
 #' @seealso \code{\link[TSrepr]{clipping}}
 #'
@@ -63,6 +74,17 @@ trending <- function(x) {
 #'
 #' @param x the numeric vector (time series)
 #'
+#' @details FeaClip is method of time series representation based on feature extraction from run lengths (RLE) of bit-level (clipping) representation.
+#' It extracts 8 key features from clipping representation.
+#'
+#' There are as follows: \eqn{repr = {sum_1 - sum of run lengths of ones,
+#' max_0 - max. from run lengths of zeros,
+#' jumps - length of RLE encoding - 1,
+#' 0_{1.} - number of first zeros,
+#' 0_{n.} - number of last zeros,
+#' 1_{1.} - number of first ones,
+#' 1_{n.} - number of last ones}}.
+#'
 #' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feacliptrend}}
 #'
 #' @author Peter Laurinec, <tsreprpackage@gmail.com>
@@ -80,7 +102,7 @@ repr_feaclip <- function(x) {
 #' @name repr_featrend
 #' @title FeaTrend representation of time series
 #'
-#' @description The \code{repr_featrend} computes representation of time series based on feature extraction from trend-level (trending) representation.
+#' @description The \code{repr_featrend} computes representation of time series based on feature extraction from bit-level (trending) representation.
 #'
 #' @return the numeric vector of the length pieces
 #'
@@ -88,6 +110,11 @@ repr_feaclip <- function(x) {
 #' @param func the function of aggregation, can be sumC or maxC or similar aggregation function
 #' @param pieces the number of parts of time series to split (default to 2)
 #' @param order the order of simple moving average (default to 4)
+#'
+#' @details FeaTrend is method of time series representation based on feature extraction from run lengths (RLE) of bit-level (trending) representation.
+#' It extracts number of features from trending representation based on number of pieces defined.
+#' From every piece, 2 features are extracted. You can define what feature will be extracted,
+#' recommended functions are max and sum. For example if max is selected, then maximum value of run lengths of ones and zeros are extracted.
 #'
 #' @seealso \code{\link[TSrepr]{repr_feaclip}, \link[TSrepr]{repr_feacliptrend}}
 #'
@@ -110,7 +137,8 @@ repr_featrend <- function(x, func, pieces = 2L, order = 4L) {
 #' @name repr_feacliptrend
 #' @title FeaClipTrend representation of time series
 #'
-#' @description The \code{repr_feacliptrend} computes representation of time series based on feature extraction from bit-level and trend-level representation.
+#' @description The \code{repr_feacliptrend} computes representation of time series
+#' based on feature extraction from bit-level representations (clipping and trending).
 #'
 #' @return the numeric vector of frequencies of features
 #'
@@ -118,6 +146,9 @@ repr_featrend <- function(x, func, pieces = 2L, order = 4L) {
 #' @param func the aggregation function for FeaTrend procedure (sumC or maxC)
 #' @param pieces the number of parts of time series to split
 #' @param order the order of simple moving average
+#'
+#' @details FeaClipTrend combines FeaClip and FeaTrend representation methods.
+#' See documentation of these two methods (check See Also section).
 #'
 #' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feaclip}}
 #'
@@ -387,6 +418,34 @@ norm_z_list <- function(x) {
     .Call('_TSrepr_norm_z_list', PACKAGE = 'TSrepr', x)
 }
 
+#' @rdname denorm_z
+#' @name denorm_z
+#' @title Z-score denormalisation
+#'
+#' @description The \code{denorm_z} denormalises time series by z-score method.
+#'
+#' @return the numeric vector of denormalised values
+#'
+#' @param x the numeric vector (time series)
+#' @param mean the mean value
+#' @param sd the standard deviation value
+#'
+#' @seealso \code{\link[TSrepr]{norm_z}, \link[TSrepr]{norm_z_list}}
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @examples
+#' # Normalise values and save normalisation parameters:
+#' norm_res <- norm_z_list(rnorm(50, 5, 2))
+#' # Denormalise new data with previous computed parameters:
+#' denorm_z(rnorm(50, 4, 2), mean = norm_res$mean, sd = norm_res$sd)
+#'
+#' @useDynLib TSrepr
+#' @export denorm_z
+denorm_z <- function(x, mean, sd) {
+    .Call('_TSrepr_denorm_z', PACKAGE = 'TSrepr', x, mean, sd)
+}
+
 #' @rdname norm_min_max
 #' @name norm_min_max
 #' @title Min-Max normalisation
@@ -438,6 +497,34 @@ norm_min_max_list <- function(x) {
     .Call('_TSrepr_norm_min_max_list', PACKAGE = 'TSrepr', x)
 }
 
+#' @rdname denorm_min_max
+#' @name denorm_min_max
+#' @title Min-Max denormalisation
+#'
+#' @description The \code{denorm_min_max} denormalises time series by min-max method.
+#'
+#' @return the numeric vector of denormalised values
+#'
+#' @param x the numeric vector (time series)
+#' @param min the minimum value
+#' @param max the maximal value
+#'
+#' @seealso \code{\link[TSrepr]{norm_min_max}, \link[TSrepr]{norm_min_max_list}}
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @examples
+#' # Normalise values and save normalisation parameters:
+#' norm_res <- norm_min_max_list(rnorm(50, 5, 2))
+#' # Denormalise new data with previous computed parameters:
+#' denorm_min_max(rnorm(50, 4, 2), min = norm_res$min, max = norm_res$max)
+#'
+#' @useDynLib TSrepr
+#' @export denorm_min_max
+denorm_min_max <- function(x, min, max) {
+    .Call('_TSrepr_denorm_min_max', PACKAGE = 'TSrepr', x, min, max)
+}
+
 #' @rdname repr_sma
 #' @name repr_sma
 #' @title Simple Moving Average representation
@@ -472,6 +559,9 @@ repr_sma <- function(x, order) {
 #' @param q the integer of the length of the "piece"
 #' @param func the aggregation function. Can be meanC, medianC, sumC, minC or maxC or similar aggregation function
 #'
+#' @details PAA with possibility to use arbitrary aggregation function.
+#' The original method uses average as aggregation function.
+#'
 #' @seealso \code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}, \link[TSrepr]{repr_sma}}
 #'
 #' @author Peter Laurinec, <tsreprpackage@gmail.com>
@@ -500,6 +590,10 @@ repr_paa <- function(x, q, func) {
 #' @param x the numeric vector (time series)
 #' @param freq the integer of the length of the season
 #' @param func the aggregation function. Can be meanC or medianC or similar aggregation function.
+#'
+#' @details This function computes mean seasonal profile representation for a seasonal time series.
+#' The length of representation is length of set seasonality (frequency) of a time series.
+#' Aggregation function is arbitrary (best choice is for you maybe mean or median).
 #'
 #' @author Peter Laurinec, <tsreprpackage@gmail.com>
 #'

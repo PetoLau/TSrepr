@@ -19,7 +19,12 @@ repr_feacliptrend(x, func, pieces = 2L, order = 4L)
 the numeric vector of frequencies of features
 }
 \description{
-The \code{repr_feacliptrend} computes representation of time series based on feature extraction from bit-level and trend-level representation.
+The \code{repr_feacliptrend} computes representation of time series
+based on feature extraction from bit-level representations (clipping and trending).
+}
+\details{
+FeaClipTrend combines FeaClip and FeaTrend representation methods.
+See documentation of these two methods (check See Also section).
 }
 \examples{
 repr_feacliptrend(rnorm(50), maxC, 2, 4)

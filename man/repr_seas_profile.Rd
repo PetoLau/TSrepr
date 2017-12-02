@@ -19,6 +19,11 @@ the numeric vector
 \description{
 The \code{repr_seas_profile} computes mean seasonal profile representation from a time series.
 }
+\details{
+This function computes mean seasonal profile representation for a seasonal time series.
+The length of representation is length of set seasonality (frequency) of a time series.
+Aggregation function is arbitrary (best choice is for you maybe mean or median).
+}
 \examples{
 repr_seas_profile(rnorm(48*10), 48, meanC)
 

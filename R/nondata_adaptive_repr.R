@@ -17,6 +17,11 @@
 #'  Can be: "haar", "d4", "d6", ..., "d20", "la8", "la10", ..., "la20", "bl14", "bl18", "bl20",
 #'   "c6", "c12", ..., "c30". See more info at \code{\link[wavelets]{wt.filter}}.
 #'
+#' @details This function extracts DWT coefficients.
+#' You can use various wavelet filters, see all of them here \code{\link[wavelets]{wt.filter}}.
+#' The number of extracted coefficients depends on the \code{level} selected.
+#' The final representation has length equal to floor(n / 2^{level}), where n is a length of original time series.
+#'
 #' @seealso \code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}, \link[wavelets]{dwt}}
 #'
 #' @author Peter Laurinec, <tsreprpackage@gmail.com>
@@ -54,6 +59,8 @@ repr_dwt <- function(x, level = 4, filter = "d4") {
 #' @param x the numeric vector (time series)
 #' @param coef the number of coefficients to extract from FFT
 #'
+#' @details The length of the final time series representation is equal to set \code{coef} parameter.
+#'
 #' @seealso \code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dct}, \link[stats]{fft}}
 #'
 #' @author Peter Laurinec, <tsreprpackage@gmail.com>
@@ -63,7 +70,7 @@ repr_dwt <- function(x, level = 4, filter = "d4") {
 #'
 #' @importFrom stats fft
 #' @export repr_dft
-repr_dft <- function(x, coef) {
+repr_dft <- function(x, coef = 10) {
 
   x <- as.numeric(x)
 
@@ -86,6 +93,8 @@ repr_dft <- function(x, coef) {
 #' @param x the numeric vector (time series)
 #' @param coef the number of coefficients to extract from DCT
 #'
+#' @details The length of the final time series representation is equal to set \code{coef} parameter.
+#'
 #' @seealso \code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dwt}, \link[dtt]{dct}}
 #'
 #' @author Peter Laurinec, <tsreprpackage@gmail.com>
@@ -95,7 +104,7 @@ repr_dft <- function(x, coef) {
 #'
 #' @importFrom dtt dct
 #' @export repr_dct
-repr_dct <- function(x, coef) {
+repr_dct <- function(x, coef = 10) {
 
   x <- as.numeric(x)
 

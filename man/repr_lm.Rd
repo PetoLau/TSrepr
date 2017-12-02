@@ -19,10 +19,24 @@ repr_lm(x, freq = NULL, method = "lm", xreg = NULL)
 the numeric vector of regression coefficients
 }
 \description{
-The \code{repr_lm} computes seasonal regression coefficients from a linear model. Additional exogenous variables can be also added.
+The \code{repr_lm} computes seasonal regression coefficients from a linear model.
+Additional exogenous variables can be also added.
 }
 \details{
-TODO. lm rlm and l1. Frequencies.
+This model-based representation method extracts regression coefficients from a linear model.
+The extraction of seasonal regression coefficients is automatic.
+The maximum number of seasonalities is 2 so it is possible to compute representation for double-seasonal time series.
+The first set seasonality (frequency) is main, so for example if we have hourly time series (\code{freq = c(24, 24*7)}),
+the number of extracted daily seasonal coefficients is 24 and the number of
+weekly seasonal coefficients is 7, because the length of second seasonality representation is always freq_1 / freq_2.
+There is also possibility to add another independent variables (\code{xreg}).
+
+You have three possibilities for selection of a linear model method.
+\itemize{
+ \item "lm" is classical OLS regression.
+ \item "rlm" is robust linear model using psi huber function and is implemented in MASS package.
+ \item "l1" is L1 quantile regression model (also robust linear regression method) implemented in package quantreg.
+}
 }
 \examples{
 # Extracts 24 seasonal regression coefficients from the time series by linear model

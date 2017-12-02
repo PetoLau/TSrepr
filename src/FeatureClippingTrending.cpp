@@ -16,6 +16,12 @@ using namespace Rcpp;
 //'
 //' @param x the numeric vector (time series)
 //'
+//' @details Clipping transforms time series to bit-level representation.
+//'
+//' It is defined as follows:
+//' \eqn{repr_t = {1 if x_t > \mu , 0 otherwise}}, where \eqn{x_t} is a value of a time series
+//' and \eqn{\mu} is average of a time series.
+//'
 //' @seealso \code{\link[TSrepr]{trending}}
 //'
 //' @author Peter Laurinec, <tsreprpackage@gmail.com>
@@ -50,13 +56,18 @@ IntegerVector clipping(NumericVector x) {
 
 //' @rdname trending
 //' @name trending
-//' @title Creates trend-level (trending) representation from a vector
+//' @title Creates bit-level (trending) representation from a vector
 //'
-//' @description The \code{trending} Computes trend-level (trending) representation from a vector.
+//' @description The \code{trending} Computes bit-level (trending) representation from a vector.
 //'
 //' @return the integer vector of zeros and ones
 //'
 //' @param x the numeric vector (time series)
+//'
+//' @details Trending transforms time series to bit-level representation.
+//'
+//' It is defined as follows:
+//' \eqn{repr_t = {1 if x_t - x_{t+1} < 0 , 0 otherwise}}, where \eqn{x_t} is a value of a time series.
 //'
 //' @seealso \code{\link[TSrepr]{clipping}}
 //'
@@ -91,6 +102,17 @@ IntegerVector trending(NumericVector x) {
 //' @return the numeric vector of length 8
 //'
 //' @param x the numeric vector (time series)
+//'
+//' @details FeaClip is method of time series representation based on feature extraction from run lengths (RLE) of bit-level (clipping) representation.
+//' It extracts 8 key features from clipping representation.
+//'
+//' There are as follows: \eqn{repr = {sum_1 - sum of run lengths of ones,
+//' max_0 - max. from run lengths of zeros,
+//' jumps - length of RLE encoding - 1,
+//' 0_{1.} - number of first zeros,
+//' 0_{n.} - number of last zeros,
+//' 1_{1.} - number of first ones,
+//' 1_{n.} - number of last ones}}.
 //'
 //' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feacliptrend}}
 //'
@@ -182,7 +204,7 @@ NumericVector repr_feaclip(NumericVector x) {
 //' @name repr_featrend
 //' @title FeaTrend representation of time series
 //'
-//' @description The \code{repr_featrend} computes representation of time series based on feature extraction from trend-level (trending) representation.
+//' @description The \code{repr_featrend} computes representation of time series based on feature extraction from bit-level (trending) representation.
 //'
 //' @return the numeric vector of the length pieces
 //'
@@ -190,6 +212,11 @@ NumericVector repr_feaclip(NumericVector x) {
 //' @param func the function of aggregation, can be sumC or maxC or similar aggregation function
 //' @param pieces the number of parts of time series to split (default to 2)
 //' @param order the order of simple moving average (default to 4)
+//'
+//' @details FeaTrend is method of time series representation based on feature extraction from run lengths (RLE) of bit-level (trending) representation.
+//' It extracts number of features from trending representation based on number of pieces defined.
+//' From every piece, 2 features are extracted. You can define what feature will be extracted,
+//' recommended functions are max and sum. For example if max is selected, then maximum value of run lengths of ones and zeros are extracted.
 //'
 //' @seealso \code{\link[TSrepr]{repr_feaclip}, \link[TSrepr]{repr_feacliptrend}}
 //'
@@ -276,7 +303,8 @@ NumericVector repr_featrend(NumericVector x, Rcpp::Function func, int pieces = 2
 //' @name repr_feacliptrend
 //' @title FeaClipTrend representation of time series
 //'
-//' @description The \code{repr_feacliptrend} computes representation of time series based on feature extraction from bit-level and trend-level representation.
+//' @description The \code{repr_feacliptrend} computes representation of time series
+//' based on feature extraction from bit-level representations (clipping and trending).
 //'
 //' @return the numeric vector of frequencies of features
 //'
@@ -284,6 +312,9 @@ NumericVector repr_featrend(NumericVector x, Rcpp::Function func, int pieces = 2
 //' @param func the aggregation function for FeaTrend procedure (sumC or maxC)
 //' @param pieces the number of parts of time series to split
 //' @param order the order of simple moving average
+//'
+//' @details FeaClipTrend combines FeaClip and FeaTrend representation methods.
+//' See documentation of these two methods (check See Also section).
 //'
 //' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feaclip}}
 //'

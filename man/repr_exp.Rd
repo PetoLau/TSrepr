@@ -11,15 +11,20 @@ repr_exp(x, freq, alpha = TRUE, gamma = TRUE)
 
 \item{freq}{the frequency of the time series}
 
-\item{alpha}{the smoothing factor (default to TRUE - automatic determination of smoothing factor), or number between 0 to 1}
+\item{alpha}{the smoothing factor (default is TRUE - automatic determination of smoothing factor), or number between 0 to 1}
 
-\item{gamma}{the seasonal smoothing factor (default to TRUE - automatic determination of seasonal smoothing factor), or number between 0 to 1}
+\item{gamma}{the seasonal smoothing factor (default is TRUE - automatic determination of seasonal smoothing factor), or number between 0 to 1}
 }
 \value{
 the numeric vector of seasonal coefficients
 }
 \description{
 The \code{repr_exp} computes exponential smoothing seasonal coefficients.
+}
+\details{
+This function extracts exponential smoothing seasonal coefficients and uses them as time series representation.
+You can set smoothing factors (\code{alpha, gamma}) manually, but recommended is automatic method (set to \code{TRUE}).
+The trend component is not included in computations.
 }
 \examples{
 repr_exp(rnorm(96), freq = 24)

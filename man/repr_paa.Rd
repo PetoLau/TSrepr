@@ -19,6 +19,10 @@ the numeric vector
 \description{
 The \code{repr_paa} computes PAA representation from a vector.
 }
+\details{
+PAA with possibility to use arbitrary aggregation function.
+The original method uses average as aggregation function.
+}
 \examples{
 repr_paa(rnorm(11), 2, meanC)
 

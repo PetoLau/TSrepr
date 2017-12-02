@@ -19,7 +19,13 @@ repr_featrend(x, func, pieces = 2L, order = 4L)
 the numeric vector of the length pieces
 }
 \description{
-The \code{repr_featrend} computes representation of time series based on feature extraction from trend-level (trending) representation.
+The \code{repr_featrend} computes representation of time series based on feature extraction from bit-level (trending) representation.
+}
+\details{
+FeaTrend is method of time series representation based on feature extraction from run lengths (RLE) of bit-level (trending) representation.
+It extracts number of features from trending representation based on number of pieces defined.
+From every piece, 2 features are extracted. You can define what feature will be extracted,
+recommended functions are max and sum. For example if max is selected, then maximum value of run lengths of ones and zeros are extracted.
 }
 \examples{
 # default settings

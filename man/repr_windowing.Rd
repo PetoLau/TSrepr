@@ -21,6 +21,9 @@ the numeric vector
 \description{
 The \code{repr_windowing} computes representations from windows of a vector.
 }
+\details{
+This function applies specified representation method (function) to every non-overlapping window (subsequence, piece) of a time series.
+}
 \examples{
 # func without arguments
 repr_windowing(rnorm(48), win_size = 24, func = repr_feaclip)
