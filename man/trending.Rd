@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{trending}
 \alias{trending}
-\title{Creates trend-level (trending) representation from a vector}
+\title{Creates bit-level (trending) representation from a vector}
 \usage{
 trending(x)
 }
@@ -13,7 +13,13 @@ trending(x)
 the integer vector of zeros and ones
 }
 \description{
-The \code{trending} Computes trend-level (trending) representation from a vector.
+The \code{trending} Computes bit-level (trending) representation from a vector.
+}
+\details{
+Trending transforms time series to bit-level representation.
+
+It is defined as follows:
+\eqn{repr_t = {1 if x_t - x_{t+1} < 0 , 0 otherwise}}, where \eqn{x_t} is a value of a time series.
 }
 \examples{
 trending(rnorm(50))

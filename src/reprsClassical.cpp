@@ -56,6 +56,9 @@ NumericVector repr_sma(NumericVector x, int order) {
 //' @param q the integer of the length of the "piece"
 //' @param func the aggregation function. Can be meanC, medianC, sumC, minC or maxC or similar aggregation function
 //'
+//' @details PAA with possibility to use arbitrary aggregation function.
+//' The original method uses average as aggregation function.
+//'
 //' @seealso \code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}, \link[TSrepr]{repr_sma}}
 //'
 //' @author Peter Laurinec, <tsreprpackage@gmail.com>
@@ -123,6 +126,10 @@ NumericVector repr_paa(NumericVector x, int q, Rcpp::Function func) {
 //' @param x the numeric vector (time series)
 //' @param freq the integer of the length of the season
 //' @param func the aggregation function. Can be meanC or medianC or similar aggregation function.
+//'
+//' @details This function computes mean seasonal profile representation for a seasonal time series.
+//' The length of representation is length of set seasonality (frequency) of a time series.
+//' Aggregation function is arbitrary (best choice is for you maybe mean or median).
 //'
 //' @author Peter Laurinec, <tsreprpackage@gmail.com>
 //'

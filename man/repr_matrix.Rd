@@ -16,7 +16,7 @@ repr_matrix(x, func = NULL, args = NULL, normalise = FALSE,
 
 \item{normalise}{normalise (scale) representations? (default is FALSE)}
 
-\item{func_norm}{the normalization function (default is \code{norm_z})}
+\item{func_norm}{the normalisation function (default is \code{norm_z})}
 
 \item{windowing}{perform windowing? (default is FALSE)}
 
@@ -29,7 +29,8 @@ the numeric matrix of representations of time series
 The \code{repr_matrix} computes matrix of representations from matrix of time series
 }
 \details{
-TODO.
+This function computes representation to an every row of a matrix of time series and returns matrix of time series representations.
+It can be combined with windowing (see \code{\link{repr_windowing}}) and normalisation of time series.
 }
 \examples{
 # Create random matrix of time series

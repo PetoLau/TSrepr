@@ -15,6 +15,13 @@ the integer vector of zeros and ones
 \description{
 The \code{clipping} computes bit-level (clipping representation) from a vector.
 }
+\details{
+Clipping transforms time series to bit-level representation.
+
+It is defined as follows:
+\eqn{repr_t = {1 if x_t > \mu , 0 otherwise}}, where \eqn{x_t} is a value of a time series
+and \eqn{\mu} is average of a time series.
+}
 \examples{
 clipping(rnorm(50))
 

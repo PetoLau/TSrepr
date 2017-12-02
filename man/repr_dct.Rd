@@ -4,7 +4,7 @@
 \alias{repr_dct}
 \title{DCT representation}
 \usage{
-repr_dct(x, coef)
+repr_dct(x, coef = 10)
 }
 \arguments{
 \item{x}{the numeric vector (time series)}
@@ -16,6 +16,9 @@ the numeric vector of DCT coefficients
 }
 \description{
 The \code{repr_dct} computes DCT (Discrete Cosine Transform) representation from a time series.
+}
+\details{
+The length of the final time series representation is equal to set \code{coef} parameter.
 }
 \examples{
 repr_dct(rnorm(50), coef = 4)

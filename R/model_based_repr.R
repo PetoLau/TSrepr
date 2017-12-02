@@ -74,7 +74,8 @@ l1Coef <- function(X, Y) {
 #' @name repr_lm
 #' @title Regression coefficients from linear model as representation
 #'
-#' @description The \code{repr_lm} computes seasonal regression coefficients from a linear model. Additional exogenous variables can be also added.
+#' @description The \code{repr_lm} computes seasonal regression coefficients from a linear model.
+#' Additional exogenous variables can be also added.
 #'
 #' @return the numeric vector of regression coefficients
 #'
@@ -83,7 +84,21 @@ l1Coef <- function(X, Y) {
 #' @param method the linear regression method to use. It can be "lm", "rlm" or "l1".
 #' @param xreg the data.frame with additional exogenous regressors or the single numeric vector
 #'
-#' @details TODO. lm rlm and l1. Frequencies.
+#' @details This model-based representation method extracts regression coefficients from a linear model.
+#' The extraction of seasonal regression coefficients is automatic.
+#' The maximum number of seasonalities is 2 so it is possible to compute representation for double-seasonal time series.
+#' The first set seasonality (frequency) is main, so for example if we have hourly time series (\code{freq = c(24, 24*7)}),
+#' the number of extracted daily seasonal coefficients is 24 and the number of
+#' weekly seasonal coefficients is 7, because the length of second seasonality representation is always freq_1 / freq_2.
+#' There is also possibility to add another independent variables (\code{xreg}).
+#'
+#' You have three possibilities for selection of a linear model method.
+#' \itemize{
+#'  \item "lm" is classical OLS regression.
+#'  \item "rlm" is robust linear model using psi huber function and is implemented in MASS package.
+#'  \item "l1" is L1 quantile regression model (also robust linear regression method) implemented in package quantreg.
+#' }
+#'
 #'
 #' @author Peter Laurinec, <tsreprpackage@gmail.com>
 #'
@@ -215,6 +230,15 @@ repr_lm <- function(x, freq = NULL, method = "lm", xreg = NULL) {
 #' @param freq the frequency of the time series. Can be vector of two frequencies (seasonalities) or just an integer of one frequency.
 #' @param xreg the numeric vector or the data.frame with additional exogenous regressors
 #'
+#' @details This model-based representation method extracts regression coefficients from a GAM (Generalized Additive Model).
+#' The extraction of seasonal regression coefficients is automatic.
+#' The maximum number of seasonalities is 2 so it is possible to compute representation for double-seasonal time series.
+#' The first set seasonality (frequency) is main, so for example if we have hourly time series (\code{freq = c(24, 24*7)}),
+#' the number of extracted daily seasonal coefficients is 24 and the number of
+#' weekly seasonal coefficients is 7, because the length of second seasonality representation is always freq_1 / freq_2.
+#' The smooth function for seasonal variables is set to cubic regression spline.
+#' There is also possibility to add another independent variables (\code{xreg}).
+#'
 #' @author Peter Laurinec, <tsreprpackage@gmail.com>
 #'
 #' @references Laurinec P, Lucka M (2016)
@@ -344,8 +368,12 @@ repr_gam <- function(x, freq = NULL, xreg = NULL) {
 #'
 #' @param x the numeric vector (time series)
 #' @param freq the frequency of the time series
-#' @param alpha the smoothing factor (default to TRUE - automatic determination of smoothing factor), or number between 0 to 1
-#' @param gamma the seasonal smoothing factor (default to TRUE - automatic determination of seasonal smoothing factor), or number between 0 to 1
+#' @param alpha the smoothing factor (default is TRUE - automatic determination of smoothing factor), or number between 0 to 1
+#' @param gamma the seasonal smoothing factor (default is TRUE - automatic determination of seasonal smoothing factor), or number between 0 to 1
+#'
+#' @details This function extracts exponential smoothing seasonal coefficients and uses them as time series representation.
+#' You can set smoothing factors (\code{alpha, gamma}) manually, but recommended is automatic method (set to \code{TRUE}).
+#' The trend component is not included in computations.
 #'
 #' @author Peter Laurinec, <tsreprpackage@gmail.com>
 #'
