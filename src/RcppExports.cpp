@@ -216,6 +216,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// denorm_z
+NumericVector denorm_z(NumericVector x, double mean, double sd);
+RcppExport SEXP _TSrepr_denorm_z(SEXP xSEXP, SEXP meanSEXP, SEXP sdSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    Rcpp::traits::input_parameter< double >::type mean(meanSEXP);
+    Rcpp::traits::input_parameter< double >::type sd(sdSEXP);
+    rcpp_result_gen = Rcpp::wrap(denorm_z(x, mean, sd));
+    return rcpp_result_gen;
+END_RCPP
+}
 // norm_min_max
 NumericVector norm_min_max(NumericVector x);
 RcppExport SEXP _TSrepr_norm_min_max(SEXP xSEXP) {
@@ -235,6 +248,19 @@ BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
     rcpp_result_gen = Rcpp::wrap(norm_min_max_list(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// denorm_min_max
+NumericVector denorm_min_max(NumericVector x, double min, double max);
+RcppExport SEXP _TSrepr_denorm_min_max(SEXP xSEXP, SEXP minSEXP, SEXP maxSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    Rcpp::traits::input_parameter< double >::type min(minSEXP);
+    Rcpp::traits::input_parameter< double >::type max(maxSEXP);
+    rcpp_result_gen = Rcpp::wrap(denorm_min_max(x, min, max));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -307,8 +333,10 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TSrepr_mase", (DL_FUNC) &_TSrepr_mase, 3},
     {"_TSrepr_norm_z", (DL_FUNC) &_TSrepr_norm_z, 1},
     {"_TSrepr_norm_z_list", (DL_FUNC) &_TSrepr_norm_z_list, 1},
+    {"_TSrepr_denorm_z", (DL_FUNC) &_TSrepr_denorm_z, 3},
     {"_TSrepr_norm_min_max", (DL_FUNC) &_TSrepr_norm_min_max, 1},
     {"_TSrepr_norm_min_max_list", (DL_FUNC) &_TSrepr_norm_min_max_list, 1},
+    {"_TSrepr_denorm_min_max", (DL_FUNC) &_TSrepr_denorm_min_max, 3},
     {"_TSrepr_repr_sma", (DL_FUNC) &_TSrepr_repr_sma, 2},
     {"_TSrepr_repr_paa", (DL_FUNC) &_TSrepr_repr_paa, 3},
     {"_TSrepr_repr_seas_profile", (DL_FUNC) &_TSrepr_repr_seas_profile, 3},
