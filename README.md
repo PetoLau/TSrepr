@@ -27,6 +27,7 @@ Additional useful functions are implemented as:
   * Matrix of representations (`repr_matrix`) - applies above mentioned representations to every row of a matrix of time series
   * Normalisation functions - z-score (`norm_z`), min-max (`norm_min_max`)
   * Normalisation functions with output also of scaling parameters - z-score (`norm_z_list`), min-max (`norm_min_max_list`)
+  * Denormalisation functions - z-score (`denorm_z`), min-max (`denorm_min_max`)
   * Forecasting accuracy measures - MAE, RMSE, MdAE, MAPE, sMAPE, MASE
 
 

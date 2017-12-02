@@ -122,6 +122,42 @@ List norm_z_list(NumericVector x) {
   );
 }
 
+//' @rdname denorm_z
+//' @name denorm_z
+//' @title Z-score denormalisation
+//'
+//' @description The \code{denorm_z} denormalises time series by z-score method.
+//'
+//' @return the numeric vector of denormalised values
+//'
+//' @param x the numeric vector (time series)
+//' @param mean the mean value
+//' @param sd the standard deviation value
+//'
+//' @seealso \code{\link[TSrepr]{norm_z}, \link[TSrepr]{norm_z_list}}
+//'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
+//' @examples
+//' # Normalise values and save normalisation parameters:
+//' norm_res <- norm_z_list(rnorm(50, 5, 2))
+//' # Denormalise new data with previous computed parameters:
+//' denorm_z(rnorm(50, 4, 2), mean = norm_res$mean, sd = norm_res$sd)
+//'
+//' @useDynLib TSrepr
+//' @export denorm_z
+// [[Rcpp::export]]
+NumericVector denorm_z(NumericVector x, double mean, double sd) {
+  int n = x.size();
+  NumericVector values(n);
+
+  for(int i = 0; i < n; i++){
+    values[i] = (x[i] * sd) + mean;
+  }
+
+  return values;
+}
+
 //' @rdname norm_min_max
 //' @name norm_min_max
 //' @title Min-Max normalisation
@@ -217,4 +253,40 @@ List norm_min_max_list(NumericVector x) {
     _["min"] = min_x,
     _["max"] = max_x
   );
+}
+
+//' @rdname denorm_min_max
+//' @name denorm_min_max
+//' @title Min-Max denormalisation
+//'
+//' @description The \code{denorm_min_max} denormalises time series by min-max method.
+//'
+//' @return the numeric vector of denormalised values
+//'
+//' @param x the numeric vector (time series)
+//' @param min the minimum value
+//' @param max the maximal value
+//'
+//' @seealso \code{\link[TSrepr]{norm_min_max}, \link[TSrepr]{norm_min_max_list}}
+//'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
+//' @examples
+//' # Normalise values and save normalisation parameters:
+//' norm_res <- norm_min_max_list(rnorm(50, 5, 2))
+//' # Denormalise new data with previous computed parameters:
+//' denorm_min_max(rnorm(50, 4, 2), min = norm_res$min, max = norm_res$max)
+//'
+//' @useDynLib TSrepr
+//' @export denorm_min_max
+// [[Rcpp::export]]
+NumericVector denorm_min_max(NumericVector x, double min, double max) {
+  int n = x.size();
+  NumericVector values(n);
+
+  for(int i = 0; i < n; i++){
+    values[i] = (x[i] * (max - min)) + min;
+  }
+
+  return values;
 }
