@@ -226,7 +226,7 @@ NumericVector repr_feaclip(NumericVector x) {
 //' # default settings
 //' repr_featrend(rnorm(50), maxC)
 //'
-//' # compute FeaTrend from 4 pieces and make more smoothed ts by order = 8
+//' # compute FeaTrend for 4 pieces and make more smoothed ts by order = 8
 //' repr_featrend(rnorm(50), sumC, 4, 8)
 //'
 //' @useDynLib TSrepr
