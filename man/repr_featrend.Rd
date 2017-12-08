@@ -31,7 +31,7 @@ recommended functions are max and sum. For example if max is selected, then maxi
 # default settings
 repr_featrend(rnorm(50), maxC)
 
-# compute FeaTrend from 4 pieces and make more smoothed ts by order = 8
+# compute FeaTrend for 4 pieces and make more smoothed ts by order = 8
 repr_featrend(rnorm(50), sumC, 4, 8)
 
 }

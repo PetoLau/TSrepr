@@ -1,0 +1,134 @@
+---
+title: "TSrepr: Time series representations in a typical use case"
+author: "Peter Laurinec"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+In this vignette (tutorial), I will show you one useful case to use time series representations. This use case is **clustering** of time series.
+It will be clustering of consumers of electricity load.
+
+## Clustering of time series representations
+
+By clustering of consumers of electricity load, we can extract typical load **profiles**, improve the accuracy of consequent electricity consumption forecasting, detect anomalies or monitor whole smart grid (grid of consumers). I will show you the first use case, so extraction of typical electricity load profiles by K-means clustering method.
+
+Firstly, let's load needed packages, data and return the dimensions of the dataset.
+```{r, message=F}
+library(TSrepr)
+library(ggplot2)
+library(data.table)
+
+data("elec_load")
+dim(elec_load)
+```
+
+There is 50 time series of length 672, so time series of length 2 weeks. It is obvious that dimensionality is too high and the [**curse of dimensionality**](https://en.wikipedia.org/wiki/Curse_of_dimensionality) can happen.
+For this reason, we have to reduce dimensionality somehow. One of the best approaches is to use time series representations in order to reduce dimensionality, reduce noise and emphasize main characteristics of time series.
+
+For double seasonal time series of electricity consumption (daily and weekly seasonality), the model-based representation approaches seem to have best ability to extract typical profiles. But, I will use some other representation too.
+
+Let's use one of the basic model-based representation method - **mean seasonal profile**. It is implemented in the `repr_seas_profile` function and we will use it alongside `repr_matrix` function that computes representations for every row of a matrix of time series. One more very important notice here, normalisation of time series is necessary procedure before every clustering or classification of time series. It is due to a fact that we want to extract typical curves of consumption and don't cluster based on an amount of consumption.
+By using the **TSrepr** package, we can do it all in one function - `repr_matrix`. We will use z-score normalisation implemented in `norm_z` function.
+```{r}
+data_seasprof <- repr_matrix(elec_load, func = repr_seas_profile, args = list(freq = 48, func = mean),
+                             normalise = TRUE, func_norm = norm_z)
+dim(data_seasprof)
+```
+
+We can see that dimensionality was reduced really significantly. Now, let's use K-means (`kmeans` function) clustering method to extract typical consumption profiles. I will set the number of clusters to 5.
+```{r}
+res_km <- kmeans(data_seasprof, 5, nstart = 10)
+```
+
+Let's plot the results of clustering.
+```{r, warning=F, message=F, fig.height=5.5, fig.width=7}
+# prepare data for plotting
+data_plot <- data.table(melt(data.table(class = as.factor(res_km$cluster), data_seasprof)))
+data_plot[, Time := rep(1:ncol(data_seasprof), each = nrow(data_seasprof))]
+data_plot[, ID := rep(1:nrow(data_seasprof), ncol(data_seasprof))]
+
+# prepare centroids
+centers <- data.table(melt(res_km$centers))
+setnames(centers, c("Var1", "Var2"), c("class", "Time"))
+centers[, ID := class]
+
+# plot the results
+ggplot(data_plot, aes(Time, value, group = ID)) + 
+  facet_wrap(~class, ncol = 2, scales = "free_y") +
+  geom_line(color = "grey10", alpha = 0.65) +
+  geom_line(data = centers, aes(Time, value), color = "firebrick1", alpha = 0.80, size = 1.2) +
+  labs(x = "Time", y = "Load (normalised)") + 
+  theme_bw()
+```
+
+We can see 4 typical extracted profiles - red lines (centroids of clusters). Now, let's try some more sophisticated method for the extraction of seasonal profiles - **GAM regression coefficients**. By `repr_gam` function, we can extract double seasonal regression coefficients - daily and weekly. However, the number of weekly seasonal regression coefficients will be only 6, because the number of the second seasonality coefficients is set to freq_2 / freq_1, so 48*7 / 48 = 7, and 7 - 1 = 6 becasuse of splines computation (differentiation). I will again use `repr_matrix` function.
+```{r}
+data_gam <- repr_matrix(elec_load, func = repr_gam, args = list(freq = c(48, 48*7)),
+                        normalise = TRUE, func_norm = norm_z)
+dim(data_gam)
+```
+
+So the dimension is 47 + 6 = 53 because of usage of splines in GAM method. Let's cluster the data and visualize it.
+```{r}
+res_km <- kmeans(data_gam, 5, nstart = 10)
+```
+
+```{r, warning=F, message=F, fig.height=5.5, fig.width=7}
+# prepare data for plotting
+data_plot <- data.table(melt(data.table(class = as.factor(res_km$cluster), data_gam)))
+data_plot[, Time := rep(1:ncol(data_gam), each = nrow(data_gam))]
+data_plot[, ID := rep(1:nrow(data_gam), ncol(data_gam))]
+
+# prepare centroids
+centers <- data.table(melt(res_km$centers))
+setnames(centers, c("Var1", "Var2"), c("class", "Time"))
+centers[, ID := class]
+
+# plot the results
+ggplot(data_plot, aes(Time, value, group = ID)) + 
+  facet_wrap(~class, ncol = 2, scales = "free_y") +
+  geom_line(color = "grey10", alpha = 0.65) +
+  geom_line(data = centers, aes(Time, value), color = "firebrick1", alpha = 0.80, size = 1.2) +
+  geom_vline(xintercept = 46, color = "dodgerblue2", size = 1.4, linetype = 5, alpha = 0.8) +
+  labs(x = "Time", y = "Load (normalised)") + 
+  theme_bw()
+```
+
+That is the more nice result, isn't it? Extracted consumption profiles are smoother than in the case of average seasonal profiles. The blue dashed line borders daily and weekly seasonal coefficients.
+
+I will show you also result of clustering of some nondata adaptive representation, let's pick for example **DFT** method and extract first DFT 48 coefficients.
+```{r}
+data_dft <- repr_matrix(elec_load, func = repr_dft, args = list(coef = 48),
+                        normalise = TRUE, func_norm = norm_z)
+dim(data_dft)
+```
+
+```{r}
+res_km <- kmeans(data_dft, 5, nstart = 10)
+```
+
+```{r, warning=F, message=F, fig.height=5.5, fig.width=7}
+# prepare data for plotting
+data_plot <- data.table(melt(data.table(class = as.factor(res_km$cluster), data_dft)))
+data_plot[, Time := rep(1:ncol(data_dft), each = nrow(data_dft))]
+data_plot[, ID := rep(1:nrow(data_dft), ncol(data_dft))]
+
+# prepare centroids
+centers <- data.table(melt(res_km$centers))
+setnames(centers, c("Var1", "Var2"), c("class", "Time"))
+centers[, ID := class]
+
+# plot the results
+ggplot(data_plot, aes(Time, value, group = ID)) + 
+  facet_wrap(~class, ncol = 2, scales = "free_y") +
+  geom_line(color = "grey10", alpha = 0.65) +
+  geom_line(data = centers, aes(Time, value), color = "firebrick1", alpha = 0.80, size = 1.2) +
+  labs(x = "Time", y = "Load (normalised)") + 
+  theme_bw()
+```
+
+The interpretability of these results would be difficult. Therefore, model-based time series representations are very effective in this use case.
