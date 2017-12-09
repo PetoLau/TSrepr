@@ -2,6 +2,8 @@
 title: "TSrepr: Time series representations in R"
 author: "Peter Laurinec"
 date: "`r Sys.Date()`"
+bibliography: papers.bib
+url: https://petolau.github.io/package/
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Vignette Title}
@@ -10,9 +12,10 @@ vignette: >
 ---
 
 The **TSrepr** package contains methods for time series representations and several other useful helper methods and functions.
+
 Time series representation can be defined as follows:
 
-Let \\( x \\) be a time series of length \\( n \\), then representation of \\( x \\) is a model $\hat{x}$ with reduced dimensionality \\( p \\) \\( (p < n) \\) such that $\hat{x}$ approximates closely \\( x \\).
+Let \\( x \\) be a time series of length \\( n \\), then representation of \\( x \\) is a model $\hat{x}$ with reduced dimensionality \\( p \\) \\( (p < n) \\) such that $\hat{x}$ approximates closely \\( x \\) (@Esl).
 
 Time series representations are used for:
 
@@ -20,6 +23,8 @@ Time series representations are used for:
  * emphasis on fundamental (essential) shape characteristics
  * implicit noise handling
  * reducing the dimension will reduce memory requirements and computational complexity of consequent machine learning methods.
+
+So, they are awesome!
 
 Time series representation methods can be divided into four groups (types):
 
@@ -31,11 +36,11 @@ Time series representation methods can be divided into four groups (types):
 In **nondata adaptive** representations, the parameters of transformation remain the same for all time series, irrespective of their nature.
 In **data adaptive** representations, the parameters of transformation vary depending on the available data.
 An approach to the **model-based** representation relies on the assumption that the observed time series was created of some basic model. The aim is to find the parameters of such a model as a representation. Two time series are then considered as similar if they were created by the same set of parameters of a basic model.
-In **data dictated** approaches, the compression ratio is defined automatically based on raw time series such as Clipped.
+In **data dictated** approaches, the compression ratio is defined automatically based on raw time series such as clipped (@Agh).
 
 Most famous (well known) methods for **nondata adaptive** type of representations are PAA (Piecewise Aggregate Approximation), DWT (Discrete Wavelet Transform), DFT (Discrete Fourier Transform), DCT (Discrete Cosine Transform) or PIP (Perceptually Important Points). For **data adaptive** type of representations, it is SAX (Symbolic Aggregate approXimation), PLA (Piecewise Linear Approximation) and SVD (Singular Value Decomposition).
 For **model-based** representations it is ARMA, mean profiles or estimated regression coefficients from a statistical model (e.g. linear model).
-The **data dictated** is the less known type of representation and most famous method of this type is clipping (bit-level) representation.
+The **data dictated** is the less known type of representation and most famous method of this type is clipping (bit-level) representation (@Bag).
 
 ## Implemented methods and functions
 
@@ -55,9 +60,9 @@ In the **TSrepr** package these time series representation methods are implement
  * FeaTrend - Feature extraction from trending representation (`repr_featrend`, `trending`)
  * FeaClipTrend - Feature extraction from clipping and trending representation (`repr_feacliptrend`).
 
-You can see that one of the most famous methods SAX is not implemented here, it is due to that SAX is in the other R packages like `jmotif` or `TSMining`.
+You can see that one of the most famous methods, SAX, is not implemented here, it is due to that SAX is in the other R packages like `jmotif` or `TSMining`.
 
-Also additional useful functions are implemented as:
+Also additional useful functions are implemented in the **TSrepr** package as:
 
  * Windowing (`repr_windowing`) - applies above mentioned representations to every window of a time series
  * Matrix of representations (`repr_matrix`) - applies above mentioned representations to every row of a matrix of time series
@@ -90,9 +95,13 @@ ggplot(data.frame(Time = 1:length(data_ts), Value = data_ts), aes(Time, Value)) 
 Now, we want for example reduce dimensionality and reduce the noise of our time series. We can use, of course, time series representations from **TSrepr** package. We can compare multiple methods here that are suitable for this task (smoothing of highly noised time series), for example, **PAA**, **DWT**, **DFT** or **DCT**.
 We will reduce dimensionality 8 times, so from 672 to 84.
 ```{r}
+# DWT with level of 2^3
 data_dwt <- repr_dwt(data_ts, level = 3)
+# first 84 DFT coefficients are extracted and then inverted
 data_dft <- repr_dft(data_ts, coef = 84)
+# first 84 DCT coefficients are extracted and then inverted
 data_dct <- repr_dct(data_ts, coef = 84)
+# Classical PAA
 data_paa <- repr_paa(data_ts, q = 8, func = mean)
 ```
 
@@ -100,7 +109,8 @@ Let's plot the results:
 ```{r, fig.height=3.5, fig.width=7}
 data_plot <- data.frame(Value = c(data_dwt, data_dft, data_dct, data_paa),
                         Time = rep(1:length(data_dwt), 4),
-                        Method = factor(rep(c("DWT", "DFT", "DCT", "PAA"), each = length(data_dwt))))
+                        Method = factor(rep(c("DWT", "DFT", "DCT", "PAA"),
+                                            each = length(data_dwt))))
 
 ggplot(data_plot, aes(Time, Value, color = Method)) +
   geom_line(alpha = 0.80, size = 0.8) +
@@ -109,7 +119,7 @@ ggplot(data_plot, aes(Time, Value, color = Method)) +
 
 We can see that electricity consumption pattern remains also after significant reduction of dimensionality. The difference between these four representation methods is not really significant, every one of them "made the job" well.
 
-For seasonal time series as electricity load data, the model-based representations are highly recommended. By model-based representation, we can extract a daily profile of some consumer. We can do it by simple average (or median) daily profile or by extraction of **seasonal regression coefficients**.
+For seasonal time series as electricity load data, the model-based representations are highly recommended (@Lau1, @Lau2). By model-based representation, we can extract a daily profile of some consumer. We can do it by simple average (or median) daily profile or by extraction of **seasonal regression coefficients**.
 
 For this task, several methods are implemented in the **TSrepr** package. The mean **seasonal profile** (`repr_seas_profile`), seasonal linear models (`repr_lm`), seasonal additive model (`repr_gam`) or seasonal exponential smoothing coefficients (`repr_exp`). Let's compare them on our data.
 ```{r}
@@ -128,7 +138,8 @@ And let's plot the results:
 ```{r, fig.height=4, fig.width=7}
 data_plot <- data.frame(Value = c(data_lm, data_l1, data_seas_prof, data_exp, data_gam),
                         Time = c(rep(1:length(data_lm), 4), 1:length(data_gam)),
-                        Method = c(rep(c("LM", "L1", "Median seas. prof.", "Exp. smooth."), each = 48), rep("GAM", 47)))
+                        Method = c(rep(c("LM", "L1", "Median seas. prof.", "Exp. smooth."),
+                                       each = 48), rep("GAM", 47)))
 
 ggplot(data_plot, aes(Time, Value, color = Method)) +
   geom_line(alpha = 0.80, size = 0.8) +
@@ -137,7 +148,7 @@ ggplot(data_plot, aes(Time, Value, color = Method)) +
 
 We can see that the most fluctuate result has exponential smoothing representation and the most smooth (denoised) result has seasonal **GAM** representation. Median daily profile and seasonal L1 regression coefficients are almost identical, seasonal linear model regression coefficients representation is similar to them, but not that smooth.
 
-There are also two similar time series representation methods in **TSrepr** package that extract important points from time series - **PIP** and **PLA**. Let's try it on our data, and we will extract 60 points from the original time series (there will be 61 points in the end because of the nature of these methods). If we set `return = "both`, then data.frame with both places and points will be returned.
+There are also two similar time series representation methods in **TSrepr** package that extract important points from time series - **PIP** and **PLA**. Let's try it on our data, and we will extract 60 points from the original time series (there will be 61 points in the end because of the nature of these methods). If we set `return = "both"`, then data.frame with both places and points will be returned.
 ```{r}
 data_pip <- repr_pip(data_ts, times = 60, return = "both")
 data_pla <- repr_pla(data_ts, times = 60, return = "both")
@@ -147,17 +158,20 @@ And, of course, let's plot the results.
 ```{r, fig.height=4, fig.width=7}
 data_plot <- data.frame(Value = c(data_ts, data_pip$points, data_pla$points),
                         Time = c(1:length(data_ts), data_pip$places, data_pla$places),
-                        Method = c(rep("Original", length(data_ts)), rep(c("PIP", "PLA"), each = length(data_pla$places))))
+                        Method = c(rep("Original", length(data_ts)),
+                                   rep(c("PIP", "PLA"), each = length(data_pla$places))))
 
 ggplot(data_plot, aes(Time, Value, color = Method)) +
   geom_line(alpha = 0.65, size = 0.8) +
   theme_bw()
 ```
 
-We can see some significant differences among these two methods.
+We can see some significant differences among these two methods, but both approaches identified important points well.
 
 The last type of implemented representation methods is the **data dictated** - clipped. I developed two methods in this category - **FeaClip** and **FeaTrend**.
-Both creates bit-level (binary) representation from original time series and computes run lengths of values by RLE (Run Length Encoding). Then interpretable features are extracted from run lengths. I will now describe first of the mentioned methods - **FeaClip **. Clipping representation is created very easily - if a value of a time series is greater then its average value then value is transformed to 1 and otherwise to 0. It can be defined formally as follows:
+Both creates bit-level (binary) representation from original time series and computes run lengths of values by RLE (Run Length Encoding). Then interpretable features are extracted from run lengths.
+
+I will now describe first of the mentioned methods - **FeaClip **. Clipping representation is created very easily - if a value of a time series is greater then its average value then value is transformed to 1 and otherwise to 0. It can be defined formally as follows:
 
 $$ \hat{x}_t = \left\{
 \begin{array}{rl}
@@ -165,7 +179,7 @@ $$ \hat{x}_t = \left\{
 0 & \text{otherwise}
 \end{array} \right. ,$$
 
-where $\mu$ is the average value of a time series. On clipping (bit-level) representation $\hat{x}$, compression method for binary series named Run Length Encoding (RLE) is applied. A run is continuous sequence of ones respectively zeros. The number of ones respectively zeros in a run we call the run lengths. From run lengths counted by RLE, eight simple interpretable features are extracted to form final representation and is defined as
+where $\mu$ is the average value of a time series. On **clipping** (bit-level) representation $\hat{x}$, compression method for binary series named Run Length Encoding (**RLE**) is applied. A run is continuous sequence of ones respectively zeros. The number of ones respectively zeros in a run we call the run lengths. From run lengths counted by RLE, eight simple interpretable features are extracted to form final representation and is defined as
 $$\begin{aligned}
  \mathbf{repr} = \{ & max_1 = \mbox{max. from run lengths of ones}, \\
  & sum_1 = \mbox{sum of run lengths of ones}, \\
@@ -201,7 +215,7 @@ And finally, the extraction of interpretable features and all previous procedure
 repr_feaclip(data_oneday)
 ```
 
-The **FeaClip** method is recommended to use with windowing approach, so for every specified window is separately applied FeaClip. For the electricity consumption data, I am using the length of the window equal to 1 day so 48 measurements. The windowing method is implemented by function `repr_windowing` and its arguments are representation function, window size and additional arguments to representation function. Let's use it in our case:
+The **FeaClip** method is recommended to use with **windowing** approach, so for every specified window is separately applied the FeaClip computation. For the electricity consumption data, I am using the length of the window equal to 1 day so 48 measurements. The windowing method is implemented by function `repr_windowing` and its arguments are representation function (`func`), window size (`win_size`) and list of additional arguments to representation function (`args`). Let's use it in our case:
 ```{r, fig.height=4, fig.width=7}
 data_feaclip <- repr_windowing(data_ts, func = repr_feaclip, win_size = 48)
 
@@ -210,7 +224,7 @@ ggplot(data.frame(Time = 1:length(data_feaclip), Value = data_feaclip), aes(Time
   theme_bw()
 ```
 
-The second data dictated method is **FeaTrend**. It extracts features from "trending" (again bit-level) representation. The trending representation is defined as follows:
+The second data dictated method is **FeaTrend**. It extracts features from "trending" (again binary) representation. The trending representation is defined as follows:
 
 $$ \hat{x}_t = \left\{
 \begin{array}{rl}
@@ -218,7 +232,9 @@ $$ \hat{x}_t = \left\{
 0 & \text{otherwise}
 \end{array} \right. .$$
 
-Before the computation of trending representation, a time series is smoothed (denoised) by simple moving average method (`repr_sma`) in order to have more compact run lengths. Let's demonstrate this factor in our example case, so we will use `trending` and RLE function on original and also for smoothed time series:
+So, when time series value increased then it is 1 otherwise it is 0.
+
+Before the computation of trending representation, a time series is smoothed (denoised) by simple moving average method (`repr_sma`) in order to have more compact run lengths. Let's demonstrate this factor in our example case, so we will use `trending` and RLE function on original and also on smoothed time series:
 ```{r}
 # original time series
 rleC(trending(data_oneday))
@@ -227,7 +243,7 @@ rleC(trending(repr_sma(data_oneday, order = 4)))
 ```
 
 As expected, run lengths of smoothed time series are more compact.
-The **FeaTrend** is designed to extract an arbitrary feature from run lengths of a trending representation. The recommended feature is the maximum value of zeros and ones, but it can vary from an application. In the `repr_featrend` function, the windowing is directly implemented, so original time series is divided into pieces (subseries) and features are extracted from them separately. Let's try it in our case, but firstly we will smooth original time series `data_ts` dramatically by SMA (order of moving average will be 48*7, so weekly seasonality) and do it only on whole data (`pieces = 1`).
+The **FeaTrend** is designed to extract an arbitrary feature from run lengths of a trending representation. The recommended feature is the maximum value of zeros and ones, but it can vary from an application. In the `repr_featrend` function, the windowing is directly implemented, so original time series is divided into pieces (subseries) and features are extracted from them separately. Let's try it in our case, but firstly we will smooth original time series `data_ts` dramatically by SMA (order of moving average will be 48*7, so weekly seasonality) and do it only on whole time series (`pieces = 1`).
 ```{r, fig.height=3.5, fig.width=7}
 # visualize smoothed time series
 data_sma <- repr_sma(data_ts, order = 48*7)
@@ -239,6 +255,8 @@ ggplot(data.frame(Time = 1:length(data_sma), Value = data_sma), aes(Time, Value)
 repr_featrend(data_ts, func = max, pieces = 1, order = 48*7)
 ```
 
-So, maximal run length of ones is 15 and maximal run length of zeros is 30, as expected, the number of zeros is much more than ones because of decreasing character of the time series.
+So, maximal run length of ones is 15 and maximal run length of zeros is 30, as expected, the number of zeros is much more than ones because of decreasing character of the used time series.
 
 And we described and used every time series representation method implemented in the **TSrepr** package. In the next vignette (tutorial), I will show you one typical use case for using time series representation - clustering of time series.
+
+## Bibliography

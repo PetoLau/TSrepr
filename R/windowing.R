@@ -9,7 +9,7 @@
 #' @param x the numeric vector (time series)
 #' @param win_size the length of the window
 #' @param func the function for representation computation. For example \code{repr_feaclip} or \code{repr_trend}.
-#' @param args the additional arguments to the func (representation computation function). The args list must be named.
+#' @param args the list of additional arguments to the func (representation computation function). The args list must be named.
 #'
 #' @details This function applies specified representation method (function) to every non-overlapping window (subsequence, piece) of a time series.
 #'

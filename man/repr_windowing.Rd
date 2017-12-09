@@ -13,7 +13,7 @@ repr_windowing(x, win_size, func = NULL, args = NULL)
 
 \item{func}{the function for representation computation. For example \code{repr_feaclip} or \code{repr_trend}.}
 
-\item{args}{the additional arguments to the func (representation computation function). The args list must be named.}
+\item{args}{the list of additional arguments to the func (representation computation function). The args list must be named.}
 }
 \value{
 the numeric vector
