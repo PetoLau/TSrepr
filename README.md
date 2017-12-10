@@ -25,6 +25,7 @@ These representations of time series are implemented so far:
 -   DFT - Discrete Fourier Transform (`repr_dft`)
 -   DCT - Discrete Cosine Transform (`repr_dct`)
 -   SMA - Simple Moving Average (`repr_sma`)
+-   SAX - Symbolic Aggregate Approximation (`repr_sax`)
 -   PIP - Perceptually Important Points (`repr_pip`)
 -   PLA - Piecewise Linear Approximation (`repr_pla`)
 -   Mean seasonal profile - Average seasonal profile, Median seasonal profile, etc. (`repr_seas_profile`)
