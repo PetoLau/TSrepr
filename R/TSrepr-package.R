@@ -13,8 +13,8 @@
 #' \item \link[TSrepr]{repr_dft} - Discrete Fourier Transform (DFT)
 #' \item \link[TSrepr]{repr_dct} - Discrete Cosine Transform (DCT)
 #' \item \link[TSrepr]{repr_sma} - Simple Moving Average (SMA)
-#' \item \link[TSrepr]{repr_sax} - Symbolic Aggregate Approximation (SAX)
 #' \item \link[TSrepr]{repr_pip} - Perceptually Important Points (PIP)
+#' \item \link[TSrepr]{repr_sax} - Symbolic Aggregate Approximation (SAX)
 #' \item \link[TSrepr]{repr_pla} - Piecewise Linear Approximation (PLA)
 #' \item \link[TSrepr]{repr_seas_profile} - Mean seasonal profile
 #' \item \link[TSrepr]{repr_lm} - Model-based seasonal representations based on linear model (lm, rlm, l1)
