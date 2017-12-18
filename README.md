@@ -58,12 +58,12 @@ library(ggplot2)
 data_ts <- as.numeric(elec_load[5,]) # electricity load consumption data
 # Comparison of PAA and PLA
 # Dimensionality of the time series will be reduced 8 times
-data_paa <- repr_paa(data_ts, q = 8, func = mean)
-data_pla <- repr_pla(data_ts, times = 83, return = "both") # returns both extracted places and values
+data_paa <- repr_paa(data_ts, q = 12, func = mean)
+data_pla <- repr_pla(data_ts, times = 55, return = "both") # returns both extracted places and values
 
 data_plot <- data.frame(value = c(data_ts, data_paa, data_pla$points),
-                        time = c(1:length(data_ts), seq(4, length(data_ts), by = 8), data_pla$places),
-                        type = factor(c(rep("Original", length(data_ts)), rep(c("PAA", "PLA"), each = 84))))
+                        time = c(1:length(data_ts), seq(6, length(data_ts), by = 12), data_pla$places),
+                        type = factor(c(rep("Original", length(data_ts)), rep(c("PAA", "PLA"), each = 56))))
 
 ggplot(data_plot, aes(time, value, color = type, size = type)) +
   geom_line(alpha = 0.8) +
