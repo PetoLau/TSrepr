@@ -26,7 +26,7 @@ Time series representations are used for:
 
 So, they are awesome!
 
-Time series representation methods can be divided into four groups (types):
+Time series representation methods can be divided into four groups (types) (@Agh):
 
  * nondata adaptive
  * data adaptive
@@ -46,21 +46,24 @@ The **data dictated** is the less known type of representation and most famous m
 
 In the **TSrepr** package these time series representation methods are implemented (in parentheses is the function name):
 
- * PAA - Piecewise Aggregate Approximation (`repr_paa`)
- * DWT - Discrete Wavelet Transform (`repr_dwt`)
- * DFT - Discrete Fourier Transform (`repr_dft`)
- * DCT - Discrete Cosine Transform (`repr_dct`)
- * SMA - Simple Moving Average (`repr_sma`)
- * PIP - Perceptually Important Points (`repr_pip`)
- * PLA - Piecewise Linear Approximation (`repr_pla`)
- * Mean seasonal profile - Average seasonal profile, Median seasonal profile, etc. (`repr_seas_profile`)
- * Model-based seasonal representations based on linear (additive) model (lm, rlm, l1, gam) (`repr_lm`, `repr_gam`)
- * Exponential smoothing seasonal coefficients (`repr_exp`)
- * FeaClip - Feature extraction from clipping representation (`repr_feaclip`, `clipping`)
- * FeaTrend - Feature extraction from trending representation (`repr_featrend`, `trending`)
- * FeaClipTrend - Feature extraction from clipping and trending representation (`repr_feacliptrend`).
-
-You can see that one of the most famous methods, SAX, is not implemented here, it is due to that SAX is in the other R packages like `jmotif` or `TSMining`.
+* Nondata adaptive:
+     - PAA - Piecewise Aggregate Approximation (`repr_paa`)
+     - DWT - Discrete Wavelet Transform (`repr_dwt`)
+     - DFT - Discrete Fourier Transform (`repr_dft`)
+     - DCT - Discrete Cosine Transform (`repr_dct`)
+     - SMA - Simple Moving Average (`repr_sma`)
+     - PIP - Perceptually Important Points (`repr_pip`)
+* Data adaptive:
+     - SAX - Symbolic Aggregate Approximation (`repr_sax`)
+     - PLA - Piecewise Linear Approximation (`repr_pla`)
+* Model-based:
+     - Mean seasonal profile - Average seasonal profile, Median seasonal profile, etc. (`repr_seas_profile`)
+     - Model-based seasonal representations based on linear (additive) model (LM, RLM, L1, GAM) (`repr_lm`, `repr_gam`)
+     - Exponential smoothing seasonal coefficients (`repr_exp`)
+* Data dictated:
+     - FeaClip - Feature extraction from clipping representation (`repr_feaclip`, `clipping`)
+     - FeaTrend - Feature extraction from trending representation (`repr_featrend`, `trending`)
+     - FeaClipTrend - Feature extraction from clipping and trending representation (`repr_feacliptrend`)
 
 Also additional useful functions are implemented in the **TSrepr** package as:
 
@@ -167,6 +170,12 @@ ggplot(data_plot, aes(Time, Value, color = Method)) +
 ```
 
 We can see some significant differences among these two methods, but both approaches identified important points well.
+
+The next data adaptive representation method is **SAX**. The SAX is famous time series representation method for its adaptability and originality. It extracts symbols as representation, in the other words, it transforms aggregates of a time series to alphabetical symbols. Let's use it on our data:
+```{r}
+# aggregates of size 12 and alphabet of size 10
+repr_sax(data_ts, q = 12, a = 10)
+```
 
 The last type of implemented representation methods is the **data dictated** - clipped. I developed two methods in this category - **FeaClip** and **FeaTrend**.
 Both creates bit-level (binary) representation from original time series and computes run lengths of values by RLE (Run Length Encoding). Then interpretable features are extracted from run lengths.
