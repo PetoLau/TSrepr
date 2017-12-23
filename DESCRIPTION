@@ -4,8 +4,8 @@ Title: Time series representations
 Version: 0.1.0
 Authors@R: person("Peter", "Laurinec", email = "tsreprpackage@gmail.com",
   role = c("aut", "cre"))
-Description: Methods for representations (dimensionality reduction) of time series to help more accurate and effective time series data mining.
-    Non-data adaptive, data adaptive, model-based and data dictated (clipped) representation methods are implemented. Also min-max and z-score normalisations, and forecasting accuracy measures are implemented.
+Description: Methods for representations (i.e. dimensionality reduction, preprocessing, feature extraction) of time series to help more accurate and effective time series data mining.
+    Nondata adaptive, data adaptive, model-based and data dictated (clipped) representation methods are implemented. Also min-max and z-score normalisations, and forecasting accuracy measures are implemented.
 License: GPL-3 | file LICENSE
 Encoding: UTF-8
 LazyData: true
