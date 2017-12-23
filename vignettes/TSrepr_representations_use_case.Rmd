@@ -67,7 +67,7 @@ ggplot(data_plot, aes(Time, value, group = ID)) +
   theme_bw()
 ```
 
-We can see 4 typical extracted profiles - red lines (centroids of clusters). Now, let's try some more sophisticated method for the extraction of seasonal profiles - **GAM regression coefficients**. By `repr_gam` function, we can extract double seasonal regression coefficients - daily and weekly. However, the number of weekly seasonal regression coefficients will be only 6, because the number of the second seasonality coefficients is set to freq_2 / freq_1, so 48*7 / 48 = 7, and 7 - 1 = 6 becasuse of splines computation (differentiation). I will again use `repr_matrix` function.
+We can see 4 typical extracted profiles - red lines (centroids of clusters). Now, let's try some more sophisticated method for the extraction of seasonal profiles - **GAM regression coefficients**. By `repr_gam` function, we can extract double seasonal regression coefficients - daily and weekly. However, the number of weekly seasonal regression coefficients will be only 6, because the number of the second seasonality coefficients is set to freq_2 / freq_1, so 48*7 / 48 = 7, and 7 - 1 = 6 because of splines computation (differentiation). I will again use `repr_matrix` function.
 ```{r}
 data_gam <- repr_matrix(elec_load, func = repr_gam, args = list(freq = c(48, 48*7)),
                         normalise = TRUE, func_norm = norm_z)
