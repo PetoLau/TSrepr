@@ -95,7 +95,7 @@ repr_dft <- function(x, coef = 10) {
 #'
 #' @details The length of the final time series representation is equal to set \code{coef} parameter.
 #'
-#' @seealso \code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dwt}, \link[dtt]{dct}}
+#' @seealso \code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dwt}, \link[dtt]{dtt}}
 #'
 #' @author Peter Laurinec, <tsreprpackage@gmail.com>
 #'
