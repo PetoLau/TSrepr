@@ -65,7 +65,7 @@ l1Coef <- function(X, Y) {
   X_Y <- as.data.frame(cbind(Y, X))
 
   rlm.reg <- quantreg::rq(Y ~ 0 + .,
-                data = X_Y, method = "fn", model = FALSE)$coefficients
+                data = X_Y, method = "sfn", model = FALSE)$coefficients
 
   return(as.vector(rlm.reg))
 }
