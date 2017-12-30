@@ -2,6 +2,7 @@ Package: TSrepr
 Type: Package
 Title: Time series representations
 Version: 0.1.0
+Date: 2017-12-30
 Authors@R: person("Peter", "Laurinec", email = "tsreprpackage@gmail.com",
   role = c("aut", "cre"))
 Description: Methods for representations (i.e. dimensionality reduction, preprocessing, feature extraction) of time series to help more accurate and effective time series data mining.
@@ -18,7 +19,7 @@ Imports: Rcpp (>= 0.12.12),
     dtt
 LinkingTo: Rcpp
 RoxygenNote: 6.0.1
-URL: https://petolau.github.io/package/
+URL: https://petolau.github.io/package/, https://github.com/PetoLau/TSrepr/
 BugReports: https://github.com/PetoLau/TSrepr/issues
 Suggests: knitr,
     rmarkdown,
