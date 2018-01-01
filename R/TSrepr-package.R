@@ -5,7 +5,7 @@
 #' emphasizing of main characteristics of time series data and speed up of consequent usage of machine learning methods.
 #'
 #' \tabular{ll}{ Package: \tab TSrepr\cr Type: \tab Package\cr Date: \tab
-#' 2017-11-23 - Inf\cr License: \tab GPL-3 \cr }
+#' 2017-12-30 - Inf\cr License: \tab GPL-3 \cr }
 #' The following functions for time series representations are included in the package:
 #' \itemize{
 #' \item \link[TSrepr]{repr_paa} - Piecewise Aggregate Approximation (PAA)
