@@ -11,7 +11,7 @@
 #' @param x the matrix, data.frame or data.table of time series, where time series are in rows of the table
 #' @param func the function that computes representation
 #' @param args the list of additional (or required) parameters of func (function that computes representation)
-#' @param normalise normalise (scale) representations? (default is FALSE)
+#' @param normalise normalise (scale) time series before representations computation? (default is FALSE)
 #' @param func_norm the normalisation function (default is \code{norm_z})
 #' @param windowing perform windowing? (default is FALSE)
 #' @param win_size the size of the window
@@ -45,6 +45,10 @@ repr_matrix <- function(x, func = NULL, args = NULL, normalise = FALSE, func_nor
 
   x <- data.matrix(x)
 
+  if (normalise == TRUE) {
+    x <- t(apply(x, 1, func_norm))
+  }
+
   if (windowing) {
 
     if (is.null(win_size)) {
@@ -66,10 +70,6 @@ repr_matrix <- function(x, func = NULL, args = NULL, normalise = FALSE, func_nor
   # } else {
   #   repr <- t(sapply(1:nrow(x), function(i) do.call(func, args = append(list(x = x[i,]), args))))
   # }
-
-  if (normalise == TRUE) {
-    repr <- t(apply(repr, 1, func_norm))
-  }
 
   return(repr)
 }
