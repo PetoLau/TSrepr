@@ -62,10 +62,17 @@ ggplot(data.frame(Time = 1:length(data_fea), Value = data_fea), aes(Time, Value)
   theme_bw()
 ```
 
-I will show you now, how to apply it on whole dataset (by function `repr_matrix`), **cluster** final representations and then interpret results.
+I will show you now, how to apply it on whole dataset (by function `repr_matrix`), **cluster** final representations and then interpret results. Before applying clustering on electricity consumption data, firstly normalisation is needed. We can use classical z-score (`norm_z`) or min-max (`norm_min_max`) normalisation methods for every consumers time series. However, there is possibility to use directly, in function `repr_matrix`, arbitrary defined normalisation function. Let's use for example simple self-defined max normalisation.
+```{r}
+norm_max <- function(x) {
+  return(x/max(x))
+}
+```
+
 ```{r}
 data_mat <- repr_matrix(elec_load, func = repr_fea_extract,
-                        windowing = T, win_size = 48, normalise = T)
+                        windowing = T, win_size = 48, normalise = T,
+                        func_norm = norm_max)
 
 set.seed(123)
 clus_res <- kmeans(data_mat, centers = 5, nstart = 10)
@@ -98,6 +105,6 @@ Let's see also frequency table of occurrence in clusters.
 table(clus_res$cluster)
 ```
 
-There are three dominant clusters (n. 1, 2 and 4). Time series in clusters n. 3 and 5 are irregular against other time series, so there were assigned to own clusters.
+There are three dominant clusters (n. 1, 2 and 3). Time series in clusters n. 4 and 5 are irregular against other time series, so there were assigned to own clusters.
 
 In this vignette, I showed you how is simply to use arbitrary functions for feature extraction from time series in order to create your own time series representations alongside implemented methods in the package **TSrepr**.
