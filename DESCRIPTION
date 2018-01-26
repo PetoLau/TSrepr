@@ -1,12 +1,12 @@
 Package: TSrepr
 Type: Package
-Title: Time series representations
+Title: Time Series Representations
 Version: 1.0.0
 Date: 2018-01-26
 Authors@R: person("Peter", "Laurinec", email = "tsreprpackage@gmail.com",
   role = c("aut", "cre"))
 Description: Methods for representations (i.e. dimensionality reduction, preprocessing, feature extraction) of time series to help more accurate and effective time series data mining.
-    Nondata adaptive, data adaptive, model-based and data dictated (clipped) representation methods are implemented. Also min-max and z-score normalisations, and forecasting accuracy measures are implemented.
+    Non-data adaptive, data adaptive, model-based and data dictated (clipped) representation methods are implemented. Also min-max and z-score normalisations, and forecasting accuracy measures are implemented.
 License: GPL-3 | file LICENSE
 Encoding: UTF-8
 LazyData: true
