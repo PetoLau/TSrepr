@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 url: https://petolau.github.io/package/
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Extending TSrepr}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
