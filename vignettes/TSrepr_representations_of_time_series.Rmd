@@ -6,7 +6,7 @@ bibliography: papers.bib
 url: https://petolau.github.io/package/
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Time series representations in R}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -15,7 +15,7 @@ The **TSrepr** package contains methods for time series representations and seve
 
 Time series representation can be defined as follows:
 
-Let \\( x \\) be a time series of length \\( n \\), then representation of \\( x \\) is a model $\hat{x}$ with reduced dimensionality \\( p \\) \\( (p < n) \\) such that $\hat{x}$ approximates closely \\( x \\) (@Esl).
+Let \\( x \\) be a time series of length \\( n \\), then representation of \\( x \\) is a model \\( \hat{x} \\) with reduced dimensionality \\( p \\) \\( (p < n) \\) such that \\( \hat{x} \\) approximates closely \\( x \\) (@Esl).
 
 Time series representations are used for:
 

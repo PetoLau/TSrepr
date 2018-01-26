@@ -6,7 +6,7 @@ bibliography: papers.bib
 url: https://petolau.github.io/package/
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Use case: clustering of representations}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
