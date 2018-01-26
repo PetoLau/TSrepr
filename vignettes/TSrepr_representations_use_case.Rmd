@@ -11,13 +11,13 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-In this vignette (tutorial), I will show you one use case to use effectively time series representations. This use case is **clustering** of time series and it will be clustering of consumers of electricity load.
+In this vignette (tutorial), I will show you one use case to use time series representations effectively. This use case is **clustering** of time series and it will be clustering of consumers of electricity load.
 
 ## Clustering of time series representations
 
-By clustering of consumers of electricity load, we can extract typical load **profiles**, improve the accuracy of consequent electricity consumption forecasting, detect anomalies or monitor whole smart grid (grid of consumers) (@Lau1, @Lau2). I will show you the first use case, so extraction of typical electricity load profiles by [**K-means**](https://en.wikipedia.org/wiki/K-means_clustering) clustering method.
+By clustering of consumers of electricity load, we can extract typical load **profiles**, improve the accuracy of consequent electricity consumption forecasting, detect anomalies or monitor a whole smart grid (grid of consumers) (@Lau1, @Lau2). I will show you the first use case, the extraction of typical electricity load profiles by [**K-means**](https://en.wikipedia.org/wiki/K-means_clustering) clustering method.
 
-Firstly, let's load needed packages, data (`elec_load`) and return the dimensions of the dataset.
+Firstly, let's load the required packages, data (`elec_load`) and return the dimensions of the dataset.
 ```{r, message=F}
 library(TSrepr)
 library(ggplot2)
@@ -27,12 +27,12 @@ data("elec_load")
 dim(elec_load)
 ```
 
-There is 50 time series of length 672, so time series of length 2 weeks. It is obvious that dimensionality is too high and the [**curse of dimensionality**](https://en.wikipedia.org/wiki/Curse_of_dimensionality) can happen.
-For this reason, we have to reduce dimensionality somehow. One of the best approaches is to use time series representations in order to reduce dimensionality, reduce noise and emphasize main characteristics of time series.
+There are 50 time series of length 672, specifically time series of length 2 weeks. It is obvious that dimensionality is too high and the [**curse of dimensionality**](https://en.wikipedia.org/wiki/Curse_of_dimensionality) can happen.
+For this reason, we have to reduce dimensionality in some way. One of the best approaches is to use time series representations in order to reduce dimensionality, reduce noise and emphasize the main characteristics of time series.
 
-For double seasonal time series of electricity consumption (daily and weekly seasonality), the model-based representation approaches seem to have best ability to extract typical profiles. But, I will use some other representations too.
+For double seasonal time series of electricity consumption (daily and weekly seasonality), the model-based representation approaches seem to have best ability to extract typical profiles. However, I will use some other representations too.
 
-Let's use one of the basic model-based representation method - **mean seasonal profile**. It is implemented in the `repr_seas_profile` function and we will use it alongside `repr_matrix` function that computes representations for every row of a matrix of time series. One more very important notice here, normalisation of time series is necessary procedure before every clustering or classification of time series. It is due to a fact that we want to extract typical curves of consumption and don't cluster based on an amount of consumption.
+Let's use one of the basic model-based representation methods - **mean seasonal profile**. It is implemented in the `repr_seas_profile` function and we will use it alongside `repr_matrix` function that computes representations for every row of a matrix of time series. One more very important notice here, normalisation of time series is a necessary procedure before every clustering or classification of time series. It is due to a fact that we want to extract typical curves of consumption and don't cluster based on an amount of consumption.
 By using the **TSrepr** package, we can do it all in one function - `repr_matrix`. We will use z-score normalisation implemented in `norm_z` function.
 ```{r}
 data_seasprof <- repr_matrix(elec_load, func = repr_seas_profile,
@@ -41,7 +41,7 @@ data_seasprof <- repr_matrix(elec_load, func = repr_seas_profile,
 dim(data_seasprof)
 ```
 
-We can see that dimensionality was reduced really significantly. Now, let's use K-means (`kmeans` function) clustering method to extract typical consumption profiles. I will set the number of clusters to 5.
+We can see that dimensionality was in fact reduced significantly. Now, let's use the K-means (`kmeans` function) clustering method to extract typical consumption profiles. I will set the number of clusters to 5.
 ```{r}
 res_km <- kmeans(data_seasprof, 5, nstart = 10)
 ```
@@ -59,11 +59,11 @@ setnames(centers, c("Var1", "Var2"), c("class", "Time"))
 centers[, ID := class]
 
 # plot the results
-ggplot(data_plot, aes(Time, value, group = ID)) + 
+ggplot(data_plot, aes(Time, value, group = ID)) +
   facet_wrap(~class, ncol = 2, scales = "free_y") +
   geom_line(color = "grey10", alpha = 0.65) +
   geom_line(data = centers, aes(Time, value), color = "firebrick1", alpha = 0.80, size = 1.2) +
-  labs(x = "Time", y = "Load (normalised)") + 
+  labs(x = "Time", y = "Load (normalised)") +
   theme_bw()
 ```
 
@@ -91,16 +91,16 @@ setnames(centers, c("Var1", "Var2"), c("class", "Time"))
 centers[, ID := class]
 
 # plot the results
-ggplot(data_plot, aes(Time, value, group = ID)) + 
+ggplot(data_plot, aes(Time, value, group = ID)) +
   facet_wrap(~class, ncol = 2, scales = "free_y") +
   geom_line(color = "grey10", alpha = 0.65) +
   geom_line(data = centers, aes(Time, value), color = "firebrick1", alpha = 0.80, size = 1.2) +
   geom_vline(xintercept = 46, color = "dodgerblue2", size = 1.4, linetype = 5, alpha = 0.8) +
-  labs(x = "Time", y = "Load (normalised)") + 
+  labs(x = "Time", y = "Load (normalised)") +
   theme_bw()
 ```
 
-That is more nice result, isn't it? Extracted consumption profiles are smoother than in the case of average seasonal profiles. The blue dashed line borders daily and weekly seasonal coefficients.
+That is a more delightful result, isn't it? Extracted consumption profiles are smoother than in the case of average seasonal profiles. The blue dashed line borders daily and weekly seasonal coefficients.
 
 I will show you also result of clustering of some nondata adaptive representation, let's pick for example **DFT** method (@fft) and extract first 48 DFT coefficients.
 ```{r}
@@ -125,11 +125,11 @@ setnames(centers, c("Var1", "Var2"), c("class", "Time"))
 centers[, ID := class]
 
 # plot the results
-ggplot(data_plot, aes(Time, value, group = ID)) + 
+ggplot(data_plot, aes(Time, value, group = ID)) +
   facet_wrap(~class, ncol = 2, scales = "free_y") +
   geom_line(color = "grey10", alpha = 0.65) +
   geom_line(data = centers, aes(Time, value), color = "firebrick1", alpha = 0.80, size = 1.2) +
-  labs(x = "Time", y = "Load (normalised)") + 
+  labs(x = "Time", y = "Load (normalised)") +
   theme_bw()
 ```
 
@@ -157,11 +157,11 @@ setnames(centers, c("Var1", "Var2"), c("class", "Time"))
 centers[, ID := class]
 
 # plot the results
-ggplot(data_plot, aes(Time, value, group = ID)) + 
+ggplot(data_plot, aes(Time, value, group = ID)) +
   facet_wrap(~class, ncol = 2, scales = "free_y") +
   geom_line(color = "grey10", alpha = 0.65) +
   geom_line(data = centers, aes(Time, value), color = "firebrick1", alpha = 0.80, size = 1.2) +
-  labs(x = "Time", y = "Load (normalised)") + 
+  labs(x = "Time", y = "Load (normalised)") +
   theme_bw()
 ```
 
