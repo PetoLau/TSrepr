@@ -10,7 +10,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-In this vignette (tutorial), I want to demonstrate you, how the **TSrepr** package is simply extensible. Its methods (functions) can be extended (or combined) for arbitrary feature extraction method from a time series or by new time series representation method.
+In this vignette (tutorial), I want to demonstrate you, how the **TSrepr** package is simply extensible. Its methods (functions) can be extended (or combined) for arbitrary feature extraction method from a time series or by a new time series representation method.
 This useful feature supports several implemented functions in **TSrepr** package.
 They can be split into two groups according to a number of features extracted:
 
@@ -18,23 +18,26 @@ They can be split into two groups according to a number of features extracted:
  * extract multiple values (features) from a time series (or time series subsequence)
 
 The first of the mentioned scenarios supports methods (functions): **PAA** (`repr_paa`), **Mean Seasonal Profile** (`repr_seas_profile`) and **FeaTrend** (`repr_featrend`).
-The second scenario supports functions: `repr_windowing` and `repr_matrix`. 
+The second scenario supports functions: `repr_windowing` and `repr_matrix`.
 
-The **PAA** representation method aggregates subsequence of a time series by one value - in original by an average value. But it can be used also for extracting other useful features. For example, it can be median, sum or minimum and maximum.
-For example, we want to aggregate (sum) pairs of values in a time series. Let's show it on real data:
+The **PAA** representation method aggregates subsequence of a time series by one value - in original by an average value. However, it can be also used for extracting other useful features. For example, it can be median, sum or minimum and maximum.
+For instance, we want to aggregate (sum) pairs of values in a time series. Let's show it on real data:
 ```{r, fig.height=3.5, fig.width=7}
 library(TSrepr)
 library(ggplot2)
 
 data_ts <- as.numeric(elec_load[1,])
+length(data_ts)
+
 data_ts_sums <- repr_paa(data_ts, q = 2, func = sum)
+length(data_ts_sums)
 
 ggplot(data.frame(Time = 1:length(data_ts_sums), Value = data_ts_sums), aes(Time, Value)) +
   geom_line() +
   theme_bw()
 ```
 
-We can extract also some advanced useful features from a time series like skewness or kurtosis (implemented in package `moments`). Let's extract skewness from every day of the time series (frequency is 48).
+We can also extract some advanced useful features from a time series like skewness or kurtosis (implemented in package `moments`). Let's extract skewness from every day of the time series (frequency is 48).
 ```{r, fig.height=3.2, fig.width=6}
 library(moments)
 
@@ -62,7 +65,7 @@ ggplot(data.frame(Time = 1:length(data_fea), Value = data_fea), aes(Time, Value)
   theme_bw()
 ```
 
-I will show you now, how to apply it on whole dataset (by function `repr_matrix`), **cluster** final representations and then interpret results. Before applying clustering on electricity consumption data, firstly normalisation is needed. We can use classical z-score (`norm_z`) or min-max (`norm_min_max`) normalisation methods for every consumers time series. However, there is possibility to use directly, in function `repr_matrix`, arbitrary defined normalisation function. Let's use for example simple self-defined max normalisation.
+I will show you now, how to apply it on whole dataset (by function `repr_matrix`), **cluster** final representations and then how to interpret results. Before applying clustering on electricity consumption data, normalisation is needed. We can use classical z-score (`norm_z`) or min-max (`norm_min_max`) normalisation methods for every consumers time series. However, there is a possibility to use directly, in function `repr_matrix`, arbitrary defined normalisation function. For instance, let's use a simple self-defined max normalisation.
 ```{r}
 norm_max <- function(x) {
   return(x/max(x))
@@ -92,11 +95,11 @@ setnames(centers, c("Var1", "Var2"), c("class", "Time"))
 centers[, ID := class]
 
 # plot the results
-ggplot(data_plot, aes(Time, value, group = ID)) + 
+ggplot(data_plot, aes(Time, value, group = ID)) +
   facet_wrap(~class, ncol = 2, scales = "free_y") +
   geom_line(color = "grey10", alpha = 0.65) +
   geom_line(data = centers, aes(Time, value), color = "firebrick1", alpha = 0.80, size = 1.2) +
-  labs(x = "Time", y = "Load (normalised)") + 
+  labs(x = "Time", y = "Load (normalised)") +
   theme_bw()
 ```
 
@@ -105,6 +108,6 @@ Let's see also frequency table of occurrence in clusters.
 table(clus_res$cluster)
 ```
 
-There are three dominant clusters (n. 1, 2 and 3). Time series in clusters n. 4 and 5 are irregular against other time series, so there were assigned to own clusters.
+There are three dominant clusters (n. 1, 2 and 3). Time series in clusters n. 4 and 5 are irregular against other time series, so they were assigned to own clusters.
 
-In this vignette, I showed you how is simply to use arbitrary functions for feature extraction from time series in order to create your own time series representations alongside implemented methods in the package **TSrepr**.
+In this vignette, I showed you how simple it is to use arbitrary functions for feature extraction from time series in order to create your own time series representations alongside implemented methods in the package **TSrepr**.
