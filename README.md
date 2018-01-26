@@ -3,12 +3,20 @@
 TSrepr
 ======
 
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/TSrepr)](https://cran.r-project.org/package=TSrepr) [![Downloads](http://cranlogs.r-pkg.org/badges/TSrepr)](https://cran.r-project.org/package=TSrepr)
+
 TSrepr is R package for fast time series representations and dimensionality reduction computations. Z-score normalisation, min-max normalisation, forecasting accuracy measures and other useful functions implemented in C++ (Rcpp) and R.
 
 Installation
 ------------
 
-You can install **TSrepr** from github with:
+You can install **TSrepr** directly from [CRAN](https://CRAN.R-project.org/package=TSrepr):
+
+``` r
+install.packages("TSrepr")
+```
+
+Or development version from [GitHub](https://github.com/PetoLau/TSrepr) with:
 
 ``` r
 # install.packages("devtools")
