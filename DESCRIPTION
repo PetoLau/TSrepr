@@ -2,7 +2,7 @@ Package: TSrepr
 Type: Package
 Title: Time series representations
 Version: 1.0.0
-Date: 2017-12-30
+Date: 2018-01-26
 Authors@R: person("Peter", "Laurinec", email = "tsreprpackage@gmail.com",
   role = c("aut", "cre"))
 Description: Methods for representations (i.e. dimensionality reduction, preprocessing, feature extraction) of time series to help more accurate and effective time series data mining.
