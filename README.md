@@ -70,8 +70,10 @@ data_paa <- repr_paa(data_ts, q = 12, func = mean)
 data_pla <- repr_pla(data_ts, times = 55, return = "both") # returns both extracted places and values
 
 data_plot <- data.frame(value = c(data_ts, data_paa, data_pla$points),
-                        time = c(1:length(data_ts), seq(6, length(data_ts), by = 12), data_pla$places),
-                        type = factor(c(rep("Original", length(data_ts)), rep(c("PAA", "PLA"), each = 56))))
+                        time = c(1:length(data_ts), seq(6, length(data_ts), by = 12),
+                                 data_pla$places),
+                        type = factor(c(rep("Original", length(data_ts)),
+                                        rep(c("PAA", "PLA"), each = 56))))
 
 ggplot(data_plot, aes(time, value, color = type, size = type)) +
   geom_line(alpha = 0.8) +
@@ -80,6 +82,11 @@ ggplot(data_plot, aes(time, value, color = type, size = type)) +
 ```
 
 ![](README-paa_vs_pla-1.png)
+
+For more information
+--------------------
+
+-   check my blog post at <https://petolau.github.io/TSrepr-time-series-representations/>
 
 Contact
 -------
