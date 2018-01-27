@@ -1,0 +1,23 @@
+{
+  "@context": "https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld",
+  "@type": "Code",
+  "author": [
+    {
+      "@id": "http://orcid.org/0000-0002-3501-8783",
+      "@type": "Person",
+      "email": "tsreprpackage@gmail.com",
+      "name": "Peter Laurinec",
+      "affiliation": "FIIT STU"
+    }
+  ],
+  "identifier": "",
+  "codeRepository": "https://github.com/PetoLau/TSrepr",
+  "datePublished": "2018-01-27",
+  "dateModified": "2018-01-27",
+  "dateCreated": "2018-01-27",
+  "description": "TSrepr: R package for time series representations",
+  "keywords": "time series data mining, r package, time series analysis",
+  "license": "GPL v3.0",
+  "title": "TSrepr",
+  "version": "v1.0.0"
+}
