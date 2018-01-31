@@ -26,7 +26,7 @@ Time series representations are used for:
 
 Therefore, they are awesome!
 
-Time series representation methods can be divided into four groups (types) (@Agh):
+Time series representation methods can be divided into four groups (types) (@ratanamahatana):
 
  * nondata adaptive
  * data adaptive
@@ -180,7 +180,7 @@ repr_sax(data_ts, q = 12, a = 10)
 The last type of implemented representation methods is the **data dictated** - clipped. I developed two methods in this category - **FeaClip** and **FeaTrend**.
 Both creates bit-level (binary) representation from original time series and computes run lengths of values by RLE (Run Length Encoding). Then interpretable features are extracted from run lengths.
 
-I will now describe the first of the mentioned methods - **FeaClip **. Clipping representation is created very easily - if a value of a time series is greater then its average value, then the value is transformed to 1 and otherwise to 0. It can be defined formally as follows:
+I will now describe the first of the mentioned methods - **FeaClip**. Clipping representation is created very easily - if a value of a time series is greater then its average value, then the value is transformed to 1 and otherwise to 0. It can be defined formally as follows:
 
 $$ \hat{x}_t = \left\{
 \begin{array}{rl}
