@@ -69,13 +69,9 @@ repr_pip <- function(x, times = 10, return = "points") {
 
   if (return == "points") {
     return(mat_ts[sort(res$pips), 2])
-  }
-
-  if (return == "places") {
+  } else if (return == "places") {
     return(sort(res$pips))
-  }
-
-  if (return == "both") {
+  } else {
     return(data.frame(places = sort(res$pips),
                       points = mat_ts[sort(res$pips), 2]))
   }
