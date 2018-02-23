@@ -8,12 +8,6 @@ r:
   - oldrel
   - release
 
-r_binary_packages:
-  - r-cran-mgcv
-  - r-cran-mass
-  - r-cran-quantreg
-  - r-cran-rcpp
-
 notifications:
   email:
     on_failure: change
