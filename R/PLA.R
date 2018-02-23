@@ -175,13 +175,9 @@ repr_pla <- function(x, times = 10, return = "points") {
 
   if (return == "points") {
     return(repr[, 2])
-  }
-
-  if (return == "places") {
+  } else if (return == "places") {
     return(repr[, 1])
-  }
-
-  if (return == "both") {
+  } else {
     return(data.frame(places = repr[, 1],
                       points = repr[, 2]))
   }
