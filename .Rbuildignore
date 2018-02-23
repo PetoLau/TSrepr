@@ -6,3 +6,4 @@
 ^cran-comments\.md$
 ^paper$
 ^CONTRIBUTING\.md$
+^\.travis\.yml$

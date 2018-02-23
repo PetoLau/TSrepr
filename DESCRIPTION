@@ -25,5 +25,6 @@ Suggests: knitr,
     rmarkdown,
     ggplot2,
     data.table,
-    moments
+    moments,
+    testthat
 VignetteBuilder: knitr
