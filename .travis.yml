@@ -1,17 +1,18 @@
-# Sample .travis.yml for R projects
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
-language: r
+language: R
 sudo: false
 cache: packages
 
 r:
   - oldrel
   - release
-  - devel
 
-env:
- global:
-   - CRAN: http://cran.rstudio.com
+r_binary_packages:
+  - r-cran-mgcv
+  - r-cran-mass
+  - r-cran-quantreg
+  - r-cran-rcpp
 
 notifications:
   email:
