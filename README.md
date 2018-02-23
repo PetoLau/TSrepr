@@ -3,7 +3,7 @@
 TSrepr
 ======
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/TSrepr)](https://cran.r-project.org/package=TSrepr) [![Downloads](http://cranlogs.r-pkg.org/badges/TSrepr)](https://cran.r-project.org/package=TSrepr) [![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/TSrepr?color=green)](https://cran.r-project.org/package=TSrepr)
+[![Travis-CI Build Status](https://travis-ci.org/PetoLau/TSrepr.svg?branch=master)](https://travis-ci.org/PetoLau/TSrepr) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/TSrepr)](https://cran.r-project.org/package=TSrepr) [![Downloads](http://cranlogs.r-pkg.org/badges/TSrepr)](https://cran.r-project.org/package=TSrepr) [![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/TSrepr?color=green)](https://cran.r-project.org/package=TSrepr)
 
 TSrepr is R package for fast time series representations and dimensionality reduction computations. Z-score normalisation, min-max normalisation, forecasting accuracy measures and other useful functions implemented in C++ (Rcpp) and R.
 
@@ -91,4 +91,5 @@ For more information
 Contact
 -------
 
-For any suggestions and comments write me an email at: <tsreprpackage@gmail.com>
+-   For any suggestions and comments write me an email at: <tsreprpackage@gmail.com>.
+-   For contribution options, check CONTRIBUTING.md file, please.
