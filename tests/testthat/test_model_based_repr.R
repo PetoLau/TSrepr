@@ -19,6 +19,12 @@ test_that("Test on x_ts, length of output from selected repr_...() functions on 
   expect_length(repr_gam(x_ts, freq = c(freq, freq_2)), freq + (freq_2)/freq - 2)
 })
 
+# Not divisible the length of vector with seasonality
+test_that("Test on x_ts length of extracted values from model-based repr_...() functions on not full vectors", {
+  expect_length(repr_lm(c(8,x_ts), freq = freq, method = "lm"), freq)
+  expect_length(repr_gam(c(8,x_ts), freq = freq), freq - 1)
+})
+
 # Extracted values (repr.) testing
 test_that("Test on x_ts, extracted values from model-based repr_...() functions", {
   expect_equal(mean(repr_lm(x_ts, freq = freq, method = "lm")), mean(x_ts))
