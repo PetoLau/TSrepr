@@ -10,6 +10,7 @@ test_that("Test on x_ts, length of output from selected repr_...() functions", {
   expect_length(repr_paa(x_ts, q = q, func = mean), length(x_ts)/q)
   expect_length(repr_paa(x_ts[-1], q = q, func = mean), ceiling(length(x_ts[-1])/q))
   expect_length(repr_seas_profile(x_ts, freq = freq, func = mean), freq)
+  expect_length(repr_seas_profile(c(8,5,x_ts), freq = freq, func = mean), freq)
 })
 
 # Extracted values (repr.) testing
