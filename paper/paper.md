@@ -11,7 +11,7 @@ affiliations:
 - name: Faculty of Informatics and Information Technologies,
     Slovak University of Technology in Bratislava
   index: 1
-date: 7 March 2018
+date: 8 March 2018
 bibliography: paper.bib
 output: pdf_document
 ---
@@ -34,6 +34,6 @@ Figure 1. The comparison of model-based time series representations on electrici
 Additional useful functions and methods related to time series representations were also implemented. The `TSrepr` package includes functions for normalisations and denormalisations of time series - z-score and min-max methods. It supports the simple computation of the windowing method, a matrix of representations and forecasting accuracy measures (MAE, RMSE, MAPE, sMAPE etc.).
 Methods (functions) were implemented in base R and also in C++ for fast computations. In R, C++ programmes can be written thanks to the package Rcpp [@rcpp].
 
-The general package for time series representations computations had missed so far. The CRAN's time series task view proves the previous statement. Packages `TSMining` [@tsmining] and `jmotif` [@jmotif] both includes implementations of PAA and SAX time series representations methods. However, these packages are mainly focused on motif discovery in time series.
+So far, no general package for time series representations computations has been created. The CRAN's time series task view proves the previous statement. Packages `TSMining` [@tsmining] and `jmotif` [@jmotif] both includes implementations of PAA and SAX time series representations methods. However, these packages are mainly focused on motif discovery in time series.
 
 # References
