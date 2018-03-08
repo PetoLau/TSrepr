@@ -92,4 +92,4 @@ Contact
 -------
 
 -   For any suggestions and comments write me an email at: <tsreprpackage@gmail.com>.
--   For contribution options, check CONTRIBUTING.md file, please.
+-   For contribution options, check [CONTRIBUTING.md](https://github.com/PetoLau/TSrepr/blob/master/CONTRIBUTING.md) file, please.
