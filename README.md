@@ -3,7 +3,7 @@
 TSrepr
 ======
 
-[![Travis-CI Build Status](https://travis-ci.org/PetoLau/TSrepr.svg?branch=master)](https://travis-ci.org/PetoLau/TSrepr) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/TSrepr)](https://cran.r-project.org/package=TSrepr) [![Downloads](http://cranlogs.r-pkg.org/badges/TSrepr)](https://cran.r-project.org/package=TSrepr) [![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/TSrepr?color=green)](https://cran.r-project.org/package=TSrepr) [![codecov.io](https://codecov.io/github/PetoLau/TSrepr/coverage.svg?branch=master)](https://codecov.io/github/PetoLau/TSrepr?branch=master) [![DOI](https://zenodo.org/badge/110136471.svg)](https://zenodo.org/badge/latestdoi/110136471)
+[![Travis-CI Build Status](https://travis-ci.org/PetoLau/TSrepr.svg?branch=master)](https://travis-ci.org/PetoLau/TSrepr) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/TSrepr)](https://cran.r-project.org/package=TSrepr) [![Downloads](http://cranlogs.r-pkg.org/badges/TSrepr)](https://cran.r-project.org/package=TSrepr) [![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/TSrepr?color=green)](https://cran.r-project.org/package=TSrepr) [![codecov.io](https://codecov.io/github/PetoLau/TSrepr/coverage.svg?branch=master)](https://codecov.io/github/PetoLau/TSrepr?branch=master) [![DOI](http://joss.theoj.org/papers/10.21105/joss.00577/status.svg)](https://doi.org/10.21105/joss.00577)
 
 TSrepr is R package for fast time series representations and dimensionality reduction computations. Z-score normalisation, min-max normalisation, forecasting accuracy measures and other useful functions implemented in C++ (Rcpp) and R.
 
@@ -93,3 +93,10 @@ Contact
 
 -   For any suggestions and comments write me an email at: <tsreprpackage@gmail.com>.
 -   For contribution options, check [CONTRIBUTING.md](https://github.com/PetoLau/TSrepr/blob/master/CONTRIBUTING.md) file, please.
+
+Citation
+--------
+
+Cite the package as:
+
+-   Laurinec, (2018). TSrepr R package: Time Series Representations. Journal of Open Source Software, 3(23), 577, <https://doi.org/10.21105/joss.00577>
