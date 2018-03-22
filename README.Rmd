@@ -94,7 +94,8 @@ ggplot(data_plot, aes(time, value, color = type, size = type)) +
 
 ## For more information
 
- - check my blog post at [https://petolau.github.io/TSrepr-time-series-representations/](https://petolau.github.io/TSrepr-time-series-representations/)
+ - Check my blog post at [petolau.github.io/TSrepr-time-series-representations](https://petolau.github.io/TSrepr-time-series-representations/),
+ - Check my blog post about clustering time series representations at [petolau.github.io/TSrepr-clustering-time-series-representations](https://petolau.github.io/TSrepr-clustering-time-series-representations/).
 
 ## Contact
 
