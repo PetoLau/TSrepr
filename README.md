@@ -3,7 +3,7 @@
 TSrepr
 ======
 
-[![Travis-CI Build Status](https://travis-ci.org/PetoLau/TSrepr.svg?branch=master)](https://travis-ci.org/PetoLau/TSrepr) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/TSrepr)](https://cran.r-project.org/package=TSrepr) [![Downloads](http://cranlogs.r-pkg.org/badges/TSrepr)](https://cran.r-project.org/package=TSrepr) [![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/TSrepr?color=green)](https://cran.r-project.org/package=TSrepr) [![codecov.io](https://codecov.io/github/PetoLau/TSrepr/coverage.svg?branch=master)](https://codecov.io/github/PetoLau/TSrepr?branch=master) [![DOI](http://joss.theoj.org/papers/10.21105/joss.00577/status.svg)](https://doi.org/10.21105/joss.00577)
+[![Travis-CI Build Status](https://travis-ci.org/PetoLau/TSrepr.svg?branch=master)](https://travis-ci.org/PetoLau/TSrepr) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/TSrepr)](https://cran.r-project.org/package=TSrepr) [![Downloads](http://cranlogs.r-pkg.org/badges/TSrepr)](https://cran.r-project.org/package=TSrepr) [![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/TSrepr?color=green)](https://cran.r-project.org/package=TSrepr) [![rpackages.io rank](https://www.rpackages.io/badge/TSrepr.svg)](https://www.rpackages.io/package/TSrepr) [![codecov.io](https://codecov.io/github/PetoLau/TSrepr/coverage.svg?branch=master)](https://codecov.io/github/PetoLau/TSrepr?branch=master) [![DOI](http://joss.theoj.org/papers/10.21105/joss.00577/status.svg)](https://doi.org/10.21105/joss.00577)
 
 TSrepr is R package for fast time series representations and dimensionality reduction computations. Z-score normalisation, min-max normalisation, forecasting accuracy measures and other useful functions implemented in C++ (Rcpp) and R.
 
