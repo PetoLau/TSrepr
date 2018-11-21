@@ -67,7 +67,7 @@ double mae(NumericVector x, NumericVector y) {
 //'
 //' @description The \code{smape} computes sMAPE (Symmetric Mean Absolute Percentage Error) of a forecast.
 //'
-//' @return the numeric value
+//' @return the numeric value in %
 //'
 //' @param x the numeric vector of real values
 //' @param y the numeric vector of forecasted values
@@ -97,7 +97,7 @@ double smape(NumericVector x, NumericVector y) {
 //'
 //' @description the \code{mape} computes MAPE (Mean Absolute Percentage Error) of a forecast.
 //'
-//' @return the numeric value
+//' @return the numeric value in %
 //'
 //' @param x the numeric vector of real values
 //' @param y the numeric vector of forecasted values
@@ -154,6 +154,7 @@ double mdae(NumericVector x, NumericVector y) {
 //' @title MASE
 //'
 //' @description The \code{mase} computes MASE (Mean Absolute Scaled Error) of a forecast.
+//'
 //' @return the numeric value
 //'
 //' @param real the numeric vector of real values
@@ -182,4 +183,38 @@ double mase(NumericVector real, NumericVector forecast, NumericVector naive) {
   } else error = diff / denom;
 
   return error;
+}
+
+//' @rdname maape
+//' @name maape
+//' @title MAAPE
+//'
+//' @description the \code{maape} computes MAAPE (Mean Arctangent Absolute Percentage Error) of a forecast.
+//'
+//' @return the numeric value
+//'
+//' @param x the numeric vector of real values
+//' @param y the numeric vector of forecasted values
+//'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
+//' @references Sungil Kim, Heeyoung Kim (2016)
+//' A new metric of absolute percentage error for intermittent demand forecasts,
+//' International Journal of Forecasting 32(3):669-679
+//'
+//' @examples
+//' maape(runif(50), runif(50))
+//'
+//' @useDynLib TSrepr
+//' @export maape
+// [[Rcpp::export]]
+double maape(NumericVector x, NumericVector y) {
+  int n = x.size();
+  double total = 0;
+
+  for(int i = 0; i < n; ++i) {
+    total += atan(std::abs((x[i] - y[i]) / x[i]));
+  }
+
+  return total / n;
 }

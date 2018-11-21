@@ -194,6 +194,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// maape
+double maape(NumericVector x, NumericVector y);
+RcppExport SEXP _TSrepr_maape(SEXP xSEXP, SEXP ySEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type y(ySEXP);
+    rcpp_result_gen = Rcpp::wrap(maape(x, y));
+    return rcpp_result_gen;
+END_RCPP
+}
 // norm_z
 NumericVector norm_z(NumericVector x);
 RcppExport SEXP _TSrepr_norm_z(SEXP xSEXP) {
@@ -331,6 +343,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_TSrepr_mape", (DL_FUNC) &_TSrepr_mape, 2},
     {"_TSrepr_mdae", (DL_FUNC) &_TSrepr_mdae, 2},
     {"_TSrepr_mase", (DL_FUNC) &_TSrepr_mase, 3},
+    {"_TSrepr_maape", (DL_FUNC) &_TSrepr_maape, 2},
     {"_TSrepr_norm_z", (DL_FUNC) &_TSrepr_norm_z, 1},
     {"_TSrepr_norm_z_list", (DL_FUNC) &_TSrepr_norm_z_list, 1},
     {"_TSrepr_denorm_z", (DL_FUNC) &_TSrepr_denorm_z, 3},
