@@ -1,7 +1,7 @@
 Package: TSrepr
 Type: Package
 Title: Time Series Representations
-Version: 1.0.1
+Version: 1.0.2
 Date: 2018-05-31
 Authors@R: person("Peter", "Laurinec", email = "tsreprpackage@gmail.com",
   role = c("aut", "cre"), 
