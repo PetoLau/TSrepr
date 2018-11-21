@@ -40,7 +40,7 @@ In **data dictated** approaches, the compression ratio is defined automatically 
 
 Most famous (well known) methods for **nondata adaptive** type of representations are PAA (Piecewise Aggregate Approximation), DWT (Discrete Wavelet Transform), DFT (Discrete Fourier Transform), DCT (Discrete Cosine Transform) or PIP (Perceptually Important Points). For **data adaptive** type of representations, it is SAX (Symbolic Aggregate approXimation), PLA (Piecewise Linear Approximation) and SVD (Singular Value Decomposition).
 For **model-based** representations it is ARMA, mean profiles or estimated regression coefficients from a statistical model (e.g. linear model).
-The **data dictated** is the less known type of representation and the most famous method of this type is clipping (bit-level) representation (@Bag).
+The **data dictated** is the less known type of representation and the most famous method of this type is clipping (bit-level representation) (@Bag).
 
 ## Implemented methods and functions
 
@@ -61,9 +61,9 @@ In the **TSrepr** package, these time series representation methods are implemen
      - Model-based seasonal representations based on linear (additive) model (LM, RLM, L1, GAM) (`repr_lm`, `repr_gam`)
      - Exponential smoothing seasonal coefficients (`repr_exp`)
 * Data dictated:
-     - FeaClip - Feature extraction from clipping representation (`repr_feaclip`, `clipping`)
+     - FeaClip - Feature extraction from clipped representation (`repr_feaclip`, `clipping`)
      - FeaTrend - Feature extraction from trending representation (`repr_featrend`, `trending`)
-     - FeaClipTrend - Feature extraction from clipping and trending representation (`repr_feacliptrend`)
+     - FeaClipTrend - Feature extraction from clipped and trending representation (`repr_feacliptrend`)
 
 Some additional useful functions are also implemented in the **TSrepr** package, such as:
 
@@ -177,10 +177,10 @@ The next data adaptive representation method is **SAX**. The SAX is a famous tim
 repr_sax(data_ts, q = 12, a = 10)
 ```
 
-The last type of implemented representation methods is the **data dictated** - clipped. I developed two methods in this category - **FeaClip** and **FeaTrend**.
-Both creates bit-level (binary) representation from original time series and computes run lengths of values by RLE (Run Length Encoding). Then interpretable features are extracted from run lengths.
+The last type of implemented representation methods is the **data dictated** - clipping. I developed two methods in this category - **FeaClip** and **FeaTrend**.
+Both creates bit-level (binary) representation from original time series and computes run lengths of values by RLE (Run Length Encoding). Then interpretable features are extracted from run lengths (@Laurinec2018).
 
-I will now describe the first of the mentioned methods - **FeaClip**. Clipping representation is created very easily - if a value of a time series is greater then its average value, then the value is transformed to 1 and otherwise to 0. It can be defined formally as follows:
+I will now describe the first of the mentioned methods - **FeaClip**. Clipped representation is created very easily - if a value of a time series is greater then its average value, then the value is transformed to 1 and otherwise to 0. It can be defined formally as follows:
 
 $$ \hat{x}_t = \left\{
 \begin{array}{rl}
@@ -188,7 +188,7 @@ $$ \hat{x}_t = \left\{
 0 & \text{otherwise}
 \end{array} \right. ,$$
 
-where $\mu$ is the average value of a time series. On **clipping** (bit-level) representation $\hat{x}$, compression method for binary series named Run Length Encoding (**RLE**) is applied. A run is continuous sequence of ones, respectively zeros. The number of ones respectively zeros in a run we call the run lengths. From run lengths counted by RLE, eight simple interpretable features are extracted to form the final representation and are defined as
+where $\mu$ is the average value of a time series. On **clipped** (bit-level) representation $\hat{x}$, compression method for binary series named Run Length Encoding (**RLE**) is applied. A run is continuous sequence of ones, respectively zeros. The number of ones respectively zeros in a run we call the run lengths. From run lengths counted by RLE, eight simple interpretable features are extracted to form the final representation and are defined as
 $$\begin{aligned}
  \mathbf{repr} = \{ & max_1 = \mbox{max. from run lengths of ones}, \\
  & sum_1 = \mbox{sum of run lengths of ones}, \\
@@ -224,7 +224,7 @@ And finally, the extraction of interpretable features and all previous procedure
 repr_feaclip(data_oneday)
 ```
 
-The **FeaClip** method is recommended to use with **windowing** approach, so for every specified window the FeaClip computation is separately applied. For the electricity consumption data, I am using the length of the window equal to 1 day so 48 measurements. The windowing method is implemented by function `repr_windowing` and its arguments are representation function (`func`), window size (`win_size`) and list of additional arguments to representation function (`args`). Let's use it in our case:
+The **FeaClip** method is recommended to use with **windowing** approach, so for every specified window the FeaClip computation is separately applied (@Laurinec2018). For the electricity consumption data, I am using the length of the window equal to 1 day so 48 measurements. The windowing method is implemented by function `repr_windowing` and its arguments are representation function (`func`), window size (`win_size`) and list of additional arguments to representation function (`args`). Let's use it in our case:
 ```{r, fig.height=4, fig.width=7}
 data_feaclip <- repr_windowing(data_ts, func = repr_feaclip, win_size = 48)
 

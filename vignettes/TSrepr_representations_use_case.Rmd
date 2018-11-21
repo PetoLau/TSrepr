@@ -15,7 +15,7 @@ In this vignette (tutorial), I will show you one use case to use time series rep
 
 ## Clustering of time series representations
 
-By clustering of consumers of electricity load, we can extract typical load **profiles**, improve the accuracy of consequent electricity consumption forecasting, detect anomalies or monitor a whole smart grid (grid of consumers) (@Lau1, @Lau2). I will show you the first use case, the extraction of typical electricity load profiles by [**K-means**](https://en.wikipedia.org/wiki/K-means_clustering) clustering method.
+By clustering of consumers of electricity load, we can extract typical load **profiles**, improve the accuracy of consequent electricity consumption forecasting, detect anomalies or monitor a whole smart grid (grid of consumers) (@Lau1, @Lau2, @Laurinec2018). I will show you the first use case, the extraction of typical electricity load profiles by [**K-means**](https://en.wikipedia.org/wiki/K-means_clustering) clustering method.
 
 Firstly, let's load the required packages, data (`elec_load`) and return the dimensions of the dataset.
 ```{r, message=F}
@@ -135,7 +135,7 @@ ggplot(data_plot, aes(Time, value, group = ID)) +
 
 The interpretability of these results would be difficult. Therefore, model-based time series representations are very effective in this use case.
 
-I will show you the usage of one more representation method - **FeaClip**. The **FeaClip** is feature extraction method from a clipping representation. The windowing approach alongside FeaClip is recommended to use for every day of time series. The big advantage is that normalisation is not needed alongside of FeaClip method. Let's use it in our case.
+I will show you the usage of one more representation method - **FeaClip**. The **FeaClip** is feature extraction method from a clipping representation (@Laurinec2018). The windowing approach alongside FeaClip is recommended to use for every day of time series. The big advantage is that normalisation is not needed alongside of FeaClip method. Let's use it in our case.
 ```{r}
 data_feaclip <- repr_matrix(elec_load, func = repr_feaclip, windowing = TRUE, win_size = 48)
 dim(data_feaclip)
