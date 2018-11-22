@@ -3,9 +3,7 @@
 \name{coefComp}
 \alias{coefComp}
 \alias{lmCoef}
-\alias{coefComp}
 \alias{rlmCoef}
-\alias{coefComp}
 \alias{l1Coef}
 \title{Functions for linear regression model coefficients extraction}
 \usage{

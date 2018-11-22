@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{clipping}
 \alias{clipping}
-\title{Creates bit-level (clipping representation) from a vector}
+\title{Creates bit-level (clipped representation) from a vector}
 \usage{
 clipping(x)
 }
@@ -13,13 +13,13 @@ clipping(x)
 the integer vector of zeros and ones
 }
 \description{
-The \code{clipping} computes bit-level (clipping representation) from a vector.
+The \code{clipping} computes bit-level (clipped representation) from a vector.
 }
 \details{
 Clipping transforms time series to bit-level representation.
 
 It is defined as follows:
-\eqn{repr_t = {1 if x_t > \mu , 0 otherwise}}, where \eqn{x_t} is a value of a time series
+\deqn{repr_t   =   {1   if   x_t   >   \mu ,  0  otherwise,}}{repr_t  =   {1   if   x_t   >   \mu ,  0   otherwise,}} where \eqn{x_t} is a value of a time series
 and \eqn{\mu} is average of a time series.
 }
 \examples{
@@ -30,6 +30,10 @@ clipping(rnorm(50))
 Bagnall A, Ratanamahatana C, Keogh E, Lonardi S, Janacek G (2006)
 A bit level representation for time series data mining with shape based similarity.
 Data Mining and Knowledge Discovery 13(1):11-40
+
+Laurinec P, and Lucka M (2018)
+Interpretable multiple data streams clustering with clipped streams representation for the improvement of electricity consumption forecasting.
+Data Mining and Knowledge Discovery. Springer. DOI: 10.1007/s10618-018-0598-2
 }
 \seealso{
 \code{\link[TSrepr]{trending}}

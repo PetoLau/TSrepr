@@ -3,9 +3,9 @@
 
 #' @rdname clipping
 #' @name clipping
-#' @title Creates bit-level (clipping representation) from a vector
+#' @title Creates bit-level (clipped representation) from a vector
 #'
-#' @description The \code{clipping} computes bit-level (clipping representation) from a vector.
+#' @description The \code{clipping} computes bit-level (clipped representation) from a vector.
 #'
 #' @return the integer vector of zeros and ones
 #'
@@ -14,7 +14,7 @@
 #' @details Clipping transforms time series to bit-level representation.
 #'
 #' It is defined as follows:
-#' \eqn{repr_t = {1 if x_t > \mu , 0 otherwise}}, where \eqn{x_t} is a value of a time series
+#' \deqn{repr_t   =   {1   if   x_t   >   \mu ,  0  otherwise,}}{repr_t  =   {1   if   x_t   >   \mu ,  0   otherwise,}} where \eqn{x_t} is a value of a time series
 #' and \eqn{\mu} is average of a time series.
 #'
 #' @seealso \code{\link[TSrepr]{trending}}
@@ -24,6 +24,10 @@
 #' @references Bagnall A, Ratanamahatana C, Keogh E, Lonardi S, Janacek G (2006)
 #' A bit level representation for time series data mining with shape based similarity.
 #' Data Mining and Knowledge Discovery 13(1):11-40
+#'
+#' Laurinec P, and Lucka M (2018)
+#' Interpretable multiple data streams clustering with clipped streams representation for the improvement of electricity consumption forecasting.
+#' Data Mining and Knowledge Discovery. Springer. DOI: 10.1007/s10618-018-0598-2
 #'
 #' @importFrom Rcpp evalCpp
 #'
@@ -49,7 +53,8 @@ clipping <- function(x) {
 #' @details Trending transforms time series to bit-level representation.
 #'
 #' It is defined as follows:
-#' \eqn{repr_t = {1 if x_t - x_{t+1} < 0 , 0 otherwise}}, where \eqn{x_t} is a value of a time series.
+#' \deqn{repr_t   =   {1   if   x_t  -  x_{t+1}  <  0 ,  0   otherwise,}}{repr_t   =   {1   if   x_t  -  x_{t+1}  <  0 ,  0   otherwise,}}
+#' where \eqn{x_t} is a value of a time series.
 #'
 #' @seealso \code{\link[TSrepr]{clipping}}
 #'
@@ -68,26 +73,30 @@ trending <- function(x) {
 #' @name repr_feaclip
 #' @title FeaClip representation of time series
 #'
-#' @description The \code{repr_feaclip} computes representation of time series based on feature extraction from bit-level (clipping) representation.
+#' @description The \code{repr_feaclip} computes representation of time series based on feature extraction from bit-level (clipped) representation.
 #'
 #' @return the numeric vector of length 8
 #'
 #' @param x the numeric vector (time series)
 #'
-#' @details FeaClip is method of time series representation based on feature extraction from run lengths (RLE) of bit-level (clipping) representation.
-#' It extracts 8 key features from clipping representation.
+#' @details FeaClip is method of time series representation based on feature extraction from run lengths (RLE) of bit-level (clipped) representation.
+#' It extracts 8 key features from clipped representation.
 #'
-#' There are as follows: \eqn{repr = {sum_1 - sum of run lengths of ones,
-#' max_0 - max. from run lengths of zeros,
-#' jumps - length of RLE encoding - 1,
-#' 0_{1.} - number of first zeros,
-#' 0_{n.} - number of last zeros,
-#' 1_{1.} - number of first ones,
-#' 1_{n.} - number of last ones}}.
+#' There are as follows: \deqn{repr   =  \{  sum_1 -  sum  of  run  lengths  of  ones,}
+#' \deqn{max_0  -  max.  from  run  lengths  of  zeros,}
+#' \deqn{crossings  -  length  of  RLE  encoding  -  1,}
+#' \deqn{f_0  -  number  of   first  zeros,}
+#' \deqn{l_0  -  number  of  last  zeros,}
+#' \deqn{f_1  -  number  of  first  ones,}
+#' \deqn{l_1  -  number  of  last  ones  \}  .}
 #'
 #' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feacliptrend}}
 #'
 #' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @references Laurinec P, and Lucka M (2018)
+#' Interpretable multiple data streams clustering with clipped streams representation for the improvement of electricity consumption forecasting.
+#' Data Mining and Knowledge Discovery. Springer. DOI: 10.1007/s10618-018-0598-2
 #'
 #' @examples
 #' repr_feaclip(rnorm(50))
@@ -153,6 +162,10 @@ repr_featrend <- function(x, func, pieces = 2L, order = 4L) {
 #' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feaclip}}
 #'
 #' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @references Laurinec P, and Lucka M (2018)
+#' Interpretable multiple data streams clustering with clipped streams representation for the improvement of electricity consumption forecasting.
+#' Data Mining and Knowledge Discovery. Springer. DOI: 10.1007/s10618-018-0598-2
 #'
 #' @examples
 #' repr_feacliptrend(rnorm(50), maxC, 2, 4)
@@ -383,7 +396,7 @@ mase <- function(real, forecast, naive) {
 #'
 #' @references Sungil Kim, Heeyoung Kim (2016)
 #' A new metric of absolute percentage error for intermittent demand forecasts,
-#' International Journal of Forecasting 32(3):669-679
+#'  International Journal of Forecasting 32(3):669-679
 #'
 #' @examples
 #' maape(runif(50), runif(50))
@@ -460,6 +473,10 @@ norm_z_list <- function(x) {
 #' @seealso \code{\link[TSrepr]{norm_z}, \link[TSrepr]{norm_z_list}}
 #'
 #' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @references Laurinec P, Lucká M (2018)
+#' Clustering-based forecasting method for individual consumers electricity load using time series representations.
+#' Open Comput Sci, 8(1):38–50, DOI: 10.1515/comp-2018-0006
 #'
 #' @examples
 #' # Normalise values and save normalisation parameters:
@@ -539,6 +556,10 @@ norm_min_max_list <- function(x) {
 #' @seealso \code{\link[TSrepr]{norm_min_max}, \link[TSrepr]{norm_min_max_list}}
 #'
 #' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @references Laurinec P, Lucká M (2018)
+#' Clustering-based forecasting method for individual consumers electricity load using time series representations.
+#' Open Comput Sci, 8(1):38–50, DOI: 10.1515/comp-2018-0006
 #'
 #' @examples
 #' # Normalise values and save normalisation parameters:
@@ -631,6 +652,10 @@ repr_paa <- function(x, q, func) {
 #' Laurinec P, Loderer M, Vrablecova P, Lucka M, Rozinajova V, Ezzeddine AB (2016)
 #' Adaptive time series forecasting of energy consumption using optimized cluster analysis.
 #' In: Data Mining Workshops (ICDMW), 2016 IEEE 16th International Conference on, IEEE, pp 398-405
+#'
+#' Laurinec P, Lucká M (2018)
+#' Clustering-based forecasting method for individual consumers electricity load using time series representations.
+#' Open Comput Sci, 8(1):38–50, DOI: 10.1515/comp-2018-0006
 #'
 #' @seealso \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_gam}, \link[TSrepr]{repr_exp}}
 #'

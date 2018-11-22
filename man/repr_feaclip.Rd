@@ -13,23 +13,28 @@ repr_feaclip(x)
 the numeric vector of length 8
 }
 \description{
-The \code{repr_feaclip} computes representation of time series based on feature extraction from bit-level (clipping) representation.
+The \code{repr_feaclip} computes representation of time series based on feature extraction from bit-level (clipped) representation.
 }
 \details{
-FeaClip is method of time series representation based on feature extraction from run lengths (RLE) of bit-level (clipping) representation.
-It extracts 8 key features from clipping representation.
+FeaClip is method of time series representation based on feature extraction from run lengths (RLE) of bit-level (clipped) representation.
+It extracts 8 key features from clipped representation.
 
-There are as follows: \eqn{repr = {sum_1 - sum of run lengths of ones,
-max_0 - max. from run lengths of zeros,
-jumps - length of RLE encoding - 1,
-0_{1.} - number of first zeros,
-0_{n.} - number of last zeros,
-1_{1.} - number of first ones,
-1_{n.} - number of last ones}}.
+There are as follows: \deqn{repr   =  \{  sum_1 -  sum  of  run  lengths  of  ones,}
+\deqn{max_0  -  max.  from  run  lengths  of  zeros,}
+\deqn{crossings  -  length  of  RLE  encoding  -  1,}
+\deqn{f_0  -  number  of   first  zeros,}
+\deqn{l_0  -  number  of  last  zeros,}
+\deqn{f_1  -  number  of  first  ones,}
+\deqn{l_1  -  number  of  last  ones  \}  .}
 }
 \examples{
 repr_feaclip(rnorm(50))
 
+}
+\references{
+Laurinec P, and Lucka M (2018)
+Interpretable multiple data streams clustering with clipped streams representation for the improvement of electricity consumption forecasting.
+Data Mining and Knowledge Discovery. Springer. DOI: 10.1007/s10618-018-0598-2
 }
 \seealso{
 \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feacliptrend}}

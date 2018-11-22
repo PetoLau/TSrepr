@@ -26,6 +26,11 @@ norm_res <- norm_z_list(rnorm(50, 5, 2))
 denorm_z(rnorm(50, 4, 2), mean = norm_res$mean, sd = norm_res$sd)
 
 }
+\references{
+Laurinec P, Lucká M (2018)
+Clustering-based forecasting method for individual consumers electricity load using time series representations.
+Open Comput Sci, 8(1):38–50, DOI: 10.1515/comp-2018-0006
+}
 \seealso{
 \code{\link[TSrepr]{norm_z}, \link[TSrepr]{norm_z_list}}
 }

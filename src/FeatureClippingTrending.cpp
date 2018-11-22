@@ -8,9 +8,9 @@ using namespace Rcpp;
 
 //' @rdname clipping
 //' @name clipping
-//' @title Creates bit-level (clipping representation) from a vector
+//' @title Creates bit-level (clipped representation) from a vector
 //'
-//' @description The \code{clipping} computes bit-level (clipping representation) from a vector.
+//' @description The \code{clipping} computes bit-level (clipped representation) from a vector.
 //'
 //' @return the integer vector of zeros and ones
 //'
@@ -19,7 +19,7 @@ using namespace Rcpp;
 //' @details Clipping transforms time series to bit-level representation.
 //'
 //' It is defined as follows:
-//' \eqn{repr_t = {1 if x_t > \mu , 0 otherwise}}, where \eqn{x_t} is a value of a time series
+//' \deqn{repr_t   =   {1   if   x_t   >   \mu ,  0  otherwise,}}{repr_t  =   {1   if   x_t   >   \mu ,  0   otherwise,}} where \eqn{x_t} is a value of a time series
 //' and \eqn{\mu} is average of a time series.
 //'
 //' @seealso \code{\link[TSrepr]{trending}}
@@ -29,6 +29,10 @@ using namespace Rcpp;
 //' @references Bagnall A, Ratanamahatana C, Keogh E, Lonardi S, Janacek G (2006)
 //' A bit level representation for time series data mining with shape based similarity.
 //' Data Mining and Knowledge Discovery 13(1):11-40
+//'
+//' Laurinec P, and Lucka M (2018)
+//' Interpretable multiple data streams clustering with clipped streams representation for the improvement of electricity consumption forecasting.
+//' Data Mining and Knowledge Discovery. Springer. DOI: 10.1007/s10618-018-0598-2
 //'
 //' @importFrom Rcpp evalCpp
 //'
@@ -67,7 +71,8 @@ IntegerVector clipping(NumericVector x) {
 //' @details Trending transforms time series to bit-level representation.
 //'
 //' It is defined as follows:
-//' \eqn{repr_t = {1 if x_t - x_{t+1} < 0 , 0 otherwise}}, where \eqn{x_t} is a value of a time series.
+//' \deqn{repr_t   =   {1   if   x_t  -  x_{t+1}  <  0 ,  0   otherwise,}}{repr_t   =   {1   if   x_t  -  x_{t+1}  <  0 ,  0   otherwise,}}
+//' where \eqn{x_t} is a value of a time series.
 //'
 //' @seealso \code{\link[TSrepr]{clipping}}
 //'
@@ -97,26 +102,30 @@ IntegerVector trending(NumericVector x) {
 //' @name repr_feaclip
 //' @title FeaClip representation of time series
 //'
-//' @description The \code{repr_feaclip} computes representation of time series based on feature extraction from bit-level (clipping) representation.
+//' @description The \code{repr_feaclip} computes representation of time series based on feature extraction from bit-level (clipped) representation.
 //'
 //' @return the numeric vector of length 8
 //'
 //' @param x the numeric vector (time series)
 //'
-//' @details FeaClip is method of time series representation based on feature extraction from run lengths (RLE) of bit-level (clipping) representation.
-//' It extracts 8 key features from clipping representation.
+//' @details FeaClip is method of time series representation based on feature extraction from run lengths (RLE) of bit-level (clipped) representation.
+//' It extracts 8 key features from clipped representation.
 //'
-//' There are as follows: \eqn{repr = {sum_1 - sum of run lengths of ones,
-//' max_0 - max. from run lengths of zeros,
-//' jumps - length of RLE encoding - 1,
-//' 0_{1.} - number of first zeros,
-//' 0_{n.} - number of last zeros,
-//' 1_{1.} - number of first ones,
-//' 1_{n.} - number of last ones}}.
+//' There are as follows: \deqn{repr   =  \{  sum_1 -  sum  of  run  lengths  of  ones,}
+//' \deqn{max_0  -  max.  from  run  lengths  of  zeros,}
+//' \deqn{crossings  -  length  of  RLE  encoding  -  1,}
+//' \deqn{f_0  -  number  of   first  zeros,}
+//' \deqn{l_0  -  number  of  last  zeros,}
+//' \deqn{f_1  -  number  of  first  ones,}
+//' \deqn{l_1  -  number  of  last  ones  \}  .}
 //'
 //' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feacliptrend}}
 //'
 //' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
+//' @references Laurinec P, and Lucka M (2018)
+//' Interpretable multiple data streams clustering with clipped streams representation for the improvement of electricity consumption forecasting.
+//' Data Mining and Knowledge Discovery. Springer. DOI: 10.1007/s10618-018-0598-2
 //'
 //' @examples
 //' repr_feaclip(rnorm(50))
@@ -195,7 +204,7 @@ NumericVector repr_feaclip(NumericVector x) {
     representation[2] = *std::max_element(zeros.begin(), zeros.end());
   }
 
-  StringVector fea_name = StringVector::create("max_1", "sum_1", "max_0", "jumps", "0_1.", "0_n.", "1_1.", "1_n.");
+  StringVector fea_name = StringVector::create("max_1", "sum_1", "max_0", "cross.", "f_0", "l_0", "f_1", "l_1");
   representation.attr("names") = fea_name;
   return representation;
 }
@@ -319,6 +328,10 @@ NumericVector repr_featrend(NumericVector x, Rcpp::Function func, int pieces = 2
 //' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feaclip}}
 //'
 //' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
+//' @references Laurinec P, and Lucka M (2018)
+//' Interpretable multiple data streams clustering with clipped streams representation for the improvement of electricity consumption forecasting.
+//' Data Mining and Knowledge Discovery. Springer. DOI: 10.1007/s10618-018-0598-2
 //'
 //' @examples
 //' repr_feacliptrend(rnorm(50), maxC, 2, 4)

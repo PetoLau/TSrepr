@@ -110,6 +110,10 @@ l1Coef <- function(X, Y) {
 #' Adaptive time series forecasting of energy consumption using optimized cluster analysis.
 #' In: Data Mining Workshops (ICDMW), 2016 IEEE 16th International Conference on, IEEE, pp 398-405
 #'
+#' Laurinec P, Lucká M (2018)
+#' Clustering-based forecasting method for individual consumers electricity load using time series representations.
+#' Open Comput Sci, 8(1):38–50, DOI: 10.1515/comp-2018-0006
+#'
 #' @seealso \code{\link[TSrepr]{repr_gam}, \link[TSrepr]{repr_exp}}
 #'
 #' @examples
@@ -248,6 +252,10 @@ repr_lm <- function(x, freq = NULL, method = "lm", xreg = NULL) {
 #' Laurinec P, Loderer M, Vrablecova P, Lucka M, Rozinajova V, Ezzeddine AB (2016)
 #' Adaptive time series forecasting of energy consumption using optimized cluster analysis.
 #' In: Data Mining Workshops (ICDMW), 2016 IEEE 16th International Conference on, IEEE, pp 398-405
+#'
+#' Laurinec P, Lucká M (2018)
+#' Clustering-based forecasting method for individual consumers electricity load using time series representations.
+#' Open Comput Sci, 8(1):38–50, DOI: 10.1515/comp-2018-0006
 #'
 #' @seealso \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_exp}, \link[mgcv]{gam}}
 #'

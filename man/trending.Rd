@@ -19,7 +19,8 @@ The \code{trending} Computes bit-level (trending) representation from a vector.
 Trending transforms time series to bit-level representation.
 
 It is defined as follows:
-\eqn{repr_t = {1 if x_t - x_{t+1} < 0 , 0 otherwise}}, where \eqn{x_t} is a value of a time series.
+\deqn{repr_t   =   {1   if   x_t  -  x_{t+1}  <  0 ,  0   otherwise,}}{repr_t   =   {1   if   x_t  -  x_{t+1}  <  0 ,  0   otherwise,}}
+where \eqn{x_t} is a value of a time series.
 }
 \examples{
 trending(rnorm(50))

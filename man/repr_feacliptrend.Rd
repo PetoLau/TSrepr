@@ -30,6 +30,11 @@ See documentation of these two methods (check See Also section).
 repr_feacliptrend(rnorm(50), maxC, 2, 4)
 
 }
+\references{
+Laurinec P, and Lucka M (2018)
+Interpretable multiple data streams clustering with clipped streams representation for the improvement of electricity consumption forecasting.
+Data Mining and Knowledge Discovery. Springer. DOI: 10.1007/s10618-018-0598-2
+}
 \seealso{
 \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feaclip}}
 }

@@ -138,6 +138,10 @@ List norm_z_list(NumericVector x) {
 //'
 //' @author Peter Laurinec, <tsreprpackage@gmail.com>
 //'
+//' @references Laurinec P, Lucká M (2018)
+//' Clustering-based forecasting method for individual consumers electricity load using time series representations.
+//' Open Comput Sci, 8(1):38–50, DOI: 10.1515/comp-2018-0006
+//'
 //' @examples
 //' # Normalise values and save normalisation parameters:
 //' norm_res <- norm_z_list(rnorm(50, 5, 2))
@@ -270,6 +274,10 @@ List norm_min_max_list(NumericVector x) {
 //' @seealso \code{\link[TSrepr]{norm_min_max}, \link[TSrepr]{norm_min_max_list}}
 //'
 //' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
+//' @references Laurinec P, Lucká M (2018)
+//' Clustering-based forecasting method for individual consumers electricity load using time series representations.
+//' Open Comput Sci, 8(1):38–50, DOI: 10.1515/comp-2018-0006
 //'
 //' @examples
 //' # Normalise values and save normalisation parameters:
