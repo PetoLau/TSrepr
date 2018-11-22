@@ -12,7 +12,7 @@ smape(x, y)
 \item{y}{the numeric vector of forecasted values}
 }
 \value{
-the numeric value
+the numeric value in %
 }
 \description{
 The \code{smape} computes sMAPE (Symmetric Mean Absolute Percentage Error) of a forecast.
