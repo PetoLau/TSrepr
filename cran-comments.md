@@ -1,5 +1,5 @@
 ## Test environments
-* local W 10 install, R 3.5.0
+* local W 10 install, R 3.5.1
 * win-builder (devel and release)
 
 ## R CMD check results

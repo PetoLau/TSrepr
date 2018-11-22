@@ -2,9 +2,9 @@
 # TSrepr 1.0.2 2018/11/21
 
   * New accuracy measure MAAPE (mean arctangent absolute percentage error) was added
-  * Added new references in vignettes
+  * Added new references to vignettes
   * Added new references to documentation
-  * Fix some bad alignments in documentation
+  * Fixed some bad alignments in documentation
 
 # TSrepr 1.0.1 2018/05/31
 
