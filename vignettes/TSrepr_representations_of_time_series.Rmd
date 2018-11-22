@@ -193,11 +193,11 @@ $$\begin{aligned}
  \mathbf{repr} = \{ & max_1 = \mbox{max. from run lengths of ones}, \\
  & sum_1 = \mbox{sum of run lengths of ones}, \\
  & max_0 = \mbox{max. from run lengths of zeros}, \\
- & jumps = \mbox{length of RLE encoding} - 1, \\
- & 0_{1.} = \mbox{number of first zeros}, \\
- & 0_{n.} = \mbox{number of last zeros}, \\
- & 1_{1.} = \mbox{number of first ones}, \\
- & 1_{n.} = \mbox{number of last ones}, \} .
+ & crossings = \mbox{length of RLE encoding} - 1, \\
+ & f_{0} = \mbox{number of first zeros}, \\
+ & l_{0} = \mbox{number of last zeros}, \\
+ & f_{1} = \mbox{number of first ones}, \\
+ & l_{1} = \mbox{number of last ones}, \} .
 \end{aligned}$$
 
 Now, I will use methods implemented in **TSrepr** package to show you how it works. The clipped series is created by function `clipping`, I will only extract the first day from the electricity consumption time series.
