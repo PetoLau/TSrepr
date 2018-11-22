@@ -26,6 +26,11 @@ norm_res <- norm_min_max_list(rnorm(50, 5, 2))
 denorm_min_max(rnorm(50, 4, 2), min = norm_res$min, max = norm_res$max)
 
 }
+\references{
+Laurinec P, Lucká M (2018)
+Clustering-based forecasting method for individual consumers electricity load using time series representations.
+Open Comput Sci, 8(1):38–50, DOI: 10.1515/comp-2018-0006
+}
 \seealso{
 \code{\link[TSrepr]{norm_min_max}, \link[TSrepr]{norm_min_max_list}}
 }

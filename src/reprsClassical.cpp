@@ -141,6 +141,10 @@ NumericVector repr_paa(NumericVector x, int q, Rcpp::Function func) {
 //' Adaptive time series forecasting of energy consumption using optimized cluster analysis.
 //' In: Data Mining Workshops (ICDMW), 2016 IEEE 16th International Conference on, IEEE, pp 398-405
 //'
+//' Laurinec P, Lucká M (2018)
+//' Clustering-based forecasting method for individual consumers electricity load using time series representations.
+//' Open Comput Sci, 8(1):38–50, DOI: 10.1515/comp-2018-0006
+//'
 //' @seealso \code{\link[TSrepr]{repr_lm}, \link[TSrepr]{repr_gam}, \link[TSrepr]{repr_exp}}
 //'
 //' @examples

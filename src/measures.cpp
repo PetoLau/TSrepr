@@ -200,7 +200,7 @@ double mase(NumericVector real, NumericVector forecast, NumericVector naive) {
 //'
 //' @references Sungil Kim, Heeyoung Kim (2016)
 //' A new metric of absolute percentage error for intermittent demand forecasts,
-//' International Journal of Forecasting 32(3):669-679
+//'  International Journal of Forecasting 32(3):669-679
 //'
 //' @examples
 //' maape(runif(50), runif(50))

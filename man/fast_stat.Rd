@@ -3,13 +3,9 @@
 \name{fast_stat}
 \alias{fast_stat}
 \alias{maxC}
-\alias{fast_stat}
 \alias{minC}
-\alias{fast_stat}
 \alias{meanC}
-\alias{fast_stat}
 \alias{sumC}
-\alias{fast_stat}
 \alias{medianC}
 \title{Fast statistic functions (helpers)}
 \usage{

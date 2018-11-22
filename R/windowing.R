@@ -15,6 +15,10 @@
 #'
 #' @author Peter Laurinec, <tsreprpackage@gmail.com>
 #'
+#' @references Laurinec P, and Lucka M (2018)
+#' Interpretable multiple data streams clustering with clipped streams representation for the improvement of electricity consumption forecasting.
+#' Data Mining and Knowledge Discovery. Springer. DOI: 10.1007/s10618-018-0598-2
+#'
 #' @seealso \code{\link[TSrepr]{repr_paa}, \link[TSrepr]{repr_matrix}}
 #'
 #' @examples
