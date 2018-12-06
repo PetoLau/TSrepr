@@ -3,6 +3,35 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
+//' @rdname mse
+//' @name mse
+//' @title MSE
+//'
+//' @description The \code{mse} computes MSE (Mean Squared Error) of a forecast.
+//'
+//' @return the numeric value
+//'
+//' @param x the numeric vector of real values
+//' @param y the numeric vector of forecasted values
+//'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
+//' @examples
+//' mse(runif(50), runif(50))
+//'
+//' @useDynLib TSrepr
+//' @export mse
+// [[Rcpp::export]]
+double mse(NumericVector x, NumericVector y) {
+  int n = x.size();
+  double total = 0;
+
+  for(int i = 0; i < n; ++i) {
+    total += pow(x[i]-y[i], 2.0);
+  }
+  return total / n;
+}
+
 //' @rdname rmse
 //' @name rmse
 //' @title RMSE

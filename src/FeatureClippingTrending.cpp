@@ -111,7 +111,8 @@ IntegerVector trending(NumericVector x) {
 //' @details FeaClip is method of time series representation based on feature extraction from run lengths (RLE) of bit-level (clipped) representation.
 //' It extracts 8 key features from clipped representation.
 //'
-//' There are as follows: \deqn{repr   =  \{  sum_1 -  sum  of  run  lengths  of  ones,}
+//' There are as follows: \deqn{repr   =  \{  max_1  -  max.  from  run  lengths  of  ones,}
+//' \deqn{sum_1 -  sum  of  run  lengths  of  ones,}
 //' \deqn{max_0  -  max.  from  run  lengths  of  zeros,}
 //' \deqn{crossings  -  length  of  RLE  encoding  -  1,}
 //' \deqn{f_0  -  number  of   first  zeros,}

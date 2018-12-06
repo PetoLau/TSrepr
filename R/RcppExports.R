@@ -82,7 +82,8 @@ trending <- function(x) {
 #' @details FeaClip is method of time series representation based on feature extraction from run lengths (RLE) of bit-level (clipped) representation.
 #' It extracts 8 key features from clipped representation.
 #'
-#' There are as follows: \deqn{repr   =  \{  sum_1 -  sum  of  run  lengths  of  ones,}
+#' There are as follows: \deqn{repr   =  \{  max_1  -  max.  from  run  lengths  of  ones,}
+#' \deqn{sum_1 -  sum  of  run  lengths  of  ones,}
 #' \deqn{max_0  -  max.  from  run  lengths  of  zeros,}
 #' \deqn{crossings  -  length  of  RLE  encoding  -  1,}
 #' \deqn{f_0  -  number  of   first  zeros,}
@@ -246,6 +247,28 @@ sumC <- function(x) {
 #' @export medianC
 medianC <- function(x) {
     .Call('_TSrepr_medianC', PACKAGE = 'TSrepr', x)
+}
+
+#' @rdname mse
+#' @name mse
+#' @title MSE
+#'
+#' @description The \code{mse} computes MSE (Mean Squared Error) of a forecast.
+#'
+#' @return the numeric value
+#'
+#' @param x the numeric vector of real values
+#' @param y the numeric vector of forecasted values
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @examples
+#' mse(runif(50), runif(50))
+#'
+#' @useDynLib TSrepr
+#' @export mse
+mse <- function(x, y) {
+    .Call('_TSrepr_mse', PACKAGE = 'TSrepr', x, y)
 }
 
 #' @rdname rmse
