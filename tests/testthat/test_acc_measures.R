@@ -25,4 +25,7 @@ test_that("Test on real and forec, outputted values from acc. measures functions
   expect_equal(maape(0, 1), pi/2)
   # expect_equal(smape(c(4,5), c(2,4)), 11111/250)
   expect_equal(mase(c(4,5), c(2,4), c(10,8)), 1/3)
+  expect_equal(mase(2,1,2), 1) # equal naive and real
 })
+
+
