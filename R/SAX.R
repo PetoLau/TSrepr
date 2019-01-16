@@ -41,7 +41,7 @@ repr_sax <- function(x, q = 2, a = 6, eps = 0.01) {
     # Perform alphabet assignment
     let <- letters[1:a]
     # Create breaks points based on Gaussian normal distribution
-    bks <- round(qnorm(p = seq(from = 0, to = 1, length.out = a+1)), digits = 5)
+    bks <- round(qnorm(p = seq(from = 0, to = 1, length.out = a+1)), digits = 5)[2:a]
     repr <- sapply(1:length(pieces), function(i) let[max(which(bks < pieces[i]))])
   }
 
