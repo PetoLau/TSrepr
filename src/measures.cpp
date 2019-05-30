@@ -23,6 +23,11 @@ using namespace Rcpp;
 //' @export mse
 // [[Rcpp::export]]
 double mse(NumericVector x, NumericVector y) {
+
+  if (x.size() != y.size()) {
+    stop("x and y have not the same length!");
+  }
+
   int n = x.size();
   double total = 0;
 
@@ -52,6 +57,11 @@ double mse(NumericVector x, NumericVector y) {
 //' @export rmse
 // [[Rcpp::export]]
 double rmse(NumericVector x, NumericVector y) {
+
+  if (x.size() != y.size()) {
+    stop("x and y have not the same length!");
+  }
+
   int n = x.size();
   double total = 0;
 
@@ -81,6 +91,11 @@ double rmse(NumericVector x, NumericVector y) {
 //' @export mae
 // [[Rcpp::export]]
 double mae(NumericVector x, NumericVector y) {
+
+  if (x.size() != y.size()) {
+    stop("x and y have not the same length!");
+  }
+
   int n = x.size();
   double total = 0;
 
@@ -88,6 +103,39 @@ double mae(NumericVector x, NumericVector y) {
     total += std::abs(x[i]-y[i]);
   }
   return total / n;
+}
+
+//' @rdname mdae
+//' @name mdae
+//' @title MdAE
+//'
+//' @description The \code{mdae} computes MdAE (Median Absolute Error) of a forecast.
+//'
+//' @return the numeric value
+//'
+//' @param x the numeric vector of real values
+//' @param y the numeric vector of forecasted values
+//'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
+//' @examples
+//' mdae(runif(50), runif(50))
+//'
+//' @useDynLib TSrepr
+//' @export mdae
+// [[Rcpp::export]]
+double mdae(NumericVector x, NumericVector y) {
+
+  if (x.size() != y.size()) {
+    stop("x and y have not the same length!");
+  }
+
+  int size = x.size();
+  NumericVector diff = abs(x - y);
+  std::sort(&diff[0], &diff[size]);
+  double median = size % 2 ? diff[size / 2] : (diff[size / 2 - 1] + diff[size / 2]) / 2;
+
+  return median;
 }
 
 //' @rdname smape
@@ -110,6 +158,11 @@ double mae(NumericVector x, NumericVector y) {
 //' @export smape
 // [[Rcpp::export]]
 double smape(NumericVector x, NumericVector y) {
+
+  if (x.size() != y.size()) {
+    stop("x and y have not the same length!");
+  }
+
   int n = x.size();
   double total = 0;
 
@@ -140,6 +193,11 @@ double smape(NumericVector x, NumericVector y) {
 //' @export mape
 // [[Rcpp::export]]
 double mape(NumericVector x, NumericVector y) {
+
+  if (x.size() != y.size()) {
+    stop("x and y have not the same length!");
+  }
+
   int n = x.size();
   double total = 0;
 
@@ -150,32 +208,43 @@ double mape(NumericVector x, NumericVector y) {
   return 100 * (total / n);
 }
 
-//' @rdname mdae
-//' @name mdae
-//' @title MdAE
+//' @rdname maape
+//' @name maape
+//' @title MAAPE
 //'
-//' @description The \code{mdae} computes MdAE (Median Absolute Error) of a forecast.
+//' @description the \code{maape} computes MAAPE (Mean Arctangent Absolute Percentage Error) of a forecast.
 //'
-//' @return the numeric value
+//' @return the numeric value in %
 //'
 //' @param x the numeric vector of real values
 //' @param y the numeric vector of forecasted values
 //'
 //' @author Peter Laurinec, <tsreprpackage@gmail.com>
 //'
+//' @references Sungil Kim, Heeyoung Kim (2016)
+//' A new metric of absolute percentage error for intermittent demand forecasts,
+//'  International Journal of Forecasting 32(3):669-679
+//'
 //' @examples
-//' mdae(runif(50), runif(50))
+//' maape(runif(50), runif(50))
 //'
 //' @useDynLib TSrepr
-//' @export mdae
+//' @export maape
 // [[Rcpp::export]]
-double mdae(NumericVector x, NumericVector y) {
-  int size = x.size();
-  NumericVector diff = abs(x - y);
-  std::sort(&diff[0], &diff[size]);
-  double median = size % 2 ? diff[size / 2] : (diff[size / 2 - 1] + diff[size / 2]) / 2;
+double maape(NumericVector x, NumericVector y) {
 
-  return median;
+  if (x.size() != y.size()) {
+    stop("x and y have not the same length!");
+  }
+
+  int n = x.size();
+  double total = 0;
+
+  for(int i = 0; i < n; ++i) {
+    total += atan(std::abs((x[i] - y[i]) / x[i]));
+  }
+
+  return 100 * (total / n);
 }
 
 //' @rdname mase
@@ -199,51 +268,22 @@ double mdae(NumericVector x, NumericVector y) {
 //' @export mase
 // [[Rcpp::export]]
 double mase(NumericVector real, NumericVector forecast, NumericVector naive) {
+
+  if (real.size() != forecast.size() || real.size() != naive.size()) {
+    stop("real, forecast and naive have not the same length!");
+  }
+
   int n = real.size();
-  double diff= 0, denom = 0, error = 0;
+  double diff = 0, denom = 0, error = 0;
 
   for(int i = 0; i < n; ++i) {
     diff += std::abs((real[i] - forecast[i]));
     denom += std::abs((real[i] - naive[i]));
   }
 
-  if (denom == 0){
+  if (denom == 0) {
     error = 1;
   } else error = diff / denom;
 
   return error;
-}
-
-//' @rdname maape
-//' @name maape
-//' @title MAAPE
-//'
-//' @description the \code{maape} computes MAAPE (Mean Arctangent Absolute Percentage Error) of a forecast.
-//'
-//' @return the numeric value
-//'
-//' @param x the numeric vector of real values
-//' @param y the numeric vector of forecasted values
-//'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
-//'
-//' @references Sungil Kim, Heeyoung Kim (2016)
-//' A new metric of absolute percentage error for intermittent demand forecasts,
-//'  International Journal of Forecasting 32(3):669-679
-//'
-//' @examples
-//' maape(runif(50), runif(50))
-//'
-//' @useDynLib TSrepr
-//' @export maape
-// [[Rcpp::export]]
-double maape(NumericVector x, NumericVector y) {
-  int n = x.size();
-  double total = 0;
-
-  for(int i = 0; i < n; ++i) {
-    total += atan(std::abs((x[i] - y[i]) / x[i]));
-  }
-
-  return total / n;
 }

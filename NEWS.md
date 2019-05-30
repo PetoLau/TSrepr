@@ -1,3 +1,10 @@
+# TSrepr 1.0.3 2019/01/16
+
+  * New accuracy measure MSE (mean squared error) was added
+  * Fixed SAX breaks (bins) length
+  * Fixed some bad alignments in documentation
+  * Added stopping criteria for forecasting accuracy measures, when real values and forecasts have a different lengths
+  * TODO: RcppDynProg: PLA check
 
 # TSrepr 1.0.2 2018/11/21
 
