@@ -4,6 +4,7 @@
   * Fixed SAX breaks (bins) length
   * Fixed some bad alignments in documentation
   * Added stopping criteria for forecasting accuracy measures, when real values and forecasts have a different lengths + tests for that
+  * MAAPE is now consistent with MAPE and sMAPE, so it returns error in %
 
 # TSrepr 1.0.2 2018/11/21
 
