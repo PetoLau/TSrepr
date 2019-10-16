@@ -144,7 +144,7 @@ double mdae(NumericVector x, NumericVector y) {
 //'
 //' @description The \code{smape} computes sMAPE (Symmetric Mean Absolute Percentage Error) of a forecast.
 //'
-//' @return the numeric value in %
+//' @return the numeric value in \%
 //'
 //' @param x the numeric vector of real values
 //' @param y the numeric vector of forecasted values
@@ -167,7 +167,17 @@ double smape(NumericVector x, NumericVector y) {
   double total = 0;
 
   for(int i = 0; i < n; ++i) {
-    total += std::abs(x[i] - y[i]) / ((std::abs(x[i]) + std::abs(y[i])) / 2);
+
+    if (x[i] == 0 && y[i] == 0) {
+
+      total += 0;
+
+    } else {
+
+      total += std::abs(x[i] - y[i]) / ((std::abs(x[i]) + std::abs(y[i])) / 2);
+
+    }
+
   }
 
   return 100 * (total / n);
@@ -179,7 +189,7 @@ double smape(NumericVector x, NumericVector y) {
 //'
 //' @description the \code{mape} computes MAPE (Mean Absolute Percentage Error) of a forecast.
 //'
-//' @return the numeric value in %
+//' @return the numeric value in \%
 //'
 //' @param x the numeric vector of real values
 //' @param y the numeric vector of forecasted values
@@ -202,7 +212,17 @@ double mape(NumericVector x, NumericVector y) {
   double total = 0;
 
   for(int i = 0; i < n; ++i) {
-    total += std::abs((x[i] - y[i]) / x[i]);
+
+    if (x[i] == 0 && y[i] == 0) {
+
+      total += 0;
+
+    } else {
+
+      total += std::abs((x[i] - y[i]) / x[i]);
+
+    }
+
   }
 
   return 100 * (total / n);
@@ -214,7 +234,7 @@ double mape(NumericVector x, NumericVector y) {
 //'
 //' @description the \code{maape} computes MAAPE (Mean Arctangent Absolute Percentage Error) of a forecast.
 //'
-//' @return the numeric value in %
+//' @return the numeric value in \%
 //'
 //' @param x the numeric vector of real values
 //' @param y the numeric vector of forecasted values
@@ -241,7 +261,17 @@ double maape(NumericVector x, NumericVector y) {
   double total = 0;
 
   for(int i = 0; i < n; ++i) {
-    total += atan(std::abs((x[i] - y[i]) / x[i]));
+
+    if (x[i] == 0 && y[i] == 0) {
+
+      total += 0;
+
+    } else {
+
+      total += atan(std::abs((x[i] - y[i]) / x[i]));
+
+    }
+
   }
 
   return 100 * (total / n);

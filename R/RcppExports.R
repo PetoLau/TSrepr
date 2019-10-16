@@ -343,7 +343,7 @@ mdae <- function(x, y) {
 #'
 #' @description The \code{smape} computes sMAPE (Symmetric Mean Absolute Percentage Error) of a forecast.
 #'
-#' @return the numeric value in %
+#' @return the numeric value in \%
 #'
 #' @param x the numeric vector of real values
 #' @param y the numeric vector of forecasted values
@@ -365,7 +365,7 @@ smape <- function(x, y) {
 #'
 #' @description the \code{mape} computes MAPE (Mean Absolute Percentage Error) of a forecast.
 #'
-#' @return the numeric value in %
+#' @return the numeric value in \%
 #'
 #' @param x the numeric vector of real values
 #' @param y the numeric vector of forecasted values
@@ -387,7 +387,7 @@ mape <- function(x, y) {
 #'
 #' @description the \code{maape} computes MAAPE (Mean Arctangent Absolute Percentage Error) of a forecast.
 #'
-#' @return the numeric value in %
+#' @return the numeric value in \%
 #'
 #' @param x the numeric vector of real values
 #' @param y the numeric vector of forecasted values
