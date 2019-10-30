@@ -83,7 +83,6 @@ Additional useful functions are implemented as:
 ``` r
 library(TSrepr)
 library(ggplot2)
-#> Warning: package 'ggplot2' was built under R version 3.5.3
 
 data_ts <- as.numeric(elec_load[5,]) # electricity load consumption data
 # Comparison of PAA and PLA

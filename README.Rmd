@@ -71,7 +71,7 @@ Additional useful functions are implemented as:
 
 ## Usage
 
-```{r paa_vs_pla, fig.height=3.8, fig.width=8}
+```{r paa_vs_pla, fig.height=3.8, fig.width=8, warning=FALSE}
 library(TSrepr)
 library(ggplot2)
 
