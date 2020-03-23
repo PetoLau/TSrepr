@@ -3,7 +3,6 @@
 \docType{package}
 \name{TSrepr}
 \alias{TSrepr}
-\alias{TSrepr-package}
 \title{TSrepr package}
 \description{
 Package contains methods for time series representations computation.

@@ -513,6 +513,31 @@ denorm_z <- function(x, mean, sd) {
     .Call('_TSrepr_denorm_z', PACKAGE = 'TSrepr', x, mean, sd)
 }
 
+#' @rdname norm_z_params
+#' @name norm_z_params
+#' @title Z-score normalisation with parameters
+#'
+#' @description The \code{norm_z_params} normalises time series by z-score with defined mean and standard deviation.
+#'
+#' @return the numeric vector of normalised values
+#'
+#' @seealso \code{\link[TSrepr]{norm_min_max_params}}
+#'
+#' @param x the numeric vector (time series)
+#' @param mean the numeric value
+#' @param sd the numeric value - standard deviation
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @examples
+#' norm_z_params(runif(50), 0.5, 1)
+#'
+#' @useDynLib TSrepr
+#' @export norm_z_params
+norm_z_params <- function(x, mean, sd) {
+    .Call('_TSrepr_norm_z_params', PACKAGE = 'TSrepr', x, mean, sd)
+}
+
 #' @rdname norm_min_max
 #' @name norm_min_max
 #' @title Min-Max normalisation
@@ -594,6 +619,31 @@ norm_min_max_list <- function(x) {
 #' @export denorm_min_max
 denorm_min_max <- function(x, min, max) {
     .Call('_TSrepr_denorm_min_max', PACKAGE = 'TSrepr', x, min, max)
+}
+
+#' @rdname norm_min_max_params
+#' @name norm_min_max_params
+#' @title Min-Max normalisation with parameters
+#'
+#' @description The \code{norm_min_max_params} normalises time series by min-max method with defined parameters.
+#'
+#' @return the numeric vector of normalised values
+#'
+#' @param x the numeric vector (time series)
+#' @param min the numeric value
+#' @param max the numeric value
+#'
+#' @seealso \code{\link[TSrepr]{norm_z_params}}
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @examples
+#' norm_min_max_params(rnorm(50), 0, 1)
+#'
+#' @useDynLib TSrepr
+#' @export norm_min_max_params
+norm_min_max_params <- function(x, min, max) {
+    .Call('_TSrepr_norm_min_max_params', PACKAGE = 'TSrepr', x, min, max)
 }
 
 #' @rdname repr_sma

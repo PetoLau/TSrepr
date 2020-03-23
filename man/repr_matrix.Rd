@@ -4,8 +4,15 @@
 \alias{repr_matrix}
 \title{Computation of matrix of representations from matrix of time series}
 \usage{
-repr_matrix(x, func = NULL, args = NULL, normalise = FALSE,
-  func_norm = norm_z, windowing = FALSE, win_size = NULL)
+repr_matrix(
+  x,
+  func = NULL,
+  args = NULL,
+  normalise = FALSE,
+  func_norm = norm_z,
+  windowing = FALSE,
+  win_size = NULL
+)
 }
 \arguments{
 \item{x}{the matrix, data.frame or data.table of time series, where time series are in rows of the table}

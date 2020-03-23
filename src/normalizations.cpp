@@ -162,6 +162,51 @@ NumericVector denorm_z(NumericVector x, double mean, double sd) {
   return values;
 }
 
+//' @rdname norm_z_params
+//' @name norm_z_params
+//' @title Z-score normalisation with parameters
+//'
+//' @description The \code{norm_z_params} normalises time series by z-score with defined mean and standard deviation.
+//'
+//' @return the numeric vector of normalised values
+//'
+//' @seealso \code{\link[TSrepr]{norm_min_max_params}}
+//'
+//' @param x the numeric vector (time series)
+//' @param mean the numeric value
+//' @param sd the numeric value - standard deviation
+//'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
+//' @examples
+//' norm_z_params(runif(50), 0.5, 1)
+//'
+//' @useDynLib TSrepr
+//' @export norm_z_params
+// [[Rcpp::export]]
+NumericVector norm_z_params(NumericVector x, double mean, double sd) {
+
+  int n = x.size();
+  NumericVector x_norm(n);
+
+  if (sd == 0) {
+
+    for(int i = 0; i < n; ++i){
+      x_norm[i] = 0;
+    }
+
+  } else {
+
+    for(int i = 0; i < n; ++i){
+      x_norm[i] = (x[i] - mean) / sd;
+    }
+
+  }
+
+  return x_norm;
+
+}
+
 //' @rdname norm_min_max
 //' @name norm_min_max
 //' @title Min-Max normalisation
@@ -297,4 +342,49 @@ NumericVector denorm_min_max(NumericVector x, double min, double max) {
   }
 
   return values;
+}
+
+//' @rdname norm_min_max_params
+//' @name norm_min_max_params
+//' @title Min-Max normalisation with parameters
+//'
+//' @description The \code{norm_min_max_params} normalises time series by min-max method with defined parameters.
+//'
+//' @return the numeric vector of normalised values
+//'
+//' @param x the numeric vector (time series)
+//' @param min the numeric value
+//' @param max the numeric value
+//'
+//' @seealso \code{\link[TSrepr]{norm_z_params}}
+//'
+//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//'
+//' @examples
+//' norm_min_max_params(rnorm(50), 0, 1)
+//'
+//' @useDynLib TSrepr
+//' @export norm_min_max_params
+// [[Rcpp::export]]
+NumericVector norm_min_max_params(NumericVector x, double min, double max) {
+
+  int n = x.size();
+  NumericVector x_norm(n);
+
+  if ((max - min) == 0) {
+
+    for(int i = 0; i < n; ++i){
+      x_norm[i] = 0;
+    }
+
+  } else {
+
+    for(int i = 0; i < n; ++i){
+      x_norm[i] = (x[i] - min) / (max - min);
+    }
+
+  }
+
+  return x_norm;
+
 }

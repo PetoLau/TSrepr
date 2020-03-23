@@ -4,7 +4,9 @@
 \name{elec_load}
 \alias{elec_load}
 \title{2 weeks of electricity load data from 50 consumers.}
-\format{A data frame with 50 rows and 672 variables.}
+\format{
+A data frame with 50 rows and 672 variables.
+}
 \source{
 Anonymized.
 }

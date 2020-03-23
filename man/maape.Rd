@@ -12,7 +12,7 @@ maape(x, y)
 \item{y}{the numeric vector of forecasted values}
 }
 \value{
-the numeric value in %
+the numeric value in \%
 }
 \description{
 the \code{maape} computes MAAPE (Mean Arctangent Absolute Percentage Error) of a forecast.

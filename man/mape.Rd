@@ -12,7 +12,7 @@ mape(x, y)
 \item{y}{the numeric vector of forecasted values}
 }
 \value{
-the numeric value in %
+the numeric value in \%
 }
 \description{
 the \code{mape} computes MAPE (Mean Absolute Percentage Error) of a forecast.

@@ -1,3 +1,9 @@
+# TSrepr 1.0.4 2020/03/22
+
+  * Fixed 0/0 case in forecasting accuracy measures
+  * Refactor of data.table::melt cases in vignettes, because of data.table package changes
+  * Added norm_*_params functions
+
 # TSrepr 1.0.3 2019/05/31
 
   * New accuracy measure MSE (mean squared error) was added

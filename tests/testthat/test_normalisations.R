@@ -2,11 +2,14 @@ context("Tests for normalisations functions");
 
 # Lengths of outputted vectors
 x_ts <- rep(1:8, 12)
+
 test_that("Test on x_ts, length of output from selected functions", {
   expect_length(norm_z(x_ts), length(x_ts))
   expect_length(norm_min_max(x_ts), length(x_ts))
   expect_length(denorm_z(x_ts, 1, 1), length(x_ts))
   expect_length(denorm_min_max(x_ts, 1, 1), length(x_ts))
+  expect_length(norm_z_params(x_ts, 1, 2), length(x_ts))
+  expect_length(norm_min_max_params(x_ts, 1, 8), length(x_ts))
 })
 
 # norm list lengths testing
@@ -21,4 +24,6 @@ test_that("Test on x_ts, outputted values from norm_...() functions", {
   expect_equal(unique(norm_min_max(rep(5, 50))), 0)
   expect_equal(unique(norm_z_list(rep(5, 50))$norm_values), 0)
   expect_equal(unique(norm_min_max_list(rep(5, 50))$norm_values), 0)
+  expect_equal(unique(norm_z_params(x_ts, 0, 0)), 0)
+  expect_equal(unique(norm_min_max_params(x_ts, 0, 0)), 0)
 })
