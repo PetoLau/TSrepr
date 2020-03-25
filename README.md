@@ -73,6 +73,8 @@ Additional useful functions are implemented as:
     (`norm_min_max`)
   - Normalisation functions with output also of scaling parameters -
     z-score (`norm_z_list`), min-max (`norm_min_max_list`)
+  - Normalisation functions with defined parameters - z-score
+    (`norm_z_params`), min-max (`norm_min_max_params`)
   - Denormalisation functions - z-score (`denorm_z`), min-max
     (`denorm_min_max`)
   - Forecasting accuracy measures - MSE, MAE, RMSE, MdAE, MAPE, sMAPE,

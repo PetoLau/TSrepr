@@ -29,6 +29,7 @@
 #' \item \link[TSrepr]{repr_windowing} - applies above mentioned representations to every window of a time series
 #' \item \link[TSrepr]{repr_matrix} - applies above mentioned representations to every row of a matrix of time series
 #' \item \link[TSrepr]{norm_z}, \link[TSrepr]{norm_min_max} - normalisation functions
+#' \item \link[TSrepr]{norm_z_params}, \link[TSrepr]{norm_min_max_params} - normalisation functions with defined parameters
 #' \item \link[TSrepr]{norm_z_list}, \link[TSrepr]{norm_min_max_list} - normalisation functions with output also of scaling parameters
 #' \item \link[TSrepr]{denorm_z}, \link[TSrepr]{denorm_min_max} - denormalisation functions
 #' }

@@ -1,4 +1,4 @@
-# TSrepr 1.0.4 2020/03/22
+# TSrepr 1.0.4 2020/03/25
 
   * Fixed 0/0 case in forecasting accuracy measures
   * Refactor of data.table::melt cases in vignettes, because of data.table package changes

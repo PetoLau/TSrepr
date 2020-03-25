@@ -2,7 +2,7 @@ Package: TSrepr
 Type: Package
 Title: Time Series Representations
 Version: 1.0.4
-Date: 2020-03-22
+Date: 2020-03-25
 Authors@R: person("Peter", "Laurinec", email = "tsreprpackage@gmail.com",
   role = c("aut", "cre"), 
   comment = c(ORCID = "0000-0002-3501-8783"))
