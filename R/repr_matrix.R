@@ -40,36 +40,49 @@
 repr_matrix <- function(x, func = NULL, args = NULL, normalise = FALSE, func_norm = norm_z, windowing = FALSE, win_size = NULL) {
 
   if (is.null(func)) {
+
     stop("func must be specified!")
+
   }
 
   x <- data.matrix(x)
 
   if (normalise == TRUE) {
+
     x <- t(apply(x, 1, func_norm))
+
   }
 
   if (windowing) {
 
     if (is.null(win_size)) {
+
       stop("win_size must be specified!")
+
     }
 
     repr <- t(sapply(1:nrow(x), function(i) do.call(repr_windowing, args = append(list(x = x[i,]),
                                                                                   append(list(func = func,
-                                                                                       win_size = win_size),
-                                                                                       args)
-                                                                                  ))))
+                                                                                              win_size = win_size
+                                                                                              ),
+                                                                                         args
+                                                                                         )
+                                                                                  )
+                                                    )
+                     )
+              )
+
   } else {
+
     repr <- t(sapply(1:nrow(x), function(i) do.call(func, args = append(list(x = x[i,]),
-                                                                        args))))
+                                                                        args
+                                                                        )
+                                                    )
+                     )
+              )
+
   }
 
-  # if (is.null(args)) {
-  #   repr <- t(apply(x, 1, func))
-  # } else {
-  #   repr <- t(sapply(1:nrow(x), function(i) do.call(func, args = append(list(x = x[i,]), args))))
-  # }
-
   return(repr)
+
 }

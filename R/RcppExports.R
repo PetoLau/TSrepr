@@ -652,7 +652,7 @@ norm_min_max_params <- function(x, min, max) {
 #'
 #' @description The \code{repr_sma} computes Simple Moving Average (SMA) from a time series.
 #'
-#' @return the numeric vector of smoothed values
+#' @return the numeric vector of smoothed values of the length = length(x) - order + 1
 #'
 #' @param x the numeric vector (time series)
 #' @param order the order of simple moving average

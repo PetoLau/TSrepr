@@ -12,7 +12,7 @@ repr_sma(x, order)
 \item{order}{the order of simple moving average}
 }
 \value{
-the numeric vector of smoothed values
+the numeric vector of smoothed values of the length = length(x) - order + 1
 }
 \description{
 The \code{repr_sma} computes Simple Moving Average (SMA) from a time series.

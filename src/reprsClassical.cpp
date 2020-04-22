@@ -10,7 +10,7 @@ using namespace Rcpp;
 //'
 //' @description The \code{repr_sma} computes Simple Moving Average (SMA) from a time series.
 //'
-//' @return the numeric vector of smoothed values
+//' @return the numeric vector of smoothed values of the length = length(x) - order + 1
 //'
 //' @param x the numeric vector (time series)
 //' @param order the order of simple moving average
@@ -26,9 +26,19 @@ using namespace Rcpp;
 NumericVector repr_sma(NumericVector x, int order) {
 
   int n = x.size();
-  int n_ma = n - order;
-  double sum = 0;
 
+  if (order <= 0) {
+
+    stop("order must be positive number!");
+
+  } else if (order > n) {
+
+    stop("order must be less than length(x)!");
+
+  }
+
+  int n_ma = n - order + 1;
+  double sum = 0;
   NumericVector repr(n_ma);
 
   for(int i = 0; i < order; i++){
@@ -38,10 +48,11 @@ NumericVector repr_sma(NumericVector x, int order) {
   repr[0] = sum / order;
 
   for(int i = 1; i < n_ma; i++){
-    repr[i] = repr[i-1] + (x[i+order]/order) - (x[i-1]/order);
+    repr[i] = repr[i-1] + (x[i+order-1]/order) - (x[i-1]/order);
   }
 
   return repr;
+
 }
 
 //' @rdname repr_paa

@@ -1,3 +1,9 @@
+# TSrepr 1.0.4.999
+  * fixed repr_sma + added stopping rules with order parameter + unit tests on that
+  * TODO new norm functions as atan + Box-Cox + YJ
+  * TODO repr_matrix -> repr_list
+  * TODO new vignette on use case of repr_list + repr_sma + DTW hierarcical clustering + on new dataset (covid-19 countries' trajectories)
+
 # TSrepr 1.0.4 2020/03/25
 
   * Fixed 0/0 case in forecasting accuracy measures
