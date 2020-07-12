@@ -34,10 +34,11 @@ There are also implemented additional useful functions as:
 \itemize{
 \item \link[TSrepr]{repr_windowing} - applies above mentioned representations to every window of a time series
 \item \link[TSrepr]{repr_matrix} - applies above mentioned representations to every row of a matrix of time series
-\item \link[TSrepr]{norm_z}, \link[TSrepr]{norm_min_max} - normalisation functions
+\item \link[TSrepr]{repr_list} - applies above mentioned representations to every member of a list of time series
+\item \link[TSrepr]{norm_z}, \link[TSrepr]{norm_min_max}, \link[TSrepr]{norm_boxcox}, \link[TSrepr]{norm_yj}, \link[TSrepr]{norm_atan}  - normalisation functions
 \item \link[TSrepr]{norm_z_params}, \link[TSrepr]{norm_min_max_params} - normalisation functions with defined parameters
 \item \link[TSrepr]{norm_z_list}, \link[TSrepr]{norm_min_max_list} - normalisation functions with output also of scaling parameters
-\item \link[TSrepr]{denorm_z}, \link[TSrepr]{denorm_min_max} - denormalisation functions
+\item \link[TSrepr]{denorm_z}, \link[TSrepr]{denorm_min_max}, \link[TSrepr]{denorm_boxcox}, \link[TSrepr]{denorm_yj}, \link[TSrepr]{denorm_atan} - denormalisation functions
 }
 }
 \author{

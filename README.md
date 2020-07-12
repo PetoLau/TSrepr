@@ -69,14 +69,19 @@ Additional useful functions are implemented as:
     representations to every window of a time series
   - Matrix of representations (`repr_matrix`) - applies above mentioned
     representations to every row of a matrix of time series
+  - List of representations (`repr_list`) - applies above mentioned
+    representations to every member of a list of time series with
+    different lengths
   - Normalisation functions - z-score (`norm_z`), min-max
-    (`norm_min_max`)
+    (`norm_min_max`), arctan (`norm_atan`), Box-Cox (`norm_boxcox`),
+    Yeo-Johnson (`norm_yj`)
   - Normalisation functions with output also of scaling parameters -
     z-score (`norm_z_list`), min-max (`norm_min_max_list`)
   - Normalisation functions with defined parameters - z-score
     (`norm_z_params`), min-max (`norm_min_max_params`)
   - Denormalisation functions - z-score (`denorm_z`), min-max
-    (`denorm_min_max`)
+    (`denorm_min_max`), arctan (`denorm_atan`), Box-Cox
+    (`denorm_boxcox`), Yeo-Johnson (`denorm_yj`)
   - Forecasting accuracy measures - MSE, MAE, RMSE, MdAE, MAPE, sMAPE,
     MAAPE, MASE
 

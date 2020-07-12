@@ -21,7 +21,7 @@
 #'
 #' @author Peter Laurinec, <tsreprpackage@gmail.com>
 #'
-#' @seealso \code{\link[TSrepr]{repr_windowing}}
+#' @seealso \code{\link[TSrepr]{repr_windowing}, \link[TSrepr]{repr_list}}
 #'
 #' @examples
 #' # Create random matrix of time series
@@ -61,22 +61,19 @@ repr_matrix <- function(x, func = NULL, args = NULL, normalise = FALSE, func_nor
 
     }
 
-    repr <- t(sapply(1:nrow(x), function(i) do.call(repr_windowing, args = append(list(x = x[i,]),
-                                                                                  append(list(func = func,
-                                                                                              win_size = win_size
-                                                                                              ),
-                                                                                         args
-                                                                                         )
-                                                                                  )
-                                                    )
+    repr <- t(sapply(1:nrow(x), function(i) repr_windowing(x[i,],
+                                                           win_size = win_size,
+                                                           func = func,
+                                                           args = args
+                                                           )
                      )
               )
 
   } else {
 
-    repr <- t(sapply(1:nrow(x), function(i) do.call(func, args = append(list(x = x[i,]),
-                                                                        args
-                                                                        )
+    repr <- t(sapply(1:nrow(x), function(i) do.call(func, args = c(list(x = x[i,]),
+                                                                   args
+                                                                   )
                                                     )
                      )
               )

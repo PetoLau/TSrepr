@@ -54,7 +54,7 @@ repr_matrix(mat_ts, func = repr_feaclip, windowing = TRUE, win_size = 5)
 
 }
 \seealso{
-\code{\link[TSrepr]{repr_windowing}}
+\code{\link[TSrepr]{repr_windowing}, \link[TSrepr]{repr_list}}
 }
 \author{
 Peter Laurinec, <tsreprpackage@gmail.com>

@@ -87,7 +87,7 @@ norm_boxcox <- function(x, lambda = 0.1, gamma = 0) {
 
     stop("gamma must be non-negative")
 
-  } else if (lambda <= 0 & sum(x == 0L) > 0) {
+  } else if (sum((x + gamma) <= 0L) > 0) {
 
     stop("set gamma parameter higher to be x > 0")
 
@@ -95,7 +95,7 @@ norm_boxcox <- function(x, lambda = 0.1, gamma = 0) {
 
   if (lambda == 0) {
 
-    norm_values <- log(x + gamma)
+    norm_values <- log1p(x + gamma)
 
   } else {
 
@@ -107,8 +107,154 @@ norm_boxcox <- function(x, lambda = 0.1, gamma = 0) {
 
 }
 
-# TODO denorm_boxcox
+#' @rdname denorm_boxcox
+#' @name denorm_boxcox
+#' @title Two-parameter Box-Cox denormalisation
+#'
+#' @description The \code{denorm_boxcox} denormalises time series by two-parameter Box-Cox method.
+#'
+#' @return the numeric vector of denormalised values
+#'
+#' @param x the numeric vector (time series) to be denormalised
+#' @param lambda the numeric value - power transformation parameter (default is 0.1)
+#' @param gamma the non-negative numeric value - parameter for holding the time series positive (offset) (default is 0)
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @seealso \code{\link[TSrepr]{denorm_z}, \link[TSrepr]{denorm_min_max}, \link[TSrepr]{denorm_atan}}
+#'
+#' @examples
+#' denorm_boxcox(runif(50))
+#'
+#' @export denorm_boxcox
+denorm_boxcox <- function(x, lambda = 0.1, gamma = 0) {
+
+  x <- as.numeric(x)
+
+  if (gamma < 0) {
+
+    stop("gamma must be non-negative")
+
+  }
+
+  if (lambda == 0) {
+
+    denorm_values <- expm1(x) - gamma
+
+  } else {
+
+    denorm_values <- (((x*lambda) + 1)^(1/lambda)) - gamma
+
+  }
+
+  return(denorm_values)
+
+}
 
 # Yeo-Johnson normalisation -----
 
-# TODO norm_yj, denorm_yj
+#' @rdname norm_yj
+#' @name norm_yj
+#' @title Yeo-Johnson normalisation
+#'
+#' @description The \code{norm_yj} normalises time series by Yeo-Johnson normalisation.
+#'
+#' @return the numeric vector of normalised values
+#'
+#' @param x the numeric vector (time series)
+#' @param lambda the numeric value - power transformation parameter (default is 0.1)
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @seealso \code{\link[TSrepr]{norm_z}, \link[TSrepr]{norm_min_max}, \link[TSrepr]{norm_boxcox}}
+#'
+#' @examples
+#' norm_yj(runif(50))
+#'
+#' @export norm_yj
+norm_yj <- function(x, lambda = 0.1) {
+
+  x <- as.numeric(x)
+
+  yj <- function(x, lambda) {
+
+    if (lambda == 0L & x >= 0L) {
+
+      norm_value <- log1p(x + 1L)
+
+    } else if (lambda != 0L & x >= 0L) {
+
+      norm_value <- (((x + 1L) ^ lambda) - 1L) / lambda
+
+    } else if (lambda != 2L & x < 0L) {
+
+      norm_value <- -((-x + 1L) ^ (2L - lambda) - 1L) / (2L - lambda)
+
+    } else {
+
+      norm_value <- -log1p(-x + 1L)
+
+    }
+
+    return(norm_value)
+
+  }
+
+  norm_values <- sapply(x, function(i) yj(i, lambda))
+
+  return(norm_values)
+
+}
+
+#' @rdname denorm_yj
+#' @name denorm_yj
+#' @title Yeo-Johnson denormalisation
+#'
+#' @description The \code{denorm_yj} denormalises time series by Yeo-Johnson method
+#'
+#' @return the numeric vector of denormalised values
+#'
+#' @param x the numeric vector (time series) to be denormalised
+#' @param lambda the numeric value - power transformation parameter (default is 0.1)
+#'
+#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#'
+#' @seealso \code{\link[TSrepr]{denorm_z}, \link[TSrepr]{denorm_min_max}, \link[TSrepr]{denorm_boxcox}}
+#'
+#' @examples
+#' denorm_yj(runif(50))
+#'
+#' @export denorm_yj
+denorm_yj <- function(x, lambda = 0.1) {
+
+  x <- as.numeric(x)
+
+  yj <- function(x, lambda) {
+
+    if (lambda == 0L & x >= 0L) {
+
+      denorm_value <- expm1(x) - 1L
+
+    } else if (lambda != 0L & x >= 0L) {
+
+      denorm_value <- (((x*lambda) + 1)^(1/lambda)) - 1
+
+    } else if (lambda != 2L & x < 0L) {
+
+      denorm_value <- -((-x*(2-lambda) + 1) ^ (1/(2-lambda)) - 1)
+
+    } else {
+
+      denorm_value <- -expm1(-x) + 1L
+
+    }
+
+    return(denorm_value)
+
+  }
+
+  denorm_values <- sapply(x, function(i) yj(i, lambda))
+
+  return(denorm_values)
+
+}

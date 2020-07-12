@@ -1,4 +1,4 @@
-context("Tests for repr_matrix() function");
+context("Tests for repr_matrix() and repr_list() functions");
 
 # dimension of a matrix
 data("elec_load")
