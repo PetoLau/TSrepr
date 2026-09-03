@@ -20,7 +20,7 @@
 #' @details This function extracts DWT coefficients.
 #' You can use various wavelet filters, see all of them here \code{\link[wavelets]{wt.filter}}.
 #' The number of extracted coefficients depends on the \code{level} selected.
-#' The final representation has length equal to floor(n / 2^{level}), where n is a length of original time series.
+#' The final representation has length equal to floor(n / 2^\{level\}), where n is a length of original time series.
 #'
 #' @seealso \code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}, \link[wavelets]{dwt}}
 #'
