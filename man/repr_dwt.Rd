@@ -25,7 +25,7 @@ The \code{repr_dwt} computes DWT (Discrete Wavelet Transform) representation (co
 This function extracts DWT coefficients.
 You can use various wavelet filters, see all of them here \code{\link[wavelets]{wt.filter}}.
 The number of extracted coefficients depends on the \code{level} selected.
-The final representation has length equal to floor(n / 2^{level}), where n is a length of original time series.
+The final representation has length equal to floor(n / 2^\{level\}), where n is a length of original time series.
 }
 \examples{
 # Interpretation: DWT with Daubechies filter of length 4 and
