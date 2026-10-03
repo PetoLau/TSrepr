@@ -8,3 +8,4 @@
 ^paper$
 ^CONTRIBUTING\.md$
 ^\.travis\.yml$
+^\.github\.yml$
