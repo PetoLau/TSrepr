@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::testthat
+          extra-packages: any::testthat, any::pkgload
 
       - name: Run tests
-        run: Rscript -e 'testthat::test_dir("tests/testthat")'
+        run: Rscript -e 'pkgload::load_all("."); testthat::test_dir("tests/testthat", stop_on_failure = TRUE)'
