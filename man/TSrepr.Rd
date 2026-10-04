@@ -2,6 +2,7 @@
 % Please edit documentation in R/TSrepr-package.R
 \docType{package}
 \name{TSrepr}
+\alias{TSrepr-package}
 \alias{TSrepr}
 \title{TSrepr package}
 \description{
@@ -40,6 +41,15 @@ There are also implemented additional useful functions as:
 \item \link[TSrepr]{norm_z_list}, \link[TSrepr]{norm_min_max_list} - normalisation functions with output also of scaling parameters
 \item \link[TSrepr]{denorm_z}, \link[TSrepr]{denorm_min_max}, \link[TSrepr]{denorm_boxcox}, \link[TSrepr]{denorm_yj}, \link[TSrepr]{denorm_atan} - denormalisation functions
 }
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://petolau.github.io/package/}
+  \item \url{https://github.com/PetoLau/TSrepr/}
+  \item Report bugs at \url{https://github.com/PetoLau/TSrepr/issues}
+}
+
 }
 \author{
 Peter Laurinec

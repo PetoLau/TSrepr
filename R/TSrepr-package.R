@@ -36,10 +36,9 @@
 #' }
 #'
 #' @name TSrepr
-#' @docType package
 #' @author Peter Laurinec
 #'
 #' Maintainer: Peter Laurinec <tsreprpackage@gmail.com>
 #'
 #' @useDynLib TSrepr
-NULL
+"_PACKAGE"

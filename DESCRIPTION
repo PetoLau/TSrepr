@@ -20,7 +20,6 @@ Imports: Rcpp (>= 0.12.12),
     mgcv,
     dtt
 LinkingTo: Rcpp
-RoxygenNote: 7.1.0
 URL: https://petolau.github.io/package/, https://github.com/PetoLau/TSrepr/
 BugReports: https://github.com/PetoLau/TSrepr/issues
 Suggests: knitr,
@@ -30,3 +29,4 @@ Suggests: knitr,
     moments,
     testthat
 VignetteBuilder: knitr
+Config/roxygen2/version: 8.1.0

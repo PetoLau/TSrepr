@@ -51,22 +51,28 @@ export(rmse)
 export(smape)
 export(sumC)
 export(trending)
-importFrom(MASS,psi.huber)
-importFrom(MASS,rlm)
+importFrom(MASS,
+  psi.huber,
+  rlm
+)
 importFrom(Rcpp,evalCpp)
 importFrom(dtt,dct)
-importFrom(mgcv,gam)
-importFrom(mgcv,s)
+importFrom(mgcv,
+  gam,
+  s
+)
 importFrom(quantreg,rq)
-importFrom(stats,HoltWinters)
-importFrom(stats,approx)
-importFrom(stats,as.formula)
-importFrom(stats,fft)
-importFrom(stats,model.matrix)
-importFrom(stats,qnorm)
-importFrom(stats,sd)
-importFrom(stats,ts)
-importFrom(stats,weighted.mean)
+importFrom(stats,
+  HoltWinters,
+  approx,
+  as.formula,
+  fft,
+  model.matrix,
+  qnorm,
+  sd,
+  ts,
+  weighted.mean
+)
 importFrom(utils,tail)
 importFrom(wavelets,dwt)
 useDynLib(TSrepr)
