@@ -147,7 +147,7 @@ segPlot <- function(segs) {
 #' @param return what to return? Can be "points" (segments),
 #'  places of points (segments) in a vector ("places") or "both" (data.frame).
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @references Zhu Y, Wu D, Li Sh (2007)
 #' A Piecewise Linear Representation Method of Time Series Based on Feature Points.

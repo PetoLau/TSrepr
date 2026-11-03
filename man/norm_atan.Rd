@@ -23,5 +23,5 @@ norm_atan(rnorm(50))
 \code{\link[TSrepr]{norm_z}, \link[TSrepr]{norm_min_max}}
 }
 \author{
-Peter Laurinec, <tsreprpackage@gmail.com>
+Peter Laurinec, <laurinec.peter@gmail.com>
 }

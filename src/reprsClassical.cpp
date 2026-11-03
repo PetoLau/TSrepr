@@ -15,7 +15,7 @@ using namespace Rcpp;
 //' @param x the numeric vector (time series)
 //' @param order the order of simple moving average
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @examples
 //' repr_sma(rnorm(50), 4)
@@ -72,7 +72,7 @@ NumericVector repr_sma(NumericVector x, int order) {
 //'
 //' @seealso \code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}, \link[TSrepr]{repr_sma}}
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @references Keogh E, Chakrabarti K, Pazzani M, Mehrotra Sh (2001)
 //' Dimensionality Reduction for Fast Similarity Search in Large Time Series Databases.
@@ -142,7 +142,7 @@ NumericVector repr_paa(NumericVector x, int q, Rcpp::Function func) {
 //' The length of representation is length of set seasonality (frequency) of a time series.
 //' Aggregation function is arbitrary (best choice is for you maybe mean or median).
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @references Laurinec P, Lucka M (2016)
 //' Comparison of representations of time series for clustering smart meter data.

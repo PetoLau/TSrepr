@@ -19,7 +19,7 @@
 #'
 #' @seealso \code{\link[TSrepr]{trending}}
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @references Bagnall A, Ratanamahatana C, Keogh E, Lonardi S, Janacek G (2006)
 #' A bit level representation for time series data mining with shape based similarity.
@@ -58,7 +58,7 @@ clipping <- function(x) {
 #'
 #' @seealso \code{\link[TSrepr]{clipping}}
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' trending(rnorm(50))
@@ -93,7 +93,7 @@ trending <- function(x) {
 #'
 #' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feacliptrend}}
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @references Laurinec P, and Lucka M (2018)
 #' Interpretable multiple data streams clustering with clipped streams representation for the improvement of electricity consumption forecasting.
@@ -128,7 +128,7 @@ repr_feaclip <- function(x) {
 #'
 #' @seealso \code{\link[TSrepr]{repr_feaclip}, \link[TSrepr]{repr_feacliptrend}}
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' # default settings
@@ -162,7 +162,7 @@ repr_featrend <- function(x, func, pieces = 2L, order = 4L) {
 #'
 #' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feaclip}}
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @references Laurinec P, and Lucka M (2018)
 #' Interpretable multiple data streams clustering with clipped streams representation for the improvement of electricity consumption forecasting.
@@ -187,7 +187,7 @@ repr_feacliptrend <- function(x, func, pieces = 2L, order = 4L) {
 #'
 #' @param x the numeric vector
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' maxC(rnorm(50))
@@ -260,7 +260,7 @@ medianC <- function(x) {
 #' @param x the numeric vector of real values
 #' @param y the numeric vector of forecasted values
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' mse(runif(50), runif(50))
@@ -282,7 +282,7 @@ mse <- function(x, y) {
 #' @param x the numeric vector of real values
 #' @param y the numeric vector of forecasted values
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' rmse(runif(50), runif(50))
@@ -304,7 +304,7 @@ rmse <- function(x, y) {
 #' @param x the numeric vector of real values
 #' @param y the numeric vector of forecasted values
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' mae(runif(50), runif(50))
@@ -326,7 +326,7 @@ mae <- function(x, y) {
 #' @param x the numeric vector of real values
 #' @param y the numeric vector of forecasted values
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' mdae(runif(50), runif(50))
@@ -348,7 +348,7 @@ mdae <- function(x, y) {
 #' @param x the numeric vector of real values
 #' @param y the numeric vector of forecasted values
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' smape(runif(50), runif(50))
@@ -370,7 +370,7 @@ smape <- function(x, y) {
 #' @param x the numeric vector of real values
 #' @param y the numeric vector of forecasted values
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' mape(runif(50), runif(50))
@@ -392,7 +392,7 @@ mape <- function(x, y) {
 #' @param x the numeric vector of real values
 #' @param y the numeric vector of forecasted values
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @references Sungil Kim, Heeyoung Kim (2016)
 #' A new metric of absolute percentage error for intermittent demand forecasts,
@@ -419,7 +419,7 @@ maape <- function(x, y) {
 #' @param forecast the numeric vector of forecasted values
 #' @param naive the numeric vector of naive forecast
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' mase(rnorm(50), rnorm(50), rnorm(50))
@@ -442,7 +442,7 @@ mase <- function(real, forecast, naive) {
 #'
 #' @param x the numeric vector (time series)
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' norm_z(runif(50))
@@ -470,7 +470,7 @@ norm_z <- function(x) {
 #'
 #' @seealso \code{\link[TSrepr]{norm_min_max_list}}
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' norm_z_list(runif(50))
@@ -495,7 +495,7 @@ norm_z_list <- function(x) {
 #'
 #' @seealso \code{\link[TSrepr]{norm_z}, \link[TSrepr]{norm_z_list}}
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @references Laurinec P, Lucká M (2018)
 #' Clustering-based forecasting method for individual consumers electricity load using time series representations.
@@ -527,7 +527,7 @@ denorm_z <- function(x, mean, sd) {
 #' @param mean the numeric value
 #' @param sd the numeric value - standard deviation
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' norm_z_params(runif(50), 0.5, 1)
@@ -550,7 +550,7 @@ norm_z_params <- function(x, mean, sd) {
 #'
 #' @seealso \code{\link[TSrepr]{norm_z}}
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' norm_min_max(rnorm(50))
@@ -578,7 +578,7 @@ norm_min_max <- function(x) {
 #'
 #' @seealso \code{\link[TSrepr]{norm_z_list}}
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' norm_min_max_list(rnorm(50))
@@ -603,7 +603,7 @@ norm_min_max_list <- function(x) {
 #'
 #' @seealso \code{\link[TSrepr]{norm_min_max}, \link[TSrepr]{norm_min_max_list}}
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @references Laurinec P, Lucká M (2018)
 #' Clustering-based forecasting method for individual consumers electricity load using time series representations.
@@ -635,7 +635,7 @@ denorm_min_max <- function(x, min, max) {
 #'
 #' @seealso \code{\link[TSrepr]{norm_z_params}}
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' norm_min_max_params(rnorm(50), 0, 1)
@@ -657,7 +657,7 @@ norm_min_max_params <- function(x, min, max) {
 #' @param x the numeric vector (time series)
 #' @param order the order of simple moving average
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' repr_sma(rnorm(50), 4)
@@ -685,7 +685,7 @@ repr_sma <- function(x, order) {
 #'
 #' @seealso \code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}, \link[TSrepr]{repr_sma}}
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @references Keogh E, Chakrabarti K, Pazzani M, Mehrotra Sh (2001)
 #' Dimensionality Reduction for Fast Similarity Search in Large Time Series Databases.
@@ -716,7 +716,7 @@ repr_paa <- function(x, q, func) {
 #' The length of representation is length of set seasonality (frequency) of a time series.
 #' Aggregation function is arbitrary (best choice is for you maybe mean or median).
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @references Laurinec P, Lucka M (2016)
 #' Comparison of representations of time series for clustering smart meter data.

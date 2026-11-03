@@ -37,5 +37,5 @@ l1Coef(design_matrix, rnorm(5))
 \code{\link[stats]{lm}, \link[MASS]{rlm}, \link[quantreg]{rq}}
 }
 \author{
-Peter Laurinec, <tsreprpackage@gmail.com>
+Peter Laurinec, <laurinec.peter@gmail.com>
 }

@@ -28,5 +28,5 @@ repr_dft(rnorm(50), coef = 4)
 \code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dct}, \link[stats]{fft}}
 }
 \author{
-Peter Laurinec, <tsreprpackage@gmail.com>
+Peter Laurinec, <laurinec.peter@gmail.com>
 }

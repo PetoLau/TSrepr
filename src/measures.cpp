@@ -14,7 +14,7 @@ using namespace Rcpp;
 //' @param x the numeric vector of real values
 //' @param y the numeric vector of forecasted values
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @examples
 //' mse(runif(50), runif(50))
@@ -48,7 +48,7 @@ double mse(NumericVector x, NumericVector y) {
 //' @param x the numeric vector of real values
 //' @param y the numeric vector of forecasted values
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @examples
 //' rmse(runif(50), runif(50))
@@ -82,7 +82,7 @@ double rmse(NumericVector x, NumericVector y) {
 //' @param x the numeric vector of real values
 //' @param y the numeric vector of forecasted values
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @examples
 //' mae(runif(50), runif(50))
@@ -116,7 +116,7 @@ double mae(NumericVector x, NumericVector y) {
 //' @param x the numeric vector of real values
 //' @param y the numeric vector of forecasted values
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @examples
 //' mdae(runif(50), runif(50))
@@ -131,8 +131,13 @@ double mdae(NumericVector x, NumericVector y) {
   }
 
   int size = x.size();
+
+  if (size == 0) {
+    return NA_REAL;
+  }
+
   NumericVector diff = abs(x - y);
-  std::sort(&diff[0], &diff[size]);
+  std::sort(diff.begin(), diff.end());
   double median = size % 2 ? diff[size / 2] : (diff[size / 2 - 1] + diff[size / 2]) / 2;
 
   return median;
@@ -149,7 +154,7 @@ double mdae(NumericVector x, NumericVector y) {
 //' @param x the numeric vector of real values
 //' @param y the numeric vector of forecasted values
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @examples
 //' smape(runif(50), runif(50))
@@ -194,7 +199,7 @@ double smape(NumericVector x, NumericVector y) {
 //' @param x the numeric vector of real values
 //' @param y the numeric vector of forecasted values
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @examples
 //' mape(runif(50), runif(50))
@@ -239,7 +244,7 @@ double mape(NumericVector x, NumericVector y) {
 //' @param x the numeric vector of real values
 //' @param y the numeric vector of forecasted values
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @references Sungil Kim, Heeyoung Kim (2016)
 //' A new metric of absolute percentage error for intermittent demand forecasts,
@@ -289,7 +294,7 @@ double maape(NumericVector x, NumericVector y) {
 //' @param forecast the numeric vector of forecasted values
 //' @param naive the numeric vector of naive forecast
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @examples
 //' mase(rnorm(50), rnorm(50), rnorm(50))

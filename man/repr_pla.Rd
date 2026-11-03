@@ -30,5 +30,5 @@ A Piecewise Linear Representation Method of Time Series Based on Feature Points.
 Knowledge-Based Intelligent Information and Engineering Systems 4693:1066-1072
 }
 \author{
-Peter Laurinec, <tsreprpackage@gmail.com>
+Peter Laurinec, <laurinec.peter@gmail.com>
 }

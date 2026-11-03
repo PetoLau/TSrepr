@@ -27,5 +27,5 @@ A new metric of absolute percentage error for intermittent demand forecasts,
  International Journal of Forecasting 32(3):669-679
 }
 \author{
-Peter Laurinec, <tsreprpackage@gmail.com>
+Peter Laurinec, <laurinec.peter@gmail.com>
 }

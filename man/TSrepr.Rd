@@ -54,5 +54,5 @@ Useful links:
 \author{
 Peter Laurinec
 
-Maintainer: Peter Laurinec <tsreprpackage@gmail.com>
+Maintainer: Peter Laurinec <laurinec.peter@gmail.com>
 }

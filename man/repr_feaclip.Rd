@@ -41,5 +41,5 @@ Data Mining and Knowledge Discovery. Springer. DOI: 10.1007/s10618-018-0598-2
 \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feacliptrend}}
 }
 \author{
-Peter Laurinec, <tsreprpackage@gmail.com>
+Peter Laurinec, <laurinec.peter@gmail.com>
 }

@@ -41,5 +41,5 @@ medianC(rnorm(50))
 
 }
 \author{
-Peter Laurinec, <tsreprpackage@gmail.com>
+Peter Laurinec, <laurinec.peter@gmail.com>
 }

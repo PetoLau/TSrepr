@@ -22,5 +22,5 @@ repr_sma(rnorm(50), 4)
 
 }
 \author{
-Peter Laurinec, <tsreprpackage@gmail.com>
+Peter Laurinec, <laurinec.peter@gmail.com>
 }

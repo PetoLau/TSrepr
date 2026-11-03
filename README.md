@@ -3,13 +3,9 @@
 
 # TSrepr
 
-[![Travis-CI Build
-Status](https://travis-ci.org/PetoLau/TSrepr.svg?branch=master)](https://travis-ci.org/PetoLau/TSrepr)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/TSrepr)](https://cran.r-project.org/package=TSrepr)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/TSrepr)](https://cran.r-project.org/package=TSrepr)
 [![Downloads](http://cranlogs.r-pkg.org/badges/TSrepr)](https://cran.r-project.org/package=TSrepr)
 [![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/TSrepr?color=green)](https://cran.r-project.org/package=TSrepr)
-<!-- [![rpackages.io rank](https://www.rpackages.io/badge/TSrepr.svg)](https://www.rpackages.io/package/TSrepr) -->
-[![codecov.io](https://codecov.io/github/PetoLau/TSrepr/coverage.svg?branch=master)](https://codecov.io/github/PetoLau/TSrepr?branch=master)
 [![DOI](http://joss.theoj.org/papers/10.21105/joss.00577/status.svg)](https://doi.org/10.21105/joss.00577)
 
 TSrepr is R package for fast time series representations and
@@ -39,51 +35,51 @@ devtools::install_github("PetoLau/TSrepr")
 All type of time series representations methods are implemented, and
 these are so far:
 
-  - Nondata adaptive:
-      - PAA - Piecewise Aggregate Approximation (`repr_paa`)
-      - DWT - Discrete Wavelet Transform (`repr_dwt`)
-      - DFT - Discrete Fourier Transform (`repr_dft`)
-      - DCT - Discrete Cosine Transform (`repr_dct`)
-      - SMA - Simple Moving Average (`repr_sma`)
-      - PIP - Perceptually Important Points (`repr_pip`)
-  - Data adaptive:
-      - SAX - Symbolic Aggregate Approximation (`repr_sax`)
-      - PLA - Piecewise Linear Approximation (`repr_pla`)
-  - Model-based:
-      - Mean seasonal profile - Average seasonal profile, Median
-        seasonal profile, etc. (`repr_seas_profile`)
-      - Model-based seasonal representations based on linear (additive)
-        model (LM, RLM, L1, GAM) (`repr_lm`, `repr_gam`)
-      - Exponential smoothing seasonal coefficients (`repr_exp`)
-  - Data dictated:
-      - FeaClip - Feature extraction from clipping representation
-        (`repr_feaclip`, `clipping`)
-      - FeaTrend - Feature extraction from trending representation
-        (`repr_featrend`, `trending`)
-      - FeaClipTrend - Feature extraction from clipping and trending
-        representation (`repr_feacliptrend`)
+- Nondata adaptive:
+  - PAA - Piecewise Aggregate Approximation (`repr_paa`)
+  - DWT - Discrete Wavelet Transform (`repr_dwt`)
+  - DFT - Discrete Fourier Transform (`repr_dft`)
+  - DCT - Discrete Cosine Transform (`repr_dct`)
+  - SMA - Simple Moving Average (`repr_sma`)
+  - PIP - Perceptually Important Points (`repr_pip`)
+- Data adaptive:
+  - SAX - Symbolic Aggregate Approximation (`repr_sax`)
+  - PLA - Piecewise Linear Approximation (`repr_pla`)
+- Model-based:
+  - Mean seasonal profile - Average seasonal profile, Median seasonal
+    profile, etc. (`repr_seas_profile`)
+  - Model-based seasonal representations based on linear (additive)
+    model (LM, RLM, L1, GAM) (`repr_lm`, `repr_gam`)
+  - Exponential smoothing seasonal coefficients (`repr_exp`)
+- Data dictated:
+  - FeaClip - Feature extraction from clipping representation
+    (`repr_feaclip`, `clipping`)
+  - FeaTrend - Feature extraction from trending representation
+    (`repr_featrend`, `trending`)
+  - FeaClipTrend - Feature extraction from clipping and trending
+    representation (`repr_feacliptrend`)
 
 Additional useful functions are implemented as:
 
-  - Windowing (`repr_windowing`) - applies above mentioned
-    representations to every window of a time series
-  - Matrix of representations (`repr_matrix`) - applies above mentioned
-    representations to every row of a matrix of time series
-  - List of representations (`repr_list`) - applies above mentioned
-    representations to every member of a list of time series with
-    different lengths
-  - Normalisation functions - z-score (`norm_z`), min-max
-    (`norm_min_max`), arctan (`norm_atan`), Box-Cox (`norm_boxcox`),
-    Yeo-Johnson (`norm_yj`)
-  - Normalisation functions with output also of scaling parameters -
-    z-score (`norm_z_list`), min-max (`norm_min_max_list`)
-  - Normalisation functions with defined parameters - z-score
-    (`norm_z_params`), min-max (`norm_min_max_params`)
-  - Denormalisation functions - z-score (`denorm_z`), min-max
-    (`denorm_min_max`), arctan (`denorm_atan`), Box-Cox
-    (`denorm_boxcox`), Yeo-Johnson (`denorm_yj`)
-  - Forecasting accuracy measures - MSE, MAE, RMSE, MdAE, MAPE, sMAPE,
-    MAAPE, MASE
+- Windowing (`repr_windowing`) - applies above mentioned representations
+  to every window of a time series
+- Matrix of representations (`repr_matrix`) - applies above mentioned
+  representations to every row of a matrix of time series
+- List of representations (`repr_list`) - applies above mentioned
+  representations to every member of a list of time series with
+  different lengths
+- Normalisation functions - z-score (`norm_z`), min-max
+  (`norm_min_max`), arctan (`norm_atan`), Box-Cox (`norm_boxcox`),
+  Yeo-Johnson (`norm_yj`)
+- Normalisation functions with output also of scaling parameters -
+  z-score (`norm_z_list`), min-max (`norm_min_max_list`)
+- Normalisation functions with defined parameters - z-score
+  (`norm_z_params`), min-max (`norm_min_max_params`)
+- Denormalisation functions - z-score (`denorm_z`), min-max
+  (`denorm_min_max`), arctan (`denorm_atan`), Box-Cox (`denorm_boxcox`),
+  Yeo-Johnson (`denorm_yj`)
+- Forecasting accuracy measures - MSE, MAE, RMSE, MdAE, MAPE, sMAPE,
+  MAAPE, MASE
 
 ## Usage
 
@@ -113,26 +109,26 @@ ggplot(data_plot, aes(time, value, color = type, size = type)) +
 
 ## For more information
 
-  - Check my blog post at
-    [petolau.github.io/TSrepr-time-series-representations](https://petolau.github.io/TSrepr-time-series-representations/),
-  - Check my blog post about clustering time series representations at
-    [petolau.github.io/TSrepr-clustering-time-series-representations](https://petolau.github.io/TSrepr-clustering-time-series-representations/),
-  - Blog post about using *FeaClip* representation in multiple data
-    streams clustering at
-    [petolau.github.io/Multiple-data-streams-clustering-in-r](https://petolau.github.io/Multiple-data-streams-clustering-in-r/).
+- Check my blog post at
+  [petolau.github.io/TSrepr-time-series-representations](https://petolau.github.io/TSrepr-time-series-representations/),
+- Check my blog post about clustering time series representations at
+  [petolau.github.io/TSrepr-clustering-time-series-representations](https://petolau.github.io/TSrepr-clustering-time-series-representations/),
+- Blog post about using *FeaClip* representation in multiple data
+  streams clustering at
+  [petolau.github.io/Multiple-data-streams-clustering-in-r](https://petolau.github.io/Multiple-data-streams-clustering-in-r/).
 
 ## Contact
 
-  - For any suggestions and comments write me an email at:
-    <tsreprpackage@gmail.com>.
-  - For contribution options, check
-    [CONTRIBUTING.md](https://github.com/PetoLau/TSrepr/blob/master/CONTRIBUTING.md)
-    file, please.
+- For any suggestions and comments write me an email at:
+  <laurinec.peter@gmail.com>.
+- For contribution options, check
+  [CONTRIBUTING.md](https://github.com/PetoLau/TSrepr/blob/master/CONTRIBUTING.md)
+  file, please.
 
 ## Citation
 
 Cite the package as:
 
-  - Laurinec, (2018). TSrepr R package: Time Series Representations.
-    Journal of Open Source Software, 3(23), 577,
-    <https://doi.org/10.21105/joss.00577>
+- Laurinec, (2018). TSrepr R package: Time Series Representations.
+  Journal of Open Source Software, 3(23), 577,
+  <https://doi.org/10.21105/joss.00577>

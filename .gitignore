@@ -8,3 +8,6 @@ src/*.dll
 inst/doc
 paper/
 settings.json
+.posit/assistant
+cran-comments.md
+*.Rproj

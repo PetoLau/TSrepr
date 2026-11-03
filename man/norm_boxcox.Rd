@@ -27,5 +27,5 @@ norm_boxcox(runif(50))
 \code{\link[TSrepr]{norm_z}, \link[TSrepr]{norm_min_max}, \link[TSrepr]{norm_atan}}
 }
 \author{
-Peter Laurinec, <tsreprpackage@gmail.com>
+Peter Laurinec, <laurinec.peter@gmail.com>
 }

@@ -13,7 +13,7 @@
 #'
 #' @seealso \code{\link[TSrepr]{repr_paa}, \link[TSrepr]{repr_pla}}
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @references Lin J, Keogh E, Lonardi S, Chiu B (2003)
 #' A symbolic representation of time series, with implications for streaming algorithms.

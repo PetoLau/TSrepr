@@ -36,5 +36,5 @@ Knowledge and Information Systems 3(3):263-286
 \code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}, \link[TSrepr]{repr_sma}}
 }
 \author{
-Peter Laurinec, <tsreprpackage@gmail.com>
+Peter Laurinec, <laurinec.peter@gmail.com>
 }
