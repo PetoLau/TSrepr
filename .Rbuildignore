@@ -13,3 +13,4 @@
 ^\.posit$
 ^\.posit/assistant$
 ^\.claude$
+^CRAN-SUBMISSION$
