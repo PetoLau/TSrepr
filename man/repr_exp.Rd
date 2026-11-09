@@ -44,5 +44,5 @@ In: Data Mining Workshops (ICDMW), 2016 IEEE 16th International Conference on, I
 \link[stats]{HoltWinters}}
 }
 \author{
-Peter Laurinec, <tsreprpackage@gmail.com>
+Peter Laurinec, <laurinec.peter@gmail.com>
 }

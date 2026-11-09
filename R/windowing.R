@@ -13,7 +13,7 @@
 #'
 #' @details This function applies specified representation method (function) to every non-overlapping window (subsequence, piece) of a time series.
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @references Laurinec P, and Lucka M (2018)
 #' Interpretable multiple data streams clustering with clipped streams representation for the improvement of electricity consumption forecasting.

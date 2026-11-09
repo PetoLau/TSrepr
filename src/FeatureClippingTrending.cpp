@@ -24,7 +24,7 @@ using namespace Rcpp;
 //'
 //' @seealso \code{\link[TSrepr]{trending}}
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @references Bagnall A, Ratanamahatana C, Keogh E, Lonardi S, Janacek G (2006)
 //' A bit level representation for time series data mining with shape based similarity.
@@ -76,7 +76,7 @@ IntegerVector clipping(NumericVector x) {
 //'
 //' @seealso \code{\link[TSrepr]{clipping}}
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @examples
 //' trending(rnorm(50))
@@ -122,7 +122,7 @@ IntegerVector trending(NumericVector x) {
 //'
 //' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feacliptrend}}
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @references Laurinec P, and Lucka M (2018)
 //' Interpretable multiple data streams clustering with clipped streams representation for the improvement of electricity consumption forecasting.
@@ -230,7 +230,7 @@ NumericVector repr_feaclip(NumericVector x) {
 //'
 //' @seealso \code{\link[TSrepr]{repr_feaclip}, \link[TSrepr]{repr_feacliptrend}}
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @examples
 //' # default settings
@@ -328,7 +328,7 @@ NumericVector repr_featrend(NumericVector x, Rcpp::Function func, int pieces = 2
 //'
 //' @seealso \code{\link[TSrepr]{repr_featrend}, \link[TSrepr]{repr_feaclip}}
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @references Laurinec P, and Lucka M (2018)
 //' Interpretable multiple data streams clustering with clipped streams representation for the improvement of electricity consumption forecasting.

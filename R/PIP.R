@@ -39,7 +39,7 @@ pip <- function(ts, interp = NULL, pips = NULL) {
 #' @param return what to return? Can be important points ("points"),
 #'  places of important points in a vector ("places") or "both" (data.frame).
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @references Fu TC, Chung FL, Luk R, and Ng CM (2008)
 #' Representing financial time series based on data point importance.

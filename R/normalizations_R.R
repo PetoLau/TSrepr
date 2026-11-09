@@ -10,7 +10,7 @@
 #'
 #' @param x the numeric vector (time series)
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @seealso \code{\link[TSrepr]{norm_z}, \link[TSrepr]{norm_min_max}}
 #'
@@ -39,7 +39,7 @@ norm_atan <- function(x) {
 #'
 #' @param x the numeric vector (time series)
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @seealso \code{\link[TSrepr]{denorm_z}, \link[TSrepr]{denorm_min_max}}
 #'
@@ -71,7 +71,7 @@ denorm_atan <- function(x) {
 #' @param lambda the numeric value - power transformation parameter (default is 0.1)
 #' @param gamma the non-negative numeric value - parameter for holding the time series positive (offset) (default is 0)
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @seealso \code{\link[TSrepr]{norm_z}, \link[TSrepr]{norm_min_max}, \link[TSrepr]{norm_atan}}
 #'
@@ -119,7 +119,7 @@ norm_boxcox <- function(x, lambda = 0.1, gamma = 0) {
 #' @param lambda the numeric value - power transformation parameter (default is 0.1)
 #' @param gamma the non-negative numeric value - parameter for holding the time series positive (offset) (default is 0)
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @seealso \code{\link[TSrepr]{denorm_z}, \link[TSrepr]{denorm_min_max}, \link[TSrepr]{denorm_atan}}
 #'
@@ -164,7 +164,7 @@ denorm_boxcox <- function(x, lambda = 0.1, gamma = 0) {
 #' @param x the numeric vector (time series)
 #' @param lambda the numeric value - power transformation parameter (default is 0.1)
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @seealso \code{\link[TSrepr]{norm_z}, \link[TSrepr]{norm_min_max}, \link[TSrepr]{norm_boxcox}}
 #'
@@ -217,7 +217,7 @@ norm_yj <- function(x, lambda = 0.1) {
 #' @param x the numeric vector (time series) to be denormalised
 #' @param lambda the numeric value - power transformation parameter (default is 0.1)
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @seealso \code{\link[TSrepr]{denorm_z}, \link[TSrepr]{denorm_min_max}, \link[TSrepr]{denorm_boxcox}}
 #'

@@ -35,5 +35,5 @@ Proceedings of the 8th ACM SIGMOD Workshop on Research Issues in Data Mining and
 \code{\link[TSrepr]{repr_paa}, \link[TSrepr]{repr_pla}}
 }
 \author{
-Peter Laurinec, <tsreprpackage@gmail.com>
+Peter Laurinec, <laurinec.peter@gmail.com>
 }

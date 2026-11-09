@@ -1,4 +1,10 @@
+# TSrepr 1.1.1
+
+  * fixed CRAN NOTES
+  * fixed mdae subscript out of bounds
+
 # TSrepr 1.1.0
+
   * fixed repr_sma + added stopping rules with order parameter + unit tests on that
   * added new normalisation functions: arctan + Box-Cox + Yeo-Johnson
   * added repr_list function for handling multiple time series with different lengths

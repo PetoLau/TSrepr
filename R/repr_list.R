@@ -19,7 +19,7 @@
 #' @details This function computes representation to an every member of a list of time series (that can have different lengths) and returns list of time series representations.
 #' It can be combined with windowing (see \code{\link{repr_windowing}}) and normalisation of time series.
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @seealso \code{\link[TSrepr]{repr_windowing}, \link[TSrepr]{repr_matrix}}
 #'

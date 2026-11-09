@@ -15,7 +15,7 @@ using namespace Rcpp;
 //'
 //' @param x the numeric vector (time series)
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @examples
 //' norm_z(runif(50))
@@ -75,7 +75,7 @@ NumericVector norm_z(NumericVector x) {
 //'
 //' @seealso \code{\link[TSrepr]{norm_min_max_list}}
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @examples
 //' norm_z_list(runif(50))
@@ -136,7 +136,7 @@ List norm_z_list(NumericVector x) {
 //'
 //' @seealso \code{\link[TSrepr]{norm_z}, \link[TSrepr]{norm_z_list}}
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @references Laurinec P, Lucká M (2018)
 //' Clustering-based forecasting method for individual consumers electricity load using time series representations.
@@ -176,7 +176,7 @@ NumericVector denorm_z(NumericVector x, double mean, double sd) {
 //' @param mean the numeric value
 //' @param sd the numeric value - standard deviation
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @examples
 //' norm_z_params(runif(50), 0.5, 1)
@@ -219,7 +219,7 @@ NumericVector norm_z_params(NumericVector x, double mean, double sd) {
 //'
 //' @seealso \code{\link[TSrepr]{norm_z}}
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @examples
 //' norm_min_max(rnorm(50))
@@ -268,7 +268,7 @@ NumericVector norm_min_max(NumericVector x) {
 //'
 //' @seealso \code{\link[TSrepr]{norm_z_list}}
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @examples
 //' norm_min_max_list(rnorm(50))
@@ -318,7 +318,7 @@ List norm_min_max_list(NumericVector x) {
 //'
 //' @seealso \code{\link[TSrepr]{norm_min_max}, \link[TSrepr]{norm_min_max_list}}
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @references Laurinec P, Lucká M (2018)
 //' Clustering-based forecasting method for individual consumers electricity load using time series representations.
@@ -358,7 +358,7 @@ NumericVector denorm_min_max(NumericVector x, double min, double max) {
 //'
 //' @seealso \code{\link[TSrepr]{norm_z_params}}
 //'
-//' @author Peter Laurinec, <tsreprpackage@gmail.com>
+//' @author Peter Laurinec, <laurinec.peter@gmail.com>
 //'
 //' @examples
 //' norm_min_max_params(rnorm(50), 0, 1)

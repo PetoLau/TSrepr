@@ -15,7 +15,7 @@
 #' @param X the model (design) matrix of independent variables
 #' @param Y the vector of dependent variable (time series)
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @seealso \code{\link[stats]{lm}, \link[MASS]{rlm}, \link[quantreg]{rq}}
 #'
@@ -100,7 +100,7 @@ l1Coef <- function(X, Y) {
 #' }
 #'
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @references Laurinec P, Lucka M (2016)
 #' Comparison of representations of time series for clustering smart meter data.
@@ -243,7 +243,7 @@ repr_lm <- function(x, freq = NULL, method = "lm", xreg = NULL) {
 #' The smooth function for seasonal variables is set to cubic regression spline.
 #' There is also possibility to add another independent variables (\code{xreg}).
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @references Laurinec P, Lucka M (2016)
 #' Comparison of representations of time series for clustering smart meter data.
@@ -383,7 +383,7 @@ repr_gam <- function(x, freq = NULL, xreg = NULL) {
 #' You can set smoothing factors (\code{alpha, gamma}) manually, but recommended is automatic method (set to \code{TRUE}).
 #' The trend component is not included in computations.
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @references Laurinec P, Lucka M (2016)
 #' Comparison of representations of time series for clustering smart meter data.

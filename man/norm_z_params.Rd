@@ -27,5 +27,5 @@ norm_z_params(runif(50), 0.5, 1)
 \code{\link[TSrepr]{norm_min_max_params}}
 }
 \author{
-Peter Laurinec, <tsreprpackage@gmail.com>
+Peter Laurinec, <laurinec.peter@gmail.com>
 }

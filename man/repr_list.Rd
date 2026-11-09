@@ -54,5 +54,5 @@ repr_list(list_ts, func = repr_sma,
 \code{\link[TSrepr]{repr_windowing}, \link[TSrepr]{repr_matrix}}
 }
 \author{
-Peter Laurinec, <tsreprpackage@gmail.com>
+Peter Laurinec, <laurinec.peter@gmail.com>
 }

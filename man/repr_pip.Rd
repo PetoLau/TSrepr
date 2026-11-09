@@ -30,5 +30,5 @@ Representing financial time series based on data point importance.
 Engineering Applications of Artificial Intelligence, 21(2):277-300
 }
 \author{
-Peter Laurinec, <tsreprpackage@gmail.com>
+Peter Laurinec, <laurinec.peter@gmail.com>
 }

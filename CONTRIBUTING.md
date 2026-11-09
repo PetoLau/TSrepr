@@ -19,6 +19,6 @@ I love collaboration.
 
 ### Also, check my blog for more info [petolau.github.io](https://petolau.github.io/)
 
-### Prefer to Email? Get in touch: [tsreprpackage@gmail.com](mailto:tsreprpackage@gmail.com)
+### Prefer to Email? Get in touch: [laurinec.peter@gmail.com](mailto:laurinec.peter@gmail.com)
 
 ### Thanks for contributing!

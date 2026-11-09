@@ -35,5 +35,5 @@ Open Comput Sci, 8(1):38–50, DOI: 10.1515/comp-2018-0006
 \code{\link[TSrepr]{norm_z}, \link[TSrepr]{norm_z_list}}
 }
 \author{
-Peter Laurinec, <tsreprpackage@gmail.com>
+Peter Laurinec, <laurinec.peter@gmail.com>
 }

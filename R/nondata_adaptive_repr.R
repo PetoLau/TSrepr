@@ -1,5 +1,4 @@
 # Non-data adaptive methods of representation of time series ----
-# devtools::use_package("wavelets")
 
 # DWT
 
@@ -24,7 +23,7 @@
 #'
 #' @seealso \code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dct}, \link[wavelets]{dwt}}
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @references Laurinec P, Lucka M (2016)
 #' Comparison of representations of time series for clustering smart meter data.
@@ -63,7 +62,7 @@ repr_dwt <- function(x, level = 4, filter = "d4") {
 #'
 #' @seealso \code{\link[TSrepr]{repr_dwt}, \link[TSrepr]{repr_dct}, \link[stats]{fft}}
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' repr_dft(rnorm(50), coef = 4)
@@ -97,7 +96,7 @@ repr_dft <- function(x, coef = 10) {
 #'
 #' @seealso \code{\link[TSrepr]{repr_dft}, \link[TSrepr]{repr_dwt}, \link[dtt]{dtt}}
 #'
-#' @author Peter Laurinec, <tsreprpackage@gmail.com>
+#' @author Peter Laurinec, <laurinec.peter@gmail.com>
 #'
 #' @examples
 #' repr_dct(rnorm(50), coef = 4)

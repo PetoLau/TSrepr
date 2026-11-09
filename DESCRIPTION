@@ -1,9 +1,9 @@
 Package: TSrepr
 Type: Package
 Title: Time Series Representations
-Version: 1.1.0
-Date: 2020-07-12
-Authors@R: person("Peter", "Laurinec", email = "tsreprpackage@gmail.com",
+Version: 1.1.1
+Date: 2026-11-03
+Authors@R: person("Peter", "Laurinec", email = "laurinec.peter@gmail.com",
   role = c("aut", "cre"), 
   comment = c(ORCID = "0000-0002-3501-8783"))
 Description: Methods for representations (i.e. dimensionality reduction, preprocessing, feature extraction) of time series to help more accurate and effective time series data mining.

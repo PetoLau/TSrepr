@@ -1,13 +1,14 @@
 citHeader("To cite the TSrepr package in publications please use:")
 
-citEntry(entry = "Article",
+bibentry(bibtype = "Article",
          author = "Peter Laurinec",
          title = "TSrepr R package: Time Series Representations",
          year = "2018",
          journal = "Journal of Open Source Software",
          url = "https://doi.org/10.21105/joss.00577",
          doi = "10.21105/joss.00577",
-         textVersion =
-         paste("Peter Laurinec, (2018). TSrepr R package: Time Series Representations.
-         Journal of Open Source Software, 3(23), 577, https://doi.org/10.21105/joss.00577")
+         pages = 577,
+         number = 23,
+         volume = 3,
+         publisher = "The Open Journal"
         )

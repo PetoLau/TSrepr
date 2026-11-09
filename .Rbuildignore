@@ -11,3 +11,6 @@
 ^\.github\.yml$
 ^\.github$
 ^\.posit$
+^\.posit/assistant$
+^\.claude$
+^CRAN-SUBMISSION$
